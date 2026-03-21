@@ -1,0 +1,40 @@
+# robots.txt for Dr. Daniel Nguyen Professional Biography
+# This file tells search engines how to crawl and index your site
+
+User-agent: *
+Allow: /
+Disallow: /.git
+Disallow: /.github
+Disallow: /node_modules
+Disallow: /.env
+Disallow: /admin
+Disallow: /private
+
+# Specific rules for common search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Crawl delay for respectful indexing
+Crawl-delay: 1
+
+# Sitemap location (important for Google, Bing)
+Sitemap: https://dans515e.github.io/drprofnguyen/sitemap.xml
+
+# Comment: Update "username" above with your actual GitHub username
+# Example: Sitemap: https://dans515e.github.io/drprofnguyen/sitemap.xml
