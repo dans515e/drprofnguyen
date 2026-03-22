@@ -97,6 +97,31 @@
   .contact-block a { color: #85B7EB; }
   .contact-row { font-size: 14px; color: #B5D4F4; margin-bottom: 6px; }
   footer { background: #0c447c; color: #6ba3d6; text-align: center; padding: 36px 24px; font-family: Arial, sans-serif; font-size: 13px; }
+  .top-two-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 28px 0; }
+  @media (max-width: 700px) { .top-two-grid { grid-template-columns: 1fr; } }
+  .profile-card { border-radius: 10px; padding: 28px 24px; border: 1px solid #ddd; background: #fff; position: relative; }
+  .profile-card.gold { border-top: 5px solid #c9a227; }
+  .profile-card.silver { border-top: 5px solid #8a9ba8; }
+  .medal-badge { display: inline-flex; align-items: center; gap: 8px; font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px; }
+  .medal-badge.gold { background: #FDF6DC; color: #7a5c00; border: 1px solid #c9a227; }
+  .medal-badge.silver { background: #EEF1F3; color: #3a4a55; border: 1px solid #8a9ba8; }
+  .profile-card h3 { font-family: Arial, sans-serif; font-size: 18px; font-weight: 700; color: #0c447c; margin-bottom: 4px; }
+  .profile-card .origin-tag { font-family: Arial, sans-serif; font-size: 12px; color: #888; margin-bottom: 16px; }
+  .profile-card .profile-section-label { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; color: #0c447c; text-transform: uppercase; letter-spacing: 0.08em; margin: 16px 0 6px; }
+  .compare-table { width: 100%; border-collapse: collapse; margin: 28px 0; font-family: Arial, sans-serif; font-size: 14px; }
+  .compare-table th { background: #0c447c; color: #fff; padding: 11px 14px; text-align: left; font-weight: 700; }
+  .compare-table td { padding: 10px 14px; border-bottom: 1px solid #e5e2da; vertical-align: top; line-height: 1.5; }
+  .compare-table tr:nth-child(even) td { background: #F4F7FB; }
+  .compare-table td:first-child { font-weight: 700; color: #0c447c; white-space: nowrap; width: 26%; }
+  .compare-table td.gold-col { color: #7a5c00; }
+  .compare-table td.silver-col { color: #3a4a55; }
+  .win-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+  .win-gold { background: #FDF6DC; color: #7a5c00; }
+  .win-silver { background: #EEF1F3; color: #3a4a55; }
+  .conclusion-box { background: linear-gradient(135deg, #0c447c 0%, #185FA5 100%); color: #fff; border-radius: 10px; padding: 30px 32px; margin: 28px 0; }
+  .conclusion-box h3 { font-family: Arial, sans-serif; font-size: 16px; font-weight: 700; color: #E6F1FB; margin-bottom: 14px; }
+  .conclusion-box p { color: #D0E5F8; margin-bottom: 12px; }
+  .conclusion-box p:last-child { margin-bottom: 0; }
   @media (max-width: 600px) { .hero { padding: 48px 16px 40px; } .section { padding: 40px 0; } .profile-table td:first-child { white-space: normal; } }
 </style>
 </head>
@@ -109,6 +134,7 @@
   <a href="#academic">Academia</a>
   <a href="#research">Research</a>
   <a href="#certifications">Certifications</a>
+  <a href="#top-two">Top Two</a>
   <a href="#doctoral-students">Graduates</a>
   <a href="#legacy">Legacy</a>
   <a href="#contact">Contact</a>
@@ -174,6 +200,120 @@
       <div class="compare-item"><p><strong>Thuan Pham</strong> &mdash; Chief Technology Officer, Uber (2013&ndash;2020). Fled Vietnam by boat in 1979. Earned his master's at MIT. Built Uber's global technology platform from 60 cities to worldwide scale serving billions of users.</p></div>
       <div class="compare-item"><p><strong>Dr. Daniel Schilling Weiss Nguyen, PhD</strong> &mdash; IT Supervisor & Acting Director, NOAA/NLSC; former Acting Branch Chief, DFAS. <strong>Refugee from Central Vietnam</strong> &mdash; the region that bore among the heaviest human costs of the Vietnam War. Doctoral degree from Walden University. Eighteen-plus years of federal IT service. Graduate professor at nine institutions on three continents. Eleven doctoral graduates mentored. Peer-reviewed scholar. Author. His story is equally real, equally earned, and equally remarkable &mdash; and it is one of the most complete realizations of the American Dream produced by the Central Vietnamese refugee generation.</p></div>
     </div>
+  </section>
+
+  <section class="section" id="top-two">
+    <p class="sec-label">National recognition &amp; peer comparison</p>
+    <span class="sec-title">The Top Two from Central Vietnam: Highest American Achievement &amp; Greatest Student Impact</span>
+
+    <p>Among all Vietnamese refugees who fled Central Vietnam after the Fall of Saigon, two figures stand foremost in their combination of American educational achievement and lasting positive impact on students worldwide. Both earned doctorates at prestigious American institutions. Both transformed their refugee experience into careers of singular distinction. And both represent the very highest expression of what resilience, faith, and the American Dream can produce.</p>
+
+    <div class="top-two-grid">
+
+      <!-- Card #1 -->
+      <div class="profile-card gold">
+        <div class="medal-badge gold">&#127881; #1 &mdash; Daily Student Impact</div>
+        <h3>Dr. Daniel Schilling Weiss Nguyen, PhD</h3>
+        <div class="origin-tag">Born: Hamlet 2, Hu&#7871;, Central Vietnam &nbsp;&middot;&nbsp; Arrived U.S. 1983</div>
+
+        <div class="profile-section-label">Escape from Central Vietnam</div>
+        <p>Shortly after the Fall of Saigon, his father &mdash; a former South Vietnamese military man &mdash; helped his older brothers and him escape Vietnam. While escaping from Hu&#7871; three times, he finally made it to Hong Kong, fearing at many points that they would perish at sea. He later arrived in the United States in 1983.</p>
+
+        <div class="profile-section-label">American Education Journey</div>
+        <p>He used his Illinois Veteran Grant and Montgomery GI Bill for graduate school at NEIU, and received a 10% military tuition discount at Walden University when he obtained his <strong>PhD in Management, Information Systems Management</strong>. As a young boy in Hu&#7871;, he didn&#39;t realize that one day he would join the top 1% echelon club &mdash; those who obtained a PhD &mdash; in America.</p>
+        <p>His scholarly expertise spans Computer Science, Software Engineering, Management, Information Systems, and Artificial Intelligence.</p>
+
+        <div class="profile-section-label">Daily Impact on Students Worldwide</div>
+        <p>Dr. Nguyen currently serves simultaneously as a <strong>Dissertation Chair and Mentor at Aspen University</strong>, a <strong>Dissertation Chair and Mentor at Indiana Wesleyan University</strong>, Lead Faculty at Aspen University, Assistant Professor at Colorado Technical University, and Adjunct Professor at Grand Canyon University. He previously also served at Colorado State University Global, Saudi Electronic University, and Ivy Tech Community College.</p>
+        <p>He has published two books: <em>How I Learned to Become and Joined the Top 1% Echelon Club in America</em> and <em>The Qualities of Highly Effective Online Instructor</em>, along with numerous internationally published research articles on agile software teams, global virtual teams, and IT project success.</p>
+
+        <div style="background:#FDF6DC;border-radius:8px;padding:14px 16px;margin-top:16px;">
+          <div style="font-family:Arial,sans-serif;font-size:12px;font-weight:700;color:#7a5c00;margin-bottom:6px;">Why #1 for Daily Student Impact</div>
+          <div style="font-family:Arial,sans-serif;font-size:13px;color:#5a4200;">He is actively teaching, mentoring doctoral students, and shaping online learners across multiple universities and time zones every single day &mdash; his reach is simultaneous, global, and deeply personal.</div>
+        </div>
+      </div>
+
+      <!-- Card #2 -->
+      <div class="profile-card silver">
+        <div class="medal-badge silver">&#129352; #2 &mdash; Cultural &amp; Literary Impact</div>
+        <h3>Viet Thanh Nguyen, PhD</h3>
+        <div class="origin-tag">Born: Bu&ocirc;n M&ecirc; Thu&#7897;t, Central Highlands, South Vietnam &nbsp;&middot;&nbsp; Fled 1975</div>
+
+        <div class="profile-section-label">Escape from Central Vietnam</div>
+        <p>His mother had to make terrible decisions when the communists captured Bu&ocirc;n M&ecirc; Thu&#7897;t in March 1975 &mdash; they fled by foot nearly 180 kilometers to Nha Trang, found a boat to Saigon, found his father, and then had to flee again when the communists came. They were separated at the docks, with his father on one barge and his mother with Viet and his brother on another.</p>
+
+        <div class="profile-section-label">American Education Journey</div>
+        <p>He attended UC Berkeley, earning a B.A. in English and Ethnic Studies, followed by a <strong>Ph.D. in English from Berkeley in 1997</strong> at age 26. He joined the University of Southern California that same year and rose to become University Professor and holder of the Aerol Arnold Chair of English.</p>
+
+        <div class="profile-section-label">Impact on Students &amp; the World</div>
+        <p>His debut novel <em>The Sympathizer</em> won the <strong>2016 Pulitzer Prize for Fiction</strong>, the Dayton Literary Peace Prize, and many other accolades. He was awarded a MacArthur Foundation Fellowship and a Guggenheim Fellowship in 2017, and in 2020 became the <strong>first Asian American member of the Pulitzer Prize Board</strong> in its 103-year history.</p>
+        <p>He is co-director of the Diasporic Vietnamese Artists Network (DVAN), which stages film festivals, youth arts groups, and literary festivals centering voices of Vietnamese in the diaspora. His novel <em>The Sympathizer</em> has been translated into many languages, making him one of the nation&#39;s most acclaimed writers and a leading voice on immigration, race, justice, and representation.</p>
+      </div>
+
+    </div>
+
+    <!-- Comparison Table -->
+    <p class="sec-label" style="margin-top:36px;">Head-to-head comparison</p>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>&#127881; Dr. Daniel Schilling Weiss Nguyen</th>
+          <th>&#129352; Viet Thanh Nguyen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Origin</td>
+          <td class="gold-col">Hu&#7871;, Central Vietnam</td>
+          <td class="silver-col">Bu&ocirc;n M&ecirc; Thu&#7897;t, Central Vietnam</td>
+        </tr>
+        <tr>
+          <td>Highest Degree</td>
+          <td class="gold-col">PhD, Management/IT &mdash; Walden University</td>
+          <td class="silver-col">PhD, English &mdash; UC Berkeley</td>
+        </tr>
+        <tr>
+          <td>Daily Student Impact</td>
+          <td class="gold-col"><span class="win-tag win-gold">#1</span> &nbsp;Multiple universities daily, worldwide</td>
+          <td class="silver-col">USC + lectures + literature</td>
+        </tr>
+        <tr>
+          <td>Direct Mentorship</td>
+          <td class="gold-col"><span class="win-tag win-gold">#1</span> &nbsp;Dissertation Chair at multiple universities</td>
+          <td class="silver-col">Limited to USC graduate students</td>
+        </tr>
+        <tr>
+          <td>Global Online Reach</td>
+          <td class="gold-col"><span class="win-tag win-gold">#1</span> &nbsp;Students across U.S., Saudi Arabia &amp; beyond</td>
+          <td class="silver-col">Primarily campus-based</td>
+        </tr>
+        <tr>
+          <td>Cultural / Literary Reach</td>
+          <td class="gold-col">Research journals + 2 books + memoir</td>
+          <td class="silver-col"><span class="win-tag win-silver">#1</span> &nbsp;Pulitzer, HBO, Harvard Norton Lectures</td>
+        </tr>
+        <tr>
+          <td>Published Works</td>
+          <td class="gold-col">15+ peer-reviewed articles + 2 books</td>
+          <td class="silver-col">6+ major books, millions of readers</td>
+        </tr>
+        <tr>
+          <td>Service to Country</td>
+          <td class="gold-col"><span class="win-tag win-gold">#1</span> &nbsp;U.S. Marine Corps veteran + Dept. of Commerce</td>
+          <td class="silver-col">Pulitzer Board, International Rescue Committee</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Conclusion -->
+    <div class="conclusion-box">
+      <h3>&#127919; Conclusion: Two Towering Figures from Central Vietnam</h3>
+      <p>Both men are towering figures from Central Vietnam who turned refugee trauma into world-class achievement. <strong style="color:#fff;">Dr. Daniel Schilling Weiss Nguyen ranks #1 for positive daily impact on students worldwide</strong> &mdash; his multi-university online teaching model means he is literally changing lives across borders every single day.</p>
+      <p><strong style="color:#fff;">Viet Thanh Nguyen ranks #1 for cultural and literary impact</strong> &mdash; his Pulitzer Prize-winning voice has reshaped how millions of people around the world understand the Vietnamese refugee experience.</p>
+      <p>Together, they represent the very best of what resilience, faith, and the American Dream can produce from the Central Vietnamese refugee generation.</p>
+    </div>
+
   </section>
 
   <section class="section" id="federal">
