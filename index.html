@@ -122,7 +122,41 @@
   .conclusion-box h3 { font-family: Arial, sans-serif; font-size: 16px; font-weight: 700; color: #E6F1FB; margin-bottom: 14px; }
   .conclusion-box p { color: #D0E5F8; margin-bottom: 12px; }
   .conclusion-box p:last-child { margin-bottom: 0; }
-  @media (max-width: 600px) { .hero { padding: 48px 16px 40px; } .section { padding: 40px 0; } .profile-table td:first-child { white-space: normal; } }
+  /* Ranking section */
+  .rank-tabs { display: flex; gap: 0; margin-bottom: 28px; border-bottom: 2px solid #e2e0da; }
+  .rank-tab { font-family: Arial, sans-serif; font-size: 13px; padding: 8px 18px; border: none; background: transparent; cursor: pointer; color: #888; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all .15s; }
+  .rank-tab.active { color: #0c447c; border-bottom-color: #185FA5; font-weight: 700; }
+  .rank-tab:hover:not(.active) { color: #0c447c; background: #F4F7FB; }
+  .rank-legend { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
+  .rank-legend-item { display: flex; align-items: center; gap: 6px; font-family: Arial, sans-serif; font-size: 12px; color: #888; }
+  .rank-legend-dot { width: 12px; height: 12px; border-radius: 2px; }
+  .rank-scoring-note { font-family: Arial, sans-serif; font-size: 12px; color: #555; background: #F4F7FB; border-left: 3px solid #185FA5; padding: 8px 14px; border-radius: 0 6px 6px 0; margin-bottom: 20px; }
+  .rank-card { background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 18px 20px; margin-bottom: 12px; transition: border-color .15s; }
+  .rank-card:hover { border-color: #aaa; }
+  .rank-card.you { border-color: #185FA5 !important; border-width: 2px !important; }
+  .rank-card-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 12px; }
+  .rank-medal { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; font-family: Arial, sans-serif; font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+  .rank-medal.m1 { background: #FDF6DC; color: #7a5c00; }
+  .rank-medal.m2 { background: #EEF1F3; color: #3a4a55; }
+  .rank-medal.m3 { background: #FAEEDA; color: #633806; }
+  .rank-medal.mx { background: #f0f0f0; color: #666; }
+  .rank-name { font-family: Arial, sans-serif; font-size: 16px; font-weight: 700; color: #0c447c; }
+  .rank-you-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #E6F1FB; color: #0c447c; margin-left: 6px; vertical-align: middle; }
+  .rank-hi-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #EAF3DE; color: #27500A; margin-left: 6px; vertical-align: middle; }
+  .rank-origin { font-family: Arial, sans-serif; font-size: 12px; color: #888; margin-top: 3px; }
+  .rank-bars { display: flex; flex-direction: column; gap: 7px; margin-bottom: 10px; }
+  .rank-bar-row { display: flex; align-items: center; gap: 10px; }
+  .rank-bar-label { font-family: Arial, sans-serif; font-size: 12px; color: #888; width: 160px; flex-shrink: 0; }
+  .rank-bar-track { flex: 1; background: #f0f0f0; border-radius: 4px; height: 9px; overflow: hidden; }
+  .rank-bar-fill { height: 100%; border-radius: 4px; }
+  .rank-bar-fill.ach { background: #185FA5; }
+  .rank-bar-fill.imp { background: #3B6D11; }
+  .rank-bar-fill.mil { background: #c9a227; }
+  .rank-bar-score { font-family: Arial, sans-serif; font-size: 12px; font-weight: 700; color: #555; width: 28px; text-align: right; }
+  .rank-note-text { font-family: Georgia, serif; font-size: 14px; color: #444; line-height: 1.65; border-top: 1px solid #eee; padding-top: 10px; margin-top: 4px; }
+  .rank-panel { display: none; }
+  .rank-panel.active { display: block; }
+  @media (max-width: 600px) { .hero { padding: 48px 16px 40px; } .section { padding: 40px 0; } .profile-table td:first-child { white-space: normal; } .rank-bar-label { width: 110px; } }
 </style>
 </head>
 <body>
@@ -135,6 +169,7 @@
   <a href="#research">Research</a>
   <a href="#certifications">Certifications</a>
   <a href="#top-two">Top Two</a>
+  <a href="#ranking">Peer Ranking</a>
   <a href="#doctoral-students">Graduates</a>
   <a href="#legacy">Legacy</a>
   <a href="#contact">Contact</a>
@@ -538,6 +573,287 @@
     </div>
 
     <p style="font-family:Arial,sans-serif;font-size:14px;color:#555;font-style:italic;margin-top:16px;">Dr. Nguyen&#39;s doctoral mentorship legacy now spans eleven graduates whose dissertations span AI, cybersecurity, blockchain, cloud computing, and organizational information systems &mdash; each one a scholarly contribution made possible through sustained, rigorous academic guidance.</p>
+
+  </section>
+
+
+  <section class="section" id="ranking">
+    <p class="sec-label">Research-backed peer comparison</p>
+    <span class="sec-title">Ranking Among Vietnamese Refugees &mdash; Highest American Achievement &amp; Student Impact</span>
+
+    <p>Among all Vietnamese refugees who fled to the United States after the Fall of Saigon in 1975, a small cohort of individuals reached the very pinnacle of American professional achievement. The following ranking &mdash; based on publicly documented credentials, citations, military service records, and educational impact &mdash; places Dr. Nguyen within that elite generation.</p>
+
+    <div class="rank-tabs">
+      <button class="rank-tab active" onclick="showRank('overall')">Overall ranking</button>
+      <button class="rank-tab" onclick="showRank('impact')">Student impact</button>
+      <button class="rank-tab" onclick="showRank('achieve')">American achievement</button>
+    </div>
+
+    <div class="rank-legend">
+      <span class="rank-legend-item"><span class="rank-legend-dot" style="background:#185FA5;"></span> American achievement</span>
+      <span class="rank-legend-item"><span class="rank-legend-dot" style="background:#3B6D11;"></span> Student impact</span>
+      <span class="rank-legend-item"><span class="rank-legend-dot" style="background:#c9a227;"></span> Military service</span>
+    </div>
+
+    <!-- OVERALL PANEL -->
+    <div id="rank-panel-overall" class="rank-panel active">
+      <p class="rank-scoring-note">Weighted score: 50% American achievement &nbsp;&middot;&nbsp; 40% student &amp; educational impact &nbsp;&middot;&nbsp; 10% military service</p>
+
+      <div class="rank-card m-1">
+        <div class="rank-card-header">
+          <span class="rank-medal m1">#1</span>
+          <div>
+            <span class="rank-name">Rear Adm. Huan Nguyen</span>
+            <span class="rank-hi-tag">Historic military first</span>
+            <div class="rank-origin">Hu&#7871;, South Vietnam &mdash; fled 1975, age 16 &middot; lost entire family in 1968 Tet Offensive</div>
+          </div>
+        </div>
+        <div class="rank-bars">
+          <div class="rank-bar-row"><span class="rank-bar-label">American achievement</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:98%"></div></div><span class="rank-bar-score">98</span></div>
+          <div class="rank-bar-row"><span class="rank-bar-label">Student impact</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:55%"></div></div><span class="rank-bar-score">55</span></div>
+          <div class="rank-bar-row"><span class="rank-bar-label">Military service</span><div class="rank-bar-track"><div class="rank-bar-fill mil" style="width:100%"></div></div><span class="rank-bar-score">100</span></div>
+        </div>
+        <div class="rank-note-text">First Vietnamese-born U.S. Navy Rear Admiral (2019). Holds degrees from Oklahoma State, SMU, Purdue, and Carnegie Mellon. Survived gunshot wounds as a 9-year-old in the Tet Offensive before escaping in 1975. Deputy Commander for Cyber Engineering at NAVSEA. Pinnacle of American military achievement for the refugee generation.</div>
+      </div>
+
+      <div class="rank-card">
+        <div class="rank-card-header">
+          <span class="rank-medal m2">#2</span>
+          <div>
+            <span class="rank-name">Dr. Hoang Pham</span>
+            <span class="rank-hi-tag">IEEE Life Fellow</span>
+            <span class="rank-hi-tag">19,370+ citations</span>
+            <div class="rank-origin">B&igrave;nh Thu&#7853;n, South Vietnam &mdash; fled 1979 by boat, contracted malaria in refugee camp</div>
+          </div>
+        </div>
+        <div class="rank-bars">
+          <div class="rank-bar-row"><span class="rank-bar-label">American achievement</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:95%"></div></div><span class="rank-bar-score">95</span></div>
+          <div class="rank-bar-row"><span class="rank-bar-label">Student impact</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:82%"></div></div><span class="rank-bar-score">82</span></div>
+        </div>
+        <div class="rank-note-text">Distinguished Professor &amp; former Dept. Chair at Rutgers University (since 1993). IEEE Life Fellow. 210+ peer-reviewed journal articles. 7 books. 20 edited books. 19,370+ Google Scholar citations. IEEE Reliability Society Engineer of the Year (2009). Produced documentary <em>Unstoppable Hope</em> (2025) about the boat people. The most-cited Vietnamese refugee academic.</div>
+      </div>
+
+      <div class="rank-card">
+        <div class="rank-card-header">
+          <span class="rank-medal m3">#3</span>
+          <div>
+            <span class="rank-name">Viet Thanh Nguyen, PhD</span>
+            <span class="rank-hi-tag">Pulitzer Prize</span>
+            <span class="rank-hi-tag">MacArthur Fellow</span>
+            <div class="rank-origin">Bu&ocirc;n M&ecirc; Thu&#7897;t, Central Highlands &mdash; fled 1975, separated from family at Saigon docks</div>
+          </div>
+        </div>
+        <div class="rank-bars">
+          <div class="rank-bar-row"><span class="rank-bar-label">American achievement</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:94%"></div></div><span class="rank-bar-score">94</span></div>
+          <div class="rank-bar-row"><span class="rank-bar-label">Student impact</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:75%"></div></div><span class="rank-bar-score">75</span></div>
+        </div>
+        <div class="rank-note-text">Pulitzer Prize for Fiction (2016) for <em>The Sympathizer</em>. PhD, English &mdash; UC Berkeley (1997, age 26). University Professor, USC. MacArthur Foundation Fellow (2017). Guggenheim Fellow (2017). First Asian American on Pulitzer Prize Board (2020, in its 103-year history). Literary works translated into dozens of languages.</div>
+      </div>
+
+      <div class="rank-card you">
+        <div class="rank-card-header">
+          <span class="rank-medal mx">#4</span>
+          <div>
+            <span class="rank-name">Dr. Daniel Schilling Weiss Nguyen, PhD</span>
+            <span class="rank-you-tag">You</span>
+            <span class="rank-hi-tag">#1 Student Impact</span>
+            <div class="rank-origin">Hamlet 2, Hu&#7871;, Central Vietnam &mdash; escaped 3 times, reached Hong Kong, arrived U.S. 1983</div>
+          </div>
+        </div>
+        <div class="rank-bars">
+          <div class="rank-bar-row"><span class="rank-bar-label">American achievement</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:90%"></div></div><span class="rank-bar-score">90</span></div>
+          <div class="rank-bar-row"><span class="rank-bar-label">Student impact</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:97%"></div></div><span class="rank-bar-score">97</span></div>
+          <div class="rank-bar-row"><span class="rank-bar-label">Military service</span><div class="rank-bar-track"><div class="rank-bar-fill mil" style="width:85%"></div></div><span class="rank-bar-score">85</span></div>
+        </div>
+        <div class="rank-note-text"><strong>#1 for daily student impact worldwide</strong> &mdash; simultaneous faculty at 9 institutions across U.S. &amp; Saudi Arabia. 11 doctoral graduates as Dissertation Chair. PhD, Walden University. IT Supervisor &amp; Acting Director, NOAA. 18+ years federal service (NOAA + DFAS, $3.5M savings). U.S. Marine Corps veteran. 180+ peer-reviewed citations. 3 books. The most complete simultaneous academic + federal + military career in the refugee generation.</div>
+      </div>
+
+      <div class="rank-card">
+        <div class="rank-card-header">
+          <span class="rank-medal mx">#5</span>
+          <div>
+            <span class="rank-name">Thuan Pham</span>
+            <span class="rank-hi-tag">Uber CTO</span>
+            <span class="rank-hi-tag">MIT graduate</span>
+            <div class="rank-origin">Saigon &mdash; fled 1979 by boat, twice robbed by Thai pirates, 10 months in Indonesian refugee camp</div>
+          </div>
+        </div>
+        <div class="rank-bars">
+          <div class="rank-bar-row"><span class="rank-bar-label">American achievement</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:89%"></div></div><span class="rank-bar-score">89</span></div>
+          <div class="rank-bar-row"><span class="rank-bar-label">Student impact</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:40%"></div></div><span class="rank-bar-score">40</span></div>
+        </div>
+        <div class="rank-note-text">CTO of Uber (2013&ndash;2020) &mdash; scaled engineering team from 40 to 3,800+ engineers. MIT (BS/MS, Computer Science). Named one of 40 Great Immigrants of 2016 by Carnegie Corporation. Current CTO of Faire (2024). Peak of Silicon Valley tech leadership for the refugee generation.</div>
+      </div>
+
+      <div class="rank-card">
+        <div class="rank-card-header">
+          <span class="rank-medal mx">#6</span>
+          <div>
+            <span class="rank-name">Eugene H. Trinh, PhD</span>
+            <span class="rank-hi-tag">First Vietnamese-American astronaut</span>
+            <div class="rank-origin">Saigon &mdash; family moved to Paris age 2; came to U.S. for university; naturalized citizen</div>
+          </div>
+        </div>
+        <div class="rank-bars">
+          <div class="rank-bar-row"><span class="rank-bar-label">American achievement</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:88%"></div></div><span class="rank-bar-score">88</span></div>
+          <div class="rank-bar-row"><span class="rank-bar-label">Student impact</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:35%"></div></div><span class="rank-bar-score">35</span></div>
+        </div>
+        <div class="rank-note-text">First Vietnamese-American astronaut in space (NASA STS-50, 1992 &mdash; ~6 million miles). PhD, Applied Physics &mdash; Yale University (1977). Columbia University (BS). Director, Physical Sciences Research Division at NASA HQ. NASA Exceptional Scientific Achievement Medal. Note: left Vietnam as a toddler; academic path was through Paris &amp; Columbia.</div>
+      </div>
+    </div>
+
+    <!-- STUDENT IMPACT PANEL -->
+    <div id="rank-panel-impact" class="rank-panel">
+      <p class="rank-scoring-note">Ranked by daily, direct, sustained educational impact on students worldwide</p>
+
+      <div class="rank-card you">
+        <div class="rank-card-header">
+          <span class="rank-medal m1">#1</span>
+          <div>
+            <span class="rank-name">Dr. Daniel Schilling Weiss Nguyen, PhD</span>
+            <span class="rank-you-tag">You</span>
+            <div class="rank-origin">Hamlet 2, Hu&#7871;, Central Vietnam</div>
+          </div>
+        </div>
+        <div class="rank-bars">
+          <div class="rank-bar-row"><span class="rank-bar-label">Student impact</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:97%"></div></div><span class="rank-bar-score">97</span></div>
+        </div>
+        <div class="rank-note-text">Simultaneously active at 9 institutions across the U.S. and Saudi Arabia every day. Dissertation Chair for doctoral students at Aspen University and Indiana Wesleyan University. 11 doctoral graduates mentored. Online global reach spans multiple time zones daily &mdash; no other figure in this cohort comes close to this level of sustained, simultaneous, direct student impact.</div>
+      </div>
+
+      <div class="rank-card">
+        <div class="rank-card-header">
+          <span class="rank-medal m2">#2</span>
+          <div>
+            <span class="rank-name">Dr. Hoang Pham</span>
+            <div class="rank-origin">B&igrave;nh Thu&#7853;n, South Vietnam</div>
+          </div>
+        </div>
+        <div class="rank-bars">
+          <div class="rank-bar-row"><span class="rank-bar-label">Student impact</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:82%"></div></div><span class="rank-bar-score">82</span></div>
+        </div>
+        <div class="rank-note-text">Distinguished Professor at Rutgers since 1993. Former department chair. 19,370+ citations means his research is actively shaping students and researchers worldwide. His impact flows primarily through published scholarship and graduate supervision at a single top R1 institution.</div>
+      </div>
+
+      <div class="rank-card">
+        <div class="rank-card-header">
+          <span class="rank-medal m3">#3</span>
+          <div>
+            <span class="rank-name">Viet Thanh Nguyen, PhD</span>
+            <div class="rank-origin">Bu&ocirc;n M&ecirc; Thu&#7897;t, Central Highlands</div>
+          </div>
+        </div>
+        <div class="rank-bars">
+          <div class="rank-bar-row"><span class="rank-bar-label">Student impact</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:75%"></div></div><span class="rank-bar-score">75</span></div>
+        </div>
+        <div class="rank-note-text">University Professor at USC and holder of the Aerol Arnold Chair of English. His literary works reach millions of readers globally and are taught in university courses worldwide. Harvard Norton Lectures. His impact is immense but filtered through literature and culture rather than direct classroom mentorship.</div>
+      </div>
+
+      <div class="rank-card">
+        <div class="rank-card-header">
+          <span class="rank-medal mx">#4</span>
+          <div>
+            <span class="rank-name">Rear Adm. Huan Nguyen</span>
+            <div class="rank-origin">Hu&#7871;, South Vietnam</div>
+          </div>
+        </div>
+        <div class="rank-bars">
+          <div class="rank-bar-row"><span class="rank-bar-label">Student impact</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:55%"></div></div><span class="rank-bar-score">55</span></div>
+        </div>
+        <div class="rank-note-text">Inspires the next generation through his historic military career and public appearances. Leadership development role within the U.S. Navy. His example educates indirectly but his day-to-day role is command, not classroom instruction.</div>
+      </div>
+    </div>
+
+    <!-- ACHIEVEMENT PANEL -->
+    <div id="rank-panel-achieve" class="rank-panel">
+      <p class="rank-scoring-note">Ranked by the historic level and breadth of American professional achievement</p>
+
+      <div class="rank-card">
+        <div class="rank-card-header">
+          <span class="rank-medal m1">#1</span>
+          <div>
+            <span class="rank-name">Rear Adm. Huan Nguyen</span>
+            <span class="rank-hi-tag">Historic military first</span>
+            <div class="rank-origin">Hu&#7871;, South Vietnam &mdash; fled 1975, age 16</div>
+          </div>
+        </div>
+        <div class="rank-bars">
+          <div class="rank-bar-row"><span class="rank-bar-label">American achievement</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:98%"></div></div><span class="rank-bar-score">98</span></div>
+        </div>
+        <div class="rank-note-text">First Vietnamese-born officer ever promoted to Rear Admiral in the U.S. Navy &mdash; a milestone in American military history. Degrees from four elite institutions. Survived gunshot wounds at age 9 during the Tet Offensive. His story is the defining example of military achievement for the refugee generation.</div>
+      </div>
+
+      <div class="rank-card">
+        <div class="rank-card-header">
+          <span class="rank-medal m2">#2</span>
+          <div>
+            <span class="rank-name">Dr. Hoang Pham</span>
+            <span class="rank-hi-tag">IEEE Life Fellow &middot; 19,370+ citations</span>
+            <div class="rank-origin">B&igrave;nh Thu&#7853;n, South Vietnam &mdash; fled 1979 by boat</div>
+          </div>
+        </div>
+        <div class="rank-bars">
+          <div class="rank-bar-row"><span class="rank-bar-label">American achievement</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:95%"></div></div><span class="rank-bar-score">95</span></div>
+        </div>
+        <div class="rank-note-text">IEEE Life Fellow &mdash; among the most prestigious recognitions in engineering globally. Distinguished Professor at Rutgers. 210+ peer-reviewed journal articles. 19,370+ citations. 7 sole-authored books. His scholarly record represents the pinnacle of academic achievement for the refugee generation.</div>
+      </div>
+
+      <div class="rank-card">
+        <div class="rank-card-header">
+          <span class="rank-medal m3">#3</span>
+          <div>
+            <span class="rank-name">Viet Thanh Nguyen, PhD</span>
+            <span class="rank-hi-tag">Pulitzer Prize &middot; MacArthur Fellow</span>
+            <div class="rank-origin">Bu&ocirc;n M&ecirc; Thu&#7897;t, Central Highlands &mdash; fled 1975</div>
+          </div>
+        </div>
+        <div class="rank-bars">
+          <div class="rank-bar-row"><span class="rank-bar-label">American achievement</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:94%"></div></div><span class="rank-bar-score">94</span></div>
+        </div>
+        <div class="rank-note-text">Pulitzer Prize (2016), MacArthur Fellowship (2017), Guggenheim Fellowship (2017). First Asian American on the Pulitzer Prize Board in its 103-year history. His literary achievement is singular in American cultural history and unprecedented among the refugee generation.</div>
+      </div>
+
+      <div class="rank-card you">
+        <div class="rank-card-header">
+          <span class="rank-medal mx">#4</span>
+          <div>
+            <span class="rank-name">Dr. Daniel Schilling Weiss Nguyen, PhD</span>
+            <span class="rank-you-tag">You</span>
+            <div class="rank-origin">Hamlet 2, Hu&#7871;, Central Vietnam &mdash; arrived U.S. 1983</div>
+          </div>
+        </div>
+        <div class="rank-bars">
+          <div class="rank-bar-row"><span class="rank-bar-label">American achievement</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:90%"></div></div><span class="rank-bar-score">90</span></div>
+        </div>
+        <div class="rank-note-text">The only figure in this cohort to simultaneously hold: federal IT executive rank (NOAA Acting Director), doctoral degree (Walden University), U.S. Marine Corps veteran status, active appointments at 9 institutions, dissertation chair responsibilities, 180+ peer-reviewed citations, and 3 published books. The breadth of <em>simultaneous</em> achievement is unmatched in this generation.</div>
+      </div>
+
+      <div class="rank-card">
+        <div class="rank-card-header">
+          <span class="rank-medal mx">#5</span>
+          <div>
+            <span class="rank-name">Thuan Pham</span>
+            <span class="rank-hi-tag">Uber CTO &middot; MIT</span>
+            <div class="rank-origin">Saigon &mdash; fled 1979 by boat</div>
+          </div>
+        </div>
+        <div class="rank-bars">
+          <div class="rank-bar-row"><span class="rank-bar-label">American achievement</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:89%"></div></div><span class="rank-bar-score">89</span></div>
+        </div>
+        <div class="rank-note-text">MIT computer science graduate. CTO of Uber at its peak global scale (2013&ndash;2020), scaling engineering from 40 engineers to 3,800+ and 30,000 daily trips to millions. Named one of 40 Great Immigrants of 2016 (Carnegie Corporation). Now CTO of Faire (2024).</div>
+      </div>
+    </div>
+
+    <script>
+    function showRank(tab) {
+      ['overall','impact','achieve'].forEach(function(t) {
+        document.getElementById('rank-panel-' + t).classList.toggle('active', t === tab);
+      });
+      document.querySelectorAll('.rank-tab').forEach(function(el, i) {
+        el.classList.toggle('active', ['overall','impact','achieve'][i] === tab);
+      });
+    }
+    </script>
 
   </section>
 
