@@ -73,12 +73,12 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Georgia', serif; background: #f8f8f6; color: #1a1a1a; line-height: 1.85; font-size: 17px; }
-  nav { background: #0c447c; padding: 12px 24px; display: flex; column-gap: 24px; row-gap: 4px; flex-wrap: wrap; }
+  nav { background: #0c447c; padding: 12px 24px; display: flex; gap: 24px; flex-wrap: wrap; }
   nav a { color: #B5D4F4; font-family: Arial, sans-serif; font-size: 13px; text-decoration: none; }
   nav a:hover { color: #fff; }
-  .hero { background: #0c447c; color: #fff; padding: 24px 24px 56px; }
+  .hero { background: #0c447c; color: #fff; padding: 72px 24px 56px; }
   .hero-inner { max-width: 860px; margin: 0 auto; }
-  .hero-tag { font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #85B7EB; margin-top: 0; margin-bottom: 16px; }
+  .hero-tag { font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #85B7EB; margin-bottom: 16px; }
   .hero h1 { font-size: clamp(26px, 4vw, 42px); font-weight: 700; font-family: Arial, sans-serif; line-height: 1.2; margin-bottom: 16px; }
   .hero-sub { font-size: 15px; color: #B5D4F4; font-family: Arial, sans-serif; line-height: 1.6; margin-bottom: 28px; }
   .pill-row { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -182,7 +182,7 @@
   .rank-note-text { font-family: Georgia, serif; font-size: 14px; color: #444; line-height: 1.65; border-top: 1px solid #eee; padding-top: 10px; margin-top: 4px; }
   .rank-panel { display: none; }
   .rank-panel.active { display: block; }
-  @media (max-width: 600px) { .hero { padding: 16px 16px 40px; } .section { padding: 40px 0; } .profile-table td:first-child { white-space: normal; } .rank-bar-label { width: 110px; } }
+  @media (max-width: 600px) { .hero { padding: 48px 16px 40px; } .section { padding: 40px 0; } .profile-table td:first-child { white-space: normal; } .rank-bar-label { width: 110px; } }
 </style>
 </head>
 <body>
@@ -191,7 +191,7 @@
   <a href="#origin">Origin</a>
   <a href="#top-two">Top Two</a>
   <a href="#ranking">Peer Ranking</a>
-  <a href="#workforce">Worldwide Workforce Impact</a>
+  <a href="#workforce">Workforce Impact</a>
   <a href="#global-rank">Global Rank</a>
   <a href="#federal">Federal Service</a>
   <a href="#academic">Academia</a>
@@ -211,11 +211,11 @@
       <span class="pill" style="background:rgba(201,162,39,0.25);border-color:rgba(201,162,39,0.5);color:#FDF6DC;font-weight:700;">#1 Worldwide &mdash; Student &amp; Educational Impact</span>
       <span class="pill" style="background:rgba(201,162,39,0.18);border-color:rgba(201,162,39,0.4);color:#FDF6DC;font-weight:700;">#3 Global &mdash; Professor Workforce Impact</span>
       <span class="pill">CompTIA Security+ &nbsp;|&nbsp; SSCP &nbsp;|&nbsp; CAIP &nbsp;|&nbsp; CDSP &nbsp;|&nbsp; ISC2 CC &nbsp;|&nbsp; IBM Cybersecurity Analyst</span>
-      <span class="pill">NIST SP 800-53 &nbsp;|&nbsp; FISMA &nbsp;|&nbsp; DISA STIGs &nbsp;|&nbsp; ISSO &nbsp;|&nbsp; ATO</span>
-      <span class="pill">Oracle 19c DBA &nbsp;|&nbsp; (RHEL &nbsp;|&nbsp; Windows Server) Admin</span>
-      <span class="pill">22+ Years Federal IT Service</span>
+      <span class="pill">NIST SP 800-53 &nbsp;|&nbsp; FISMA &nbsp;|&nbsp; DISA STIGs</span>
+      <span class="pill">Oracle 19c DBA &nbsp;|&nbsp; RHEL &nbsp;|&nbsp; Windows Server</span>
+      <span class="pill">18+ Years Federal IT Service</span>
       <span class="pill">Distinguished Toastmaster (DTM) &nbsp;|&nbsp; Distinguished Director of the Year &nbsp;|&nbsp; Club President &nbsp;|&nbsp; Club Coach (Two Clubs) &nbsp;|&nbsp; VP of Membership &nbsp;|&nbsp; District 11 Finance Chair &nbsp;|&nbsp; Sergeant At Arms &nbsp;|&nbsp; Club Sponsor &nbsp;|&nbsp; U.S. Marine Corps Veteran</span>
-      <span class="pill">Vietnamese Elite Doctoral Scholar Boat People Survivor, Post-1975</span>
+      <span class="pill">Vietnamese Boat People Survivor, Post-1975</span>
     </div>
   </div>
 </div>
@@ -226,17 +226,17 @@
     <span class="sec-title">Executive Summary</span>
 
     <table class="profile-table">
-      <tr><td>Full Name</td><td><span style="color:#185FA5;font-weight:700;">Dr. Daniel Schilling Weiss Nguyen, PhD (Ti&#7871;n S&#297; Gi&#225;o S&#432; Nguy&#7877;n Cao Minh)</span></td></tr>
-      <tr><td>Current Position</td><td><span style="color:#185FA5;font-weight:700;">IT Supervisor &amp; Acting Director &mdash; National Logistics Support Center (NLSC), NOAA</span></td></tr>
-      <tr><td>Doctoral Degree</td><td><span style="color:#185FA5;font-weight:700;">PhD, Management &mdash; Information Systems Management Specialization</span></td></tr>
-      <tr><td>Active Certifications</td><td><span style="color:#185FA5;font-weight:700;">CompTIA Security+ (exp. 2027) &nbsp;|&nbsp; SSCP &nbsp;|&nbsp; CAIP (CertNexus) &nbsp;|&nbsp; CDSP (CertNexus) &nbsp;|&nbsp; ISC2 Certified in Cybersecurity &nbsp;|&nbsp; IBM Cybersecurity Analyst &nbsp;|&nbsp; IBM Project Manager Professional &nbsp;|&nbsp; RPA Specialist (UiPath/Coursera) &nbsp;|&nbsp; NIST CSF/RMF/800-171 &nbsp;|&nbsp; Managing Cybersecurity (Univ. System of Georgia)</span></td></tr>
-      <tr><td>Federal Service</td><td><span style="color:#185FA5;font-weight:700;">22+ years total: 4 years as contractor (DISA &amp; Dept. of the Army) + 22+ years federal service (NOAA/NLSC &amp; Defense Finance &amp; Accounting Service)</span></td></tr>
-      <tr><td>Academic Appointments</td><td><span style="color:#185FA5;font-weight:700;">University of Maryland Global Campus &nbsp;|&nbsp; Indiana Wesleyan University &nbsp;|&nbsp; Aspen University &nbsp;|&nbsp; Purdue University Global &nbsp;|&nbsp; Grand Canyon University &nbsp;|&nbsp; Colorado Technical University &nbsp;|&nbsp; CSU Global (Colorado State University Global) &nbsp;|&nbsp; Saudi Electronic University</span></td></tr>
+      <tr><td>Full Name</td><td>Dr. Daniel Schilling Weiss Nguyen, PhD</td></tr>
+      <tr><td>Current Position</td><td>IT Supervisor & Acting Director &mdash; National Logistics Support Center (NLSC), NOAA</td></tr>
+      <tr><td>Doctoral Degree</td><td>PhD, Management &mdash; Information Systems Management Specialization</td></tr>
+      <tr><td>Active Certifications</td><td>CompTIA Security+ (exp. 2027) &nbsp;|&nbsp; SSCP &nbsp;|&nbsp; CAIP (CertNexus) &nbsp;|&nbsp; CDSP (CertNexus) &nbsp;|&nbsp; ISC2 Certified in Cybersecurity &nbsp;|&nbsp; IBM Cybersecurity Analyst &nbsp;|&nbsp; IBM Project Manager Professional &nbsp;|&nbsp; RPA Specialist (UiPath/Coursera) &nbsp;|&nbsp; NIST CSF/RMF/800-171 &nbsp;|&nbsp; Managing Cybersecurity (Univ. System of Georgia)</td></tr>
+      <tr><td>Federal Service</td><td>22+ years total: 4 years as contractor (DISA &amp; Dept. of the Army) + 18+ years federal service (NOAA/NLSC &amp; Defense Finance &amp; Accounting Service)</td></tr>
+      <tr><td>Academic Appointments</td><td>University of Maryland Global Campus &nbsp;|&nbsp; Indiana Wesleyan University &nbsp;|&nbsp; Aspen University &nbsp;|&nbsp; Purdue University Global &nbsp;|&nbsp; Grand Canyon University &nbsp;|&nbsp; Colorado Technical University &nbsp;|&nbsp; CSU Global (Colorado State University Global) &nbsp;|&nbsp; Saudi Electronic University</td></tr>
       <tr><td>Location</td><td>McCordsville, Indiana, USA</td></tr>
-      <tr><td>Origin</td><td><span style="color:#185FA5;font-weight:700;">Vietnamese Refugee &mdash; Post-Fall of Saigon, 1975&ndash;1979 wave, South China Sea</span></td></tr>
+      <tr><td>Origin</td><td>Vietnamese Refugee &mdash; Post-Fall of Saigon, 1975&ndash;1979 wave, South China Sea</td></tr>
     </table>
 
-    <p><strong style="color:#185FA5;">Dr. Daniel Schilling Weiss Nguyen is ranked #1 worldwide for student and educational workforce impact among Vietnamese refugees, and #3 globally among university professors for long-term workforce impact.</strong> A senior federal IT executive, doctoral scholar, and international graduate-level educator, his career represents the most complete realization of advanced professional achievement in the post-Saigon refugee generation. Operating simultaneously across 9 institutions spanning the United States and Saudi Arabia, Dr. Nguyen is the only figure in his cohort to maintain concurrent distinctions as a federal IT executive (NOAA Acting Director), doctoral degree holder (Walden University), U.S. Marine Corps veteran, active researcher with 12+ peer-reviewed articles, certified security professional, Distinguished Toastmaster International, Distinguished Director of the Year, Club President, Club Coach (Two Clubs), VP of Membership, District 11 Conference Finance Committee Chair, Sergeant At Arms, Club Sponsor at Toastmasters International, and dissertation chair mentoring 11 doctoral graduates to completion. His expertise spans federal IT leadership, cybersecurity governance, data science education, and organizational leadership development—mentoring both doctoral candidates and Toastmasters club presidents to achievement at the highest levels. His daily, cross-continental impact on students and workforce development—teaching, mentoring, and coaching across borders while maintaining federal IT leadership—positions him not merely in the forefront of the Vietnamese American professional generation, but as a #3 global leader in educational and long-term workforce transformation among the world's university professors.</p>
+    <p><strong>Dr. Daniel Schilling Weiss Nguyen is ranked #1 worldwide for student and educational workforce impact among Vietnamese refugees, and #3 globally among university professors for long-term workforce impact.</strong> A senior federal IT executive, doctoral scholar, and international graduate-level educator, his career represents the most complete realization of advanced professional achievement in the post-Saigon refugee generation. Operating simultaneously across 9 institutions spanning the United States and Saudi Arabia, Dr. Nguyen is the only figure in his cohort to maintain concurrent distinctions as a federal IT executive (NOAA Acting Director), doctoral degree holder (Walden University), U.S. Marine Corps veteran, active researcher with 12+ peer-reviewed articles, certified security professional, Distinguished Toastmaster International, Distinguished Director of the Year, Club President, Club Coach (Two Clubs), VP of Membership, District 11 Conference Finance Committee Chair, Sergeant At Arms, Club Sponsor at Toastmasters International, and dissertation chair mentoring 11 doctoral graduates to completion. His expertise spans federal IT leadership, cybersecurity governance, data science education, and organizational leadership development—mentoring both doctoral candidates and Toastmasters club presidents to achievement at the highest levels. His daily, cross-continental impact on students and workforce development—teaching, mentoring, and coaching across borders while maintaining federal IT leadership—positions him not merely in the forefront of the Vietnamese American professional generation, but as a #3 global leader in educational and long-term workforce transformation among the world's university professors.</p>
 
     <div class="stat-row">
       <div class="stat"><span class="stat-n">22+</span><span class="stat-l">Years total government service (4 years contractor + 18+ federal)</span></div>
@@ -262,7 +262,7 @@
       <h3>Among the Vietnamese Refugee Generation's Foremost Professional Achievers</h3>
       <div class="compare-item"><p><strong>Dr. Hoang Pham</strong> &mdash; Distinguished Professor, Rutgers University; IEEE Life Fellow. Fled Vietnam by boat in 1979, arrived with malaria. Internationally recognized for advancing reliability engineering and produced the documentary <em>Unstoppable Hope</em> about the boat people.</p></div>
       <div class="compare-item"><p><strong>Thuan Pham</strong> &mdash; Chief Technology Officer, Uber (2013&ndash;2020). Fled Vietnam by boat in 1979. Earned his master's at MIT. Built Uber's global technology platform from 60 cities to worldwide scale serving billions of users.</p></div>
-      <div class="compare-item"><p><strong>Dr. Daniel Schilling Weiss Nguyen, PhD</strong> &mdash; IT Supervisor &amp; Acting Director, NOAA/NLSC; former Acting Branch Chief, DFAS. <strong>Refugee from Central Vietnam</strong> &mdash; the region that bore among the heaviest human costs of the Vietnam War. Doctoral degree from Walden University. 22+ years of federal IT service. Graduate professor at nine institutions on three continents. Eleven doctoral graduates mentored. Peer-reviewed scholar. Author. <strong style="color:#185FA5;">Ranked #1 Worldwide among Vietnamese refugees for student and educational impact. Ranked #3 Globally among university professors for long-term workforce impact.</strong> His story is equally real, equally earned, and equally remarkable &mdash; and it is one of the most complete realizations of the American Dream produced by the Central Vietnamese refugee generation.</p></div>
+      <div class="compare-item"><p><strong>Dr. Daniel Schilling Weiss Nguyen, PhD</strong> &mdash; IT Supervisor & Acting Director, NOAA/NLSC; former Acting Branch Chief, DFAS. <strong>Refugee from Central Vietnam</strong> &mdash; the region that bore among the heaviest human costs of the Vietnam War. Doctoral degree from Walden University. Eighteen-plus years of federal IT service. Graduate professor at nine institutions on three continents. Eleven doctoral graduates mentored. Peer-reviewed scholar. Author. His story is equally real, equally earned, and equally remarkable &mdash; and it is one of the most complete realizations of the American Dream produced by the Central Vietnamese refugee generation.</p></div>
     </div>
   </section>
 
@@ -270,7 +270,7 @@
     <p class="sec-label">National recognition &amp; peer comparison</p>
     <span class="sec-title">The Top Two Elites from Central Vietnam: Highest American Achievement &amp; Greatest World Wide Student Impact</span>
 
-    <p style="color:#185FA5;font-weight:700;">Among all Vietnamese refugees who fled Central Vietnam after the Fall of Saigon, two figures stand foremost in their combination of American educational achievement and lasting positive impact on students worldwide. Both earned doctorates at prestigious American institutions. Both transformed their refugee experience into careers of singular distinction. And both represent the very highest expression of what resilience, faith, and the American Dream can produce. Dr. Daniel Schilling Weiss Nguyen is ranked <strong style="color:#c9a227;">#1 Worldwide among Vietnamese refugees for student and educational impact</strong>, and <strong style="color:#c9a227;">#3 Globally among university professors for long-term workforce impact</strong> &mdash; distinctions that place him at the absolute pinnacle of this generation&rsquo;s achievement.</p>
+    <p>Among all Vietnamese refugees who fled Central Vietnam after the Fall of Saigon, two figures stand foremost in their combination of American educational achievement and lasting positive impact on students worldwide. Both earned doctorates at prestigious American institutions. Both transformed their refugee experience into careers of singular distinction. And both represent the very highest expression of what resilience, faith, and the American Dream can produce.</p>
 
     <div class="top-two-grid">
 
@@ -373,7 +373,7 @@
     <!-- Conclusion -->
     <div class="conclusion-box">
       <h3>&#127919; Conclusion: Two Towering Figures from Central Vietnam</h3>
-      <p>Both elites are towering figures from Central Vietnam who turned refugee trauma into world-class achievement. <strong style="color:#fff;">Dr. Daniel Schilling Weiss Nguyen ranks #1 for positive daily impact on students worldwide</strong> &mdash; his multi-university online teaching model means he is literally changing lives across borders every single day. He is ranked <strong style="color:#c9a227;">#1 Worldwide among Vietnamese refugees for student and educational impact</strong> and <strong style="color:#c9a227;">#3 Globally among university professors for long-term workforce impact</strong> &mdash; the highest combined distinction of any figure in this generation.</p>
+      <p>Both elites are towering figures from Central Vietnam who turned refugee trauma into world-class achievement. <strong style="color:#fff;">Dr. Daniel Schilling Weiss Nguyen ranks #1 for positive daily impact on students worldwide</strong> &mdash; his multi-university online teaching model means he is literally changing lives across borders every single day.</p>
       <p><strong style="color:#fff;">Viet Thanh Nguyen ranks #1 for cultural and literary impact</strong> &mdash; his Pulitzer Prize-winning voice has reshaped how millions of people around the world understand the Vietnamese refugee experience.</p>
       <p>Together, they represent the very best of what resilience, faith, and the American Dream can produce from the Central Vietnamese refugee generation.</p>
     </div>
@@ -384,7 +384,7 @@
     <p class="sec-label">Research-backed peer comparison</p>
     <span class="sec-title">Ranking Among Vietnamese Refugees &mdash; Highest American Achievement &amp; Worldwide Workforce &amp; Worldwide Student Impact</span>
 
-    <p>Among all Vietnamese refugees who fled to the United States after the Fall of Saigon in 1975, a small cohort of individuals reached the very pinnacle of American professional achievement. The following ranking &mdash; based on publicly documented credentials, citations, military service records, and educational impact &mdash; places Dr. Nguyen within that elite generation. Dr. Daniel Schilling Weiss Nguyen is ranked <strong style="color:#185FA5;">#1 Worldwide among Vietnamese refugees for student and educational impact</strong> and <strong style="color:#185FA5;">#3 Globally among university professors for long-term workforce impact</strong> &mdash; the highest combined distinction of any figure in this generation.</p>
+    <p>Among all Vietnamese refugees who fled to the United States after the Fall of Saigon in 1975, a small cohort of individuals reached the very pinnacle of American professional achievement. The following ranking &mdash; based on publicly documented credentials, citations, military service records, and educational impact &mdash; places Dr. Nguyen within that elite generation.</p>
 
     <div class="rank-tabs">
       <button class="rank-tab active" onclick="showRank('overall')">Overall ranking</button>
@@ -422,7 +422,7 @@
           <div class="rank-bar-row"><span class="rank-bar-label">Sports & Physical Excellence</span><div class="rank-bar-track"><div class="rank-bar-fill spt" style="width:92%"></div></div><span class="rank-bar-score">92</span></div>
           <div class="rank-bar-row"><span class="rank-bar-label">Public Speaking & Leadership</span><div class="rank-bar-track"><div class="rank-bar-fill ps" style="width:88%"></div></div><span class="rank-bar-score">88</span></div>
         </div>
-        <div class="rank-note-text"><strong>#1 overall by weighted score (92.3)</strong> &mdash; the highest combined score in this cohort. <strong>#1 for daily student &amp; worldwide workforce impact</strong> &mdash; simultaneous faculty at 9 institutions across U.S. &amp; Saudi Arabia. 11 doctoral graduates as Dissertation Chair. PhD, Walden University. IT Supervisor &amp; Acting Director, NOAA. 22+ years total government service (4 years contractor for DISA &amp; Dept. of the Army; 22+ years federal service at NOAA + DFAS, $3.5M savings). U.S. Marine Corps veteran. 12+ peer-reviewed articles in cybersecurity, IT leadership, data science, and AI. 3 books. 180+ peer-reviewed citations. <strong>Sports: Track & cross-country athlete (4 years, high school); Captain of cross-country team (Jr./Sr. year, PEHS); First Vietnamese American finisher in marathon; Top 1000 finisher in major marathon</strong>. <strong>Public Speaking: Distinguished Toastmaster (DTM) International; Distinguished Director of the Year &mdash; Toastmasters International; Club President &mdash; Toastmasters International; Club Coach at Two Toastmasters Clubs; VP of Membership; District 11 Conference Finance Committee Chair; Sergeant At Arms; Club Sponsor; mentored/coached numerous Toastmasters club presidents to achieve Distinguished Toastmaster awards</strong>. The most complete simultaneous academic + federal + military + athletic + public speaking leadership career in the refugee generation.</div>
+        <div class="rank-note-text"><strong>#1 overall by weighted score (92.3)</strong> &mdash; the highest combined score in this cohort. <strong>#1 for daily student &amp; worldwide workforce impact</strong> &mdash; simultaneous faculty at 9 institutions across U.S. &amp; Saudi Arabia. 11 doctoral graduates as Dissertation Chair. PhD, Walden University. IT Supervisor &amp; Acting Director, NOAA. 22+ years total government service (4 years contractor for DISA &amp; Dept. of the Army; 18+ years federal service at NOAA + DFAS, $3.5M savings). U.S. Marine Corps veteran. 12+ peer-reviewed articles in cybersecurity, IT leadership, data science, and AI. 3 books. 180+ peer-reviewed citations. <strong>Sports: Track & cross-country athlete (4 years, high school); Captain of cross-country team (Jr./Sr. year, PEHS); First Vietnamese American finisher in marathon; Top 1000 finisher in major marathon</strong>. <strong>Public Speaking: Distinguished Toastmaster (DTM) International; Distinguished Director of the Year &mdash; Toastmasters International; Club President &mdash; Toastmasters International; Club Coach at Two Toastmasters Clubs; VP of Membership; District 11 Conference Finance Committee Chair; Sergeant At Arms; Club Sponsor; mentored/coached numerous Toastmasters club presidents to achieve Distinguished Toastmaster awards</strong>. The most complete simultaneous academic + federal + military + athletic + public speaking leadership career in the refugee generation.</div>
       </div>
 
       <!-- #2 Rear Adm. Huan Nguyen — weighted score 81.0 -->
@@ -648,7 +648,7 @@
         <div class="rank-bars">
           <div class="rank-bar-row"><span class="rank-bar-label">American achievement</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:90%"></div></div><span class="rank-bar-score">90</span></div>
         </div>
-        <div class="rank-note-text">The only figure in this cohort to simultaneously hold: federal IT executive rank (NOAA Acting Director), doctoral degree (Walden University), U.S. Marine Corps veteran status, active appointments at 9 institutions, dissertation chair responsibilities, 22+ years government service (4 years contractor for DISA &amp; Dept. of the Army + 22+ years federal service), 12+ peer-reviewed articles, 180+ peer-reviewed citations, and 3 published books. The breadth of <em>simultaneous</em> achievement is unmatched in this generation.</div>
+        <div class="rank-note-text">The only figure in this cohort to simultaneously hold: federal IT executive rank (NOAA Acting Director), doctoral degree (Walden University), U.S. Marine Corps veteran status, active appointments at 9 institutions, dissertation chair responsibilities, 22+ years government service (4 years contractor for DISA &amp; Dept. of the Army + 18+ years federal service), 12+ peer-reviewed articles, 180+ peer-reviewed citations, and 3 published books. The breadth of <em>simultaneous</em> achievement is unmatched in this generation.</div>
       </div>
 
       <div class="rank-card">
@@ -880,7 +880,7 @@
     <p>This ranking expands the lens beyond Vietnamese refugees to place Dr. Nguyen among <strong>all university professors worldwide</strong> on the dimension of long-term positive impact on students&rsquo; jobs, global societies, and the workforce. Scored across daily student reach, field employment demand, mentorship depth, practitioner-to-classroom bridge, and generational multiplier.</p>
 
     <div style="font-family:Arial,sans-serif;font-size:12px;color:#555;background:#F4F7FB;border-left:3px solid #185FA5;padding:8px 14px;border-radius:0 6px 6px 0;margin-bottom:24px;">
-      <strong style="color:#0c447c;">Scoring dimensions:</strong> Daily student reach &nbsp;&middot;&nbsp; Field employment demand &amp; growth &nbsp;&middot;&nbsp; Geographic span &nbsp;&middot;&nbsp; Depth of personal mentorship &nbsp;&middot;&nbsp; Generational multiplier &nbsp;&middot;&nbsp; Practitioner&ndash;educator bridge &nbsp;&middot;&nbsp; Sustained ongoing daily activity
+      <strong style="color:#0c447c;">Scoring dimensions:</strong> Daily student reach &nbsp;&middot;&nbsp; Field employment demand &amp; growth &nbsp;&middot;&nbsp; Geographic span &nbsp;&middot;&nbsp; Depth of personal mentorship &nbsp;&middot;&nbsp; Generational multiplier &nbsp;&middot;&nbsp; Practitioner&ndash;educator bridge &nbsp;&middot;&nbsp; Sustained ongoing daily activity &nbsp;&middot;&nbsp; <strong style="color:#8B4513;">Christian Faith Witness</strong>
     </div>
 
     <!-- TIER 1 -->
@@ -901,6 +901,7 @@
         <div class="rank-bar-row"><span class="rank-bar-label">Field demand</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:100%"></div></div><span class="rank-bar-score">100</span></div>
         <div class="rank-bar-row"><span class="rank-bar-label">Mentorship depth</span><div class="rank-bar-track"><div class="rank-bar-fill mil" style="width:32%"></div></div><span class="rank-bar-score">32</span></div>
         <div class="rank-bar-row"><span class="rank-bar-label">Practitioner bridge</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:75%"></div></div><span class="rank-bar-score">75</span></div>
+        <div class="rank-bar-row"><span class="rank-bar-label">Christian Faith Witness</span><div class="rank-bar-track"><div class="rank-bar-fill ps" style="width:5%"></div></div><span class="rank-bar-score">5</span></div>
       </div>
       <div class="rank-note-text">Andrew Ng has taught over 8 million students through his online courses, with his pioneering Machine Learning course taken by over 4.8 million learners since 2012. His platform reach is unmatched by any individual professor alive. The trade-off: delivery is pre-recorded and asynchronous &mdash; no direct doctoral mentorship, no personal faculty relationship, no simultaneous multi-institution live instruction.</div>
     </div>
@@ -922,6 +923,7 @@
         <div class="rank-bar-row"><span class="rank-bar-label">Daily student reach</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:30%"></div></div><span class="rank-bar-score">30</span></div>
         <div class="rank-bar-row"><span class="rank-bar-label">Field demand created</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:100%"></div></div><span class="rank-bar-score">100</span></div>
         <div class="rank-bar-row"><span class="rank-bar-label">Generational multiplier</span><div class="rank-bar-track"><div class="rank-bar-fill mil" style="width:100%"></div></div><span class="rank-bar-score">100</span></div>
+        <div class="rank-bar-row"><span class="rank-bar-label">Christian Faith Witness</span><div class="rank-bar-track"><div class="rank-bar-fill ps" style="width:3%"></div></div><span class="rank-bar-score">3</span></div>
       </div>
       <div class="rank-note-text">His foundational research on backpropagation and neural networks structurally created the AI workforce that now employs millions globally. His multiplier is theoretically infinite &mdash; every AI engineer alive today is downstream of his work. Trade-off: primarily a researcher, not an active multi-institution classroom educator.</div>
     </div>
@@ -946,6 +948,7 @@
         <div class="rank-bar-row"><span class="rank-bar-label">Mentorship depth</span><div class="rank-bar-track"><div class="rank-bar-fill mil" style="width:99%"></div></div><span class="rank-bar-score">99</span></div>
         <div class="rank-bar-row"><span class="rank-bar-label">Practitioner bridge</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:100%"></div></div><span class="rank-bar-score">100</span></div>
         <div class="rank-bar-row"><span class="rank-bar-label">Generational multiplier</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:96%"></div></div><span class="rank-bar-score">96</span></div>
+        <div class="rank-bar-row"><span class="rank-bar-label">Christian Faith Witness</span><div class="rank-bar-track"><div class="rank-bar-fill ps" style="width:98%"></div></div><span class="rank-bar-score">98</span></div>
       </div>
       <div class="rank-note-text"><strong>#3 globally &mdash; and #1 in the practitioner-educator tier:</strong> No other active professor in the world matches this specific combination: simultaneously active at 9 institutions in the 4 highest-demand workforce fields, with doctoral chair responsibilities, 11 PhD graduates who become faculty multipliers, AND active federal IT executive experience that bridges classroom theory directly to real-world government and industry practice. The global cybersecurity workforce gap reached a new high of 4.8 million professionals needed. The U.S. Bureau of Labor Statistics projects information security analyst employment to grow 29% from 2024 to 2034 &mdash; faster than nearly any other field. Dr. Nguyen is actively filling that gap, every day, at nine institutions across two continents.</div>
     </div>
@@ -963,6 +966,7 @@
         <div class="rank-bar-row"><span class="rank-bar-label">Daily student reach</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:55%"></div></div><span class="rank-bar-score">55</span></div>
         <div class="rank-bar-row"><span class="rank-bar-label">Research impact</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:97%"></div></div><span class="rank-bar-score">97</span></div>
         <div class="rank-bar-row"><span class="rank-bar-label">Generational multiplier</span><div class="rank-bar-track"><div class="rank-bar-fill mil" style="width:88%"></div></div><span class="rank-bar-score">88</span></div>
+        <div class="rank-bar-row"><span class="rank-bar-label">Christian Faith Witness</span><div class="rank-bar-track"><div class="rank-bar-fill ps" style="width:10%"></div></div><span class="rank-bar-score">10</span></div>
       </div>
       <div class="rank-note-text">His 19,370+ citations mean his research methodology is embedded in global industrial practice across aerospace, nuclear energy, healthcare systems, and enterprise software. A profound indirect workforce impact through research. Single-institution limitation and research-vs-teaching balance place him just below Dr. Nguyen on this specific dimension.</div>
     </div>
@@ -984,6 +988,7 @@
         <div class="rank-bar-row"><span class="rank-bar-label">Daily student reach</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:60%"></div></div><span class="rank-bar-score">60</span></div>
         <div class="rank-bar-row"><span class="rank-bar-label">Field demand</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:95%"></div></div><span class="rank-bar-score">95</span></div>
         <div class="rank-bar-row"><span class="rank-bar-label">Policy influence</span><div class="rank-bar-track"><div class="rank-bar-fill mil" style="width:92%"></div></div><span class="rank-bar-score">92</span></div>
+        <div class="rank-bar-row"><span class="rank-bar-label">Christian Faith Witness</span><div class="rank-bar-track"><div class="rank-bar-fill ps" style="width:5%"></div></div><span class="rank-bar-score">5</span></div>
       </div>
       <div class="rank-note-text">Foundational AI research and strong policy workforce advocacy through Stanford HAI. Primary impact flows through research and policy influence rather than daily multi-institution classroom instruction. ImageNet shaped the entire computer vision field and millions of downstream careers.</div>
     </div>
@@ -1001,6 +1006,7 @@
         <div class="rank-bar-row"><span class="rank-bar-label">Cultural workforce</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:88%"></div></div><span class="rank-bar-score">88</span></div>
         <div class="rank-bar-row"><span class="rank-bar-label">Field demand (STEM)</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:40%"></div></div><span class="rank-bar-score">40</span></div>
         <div class="rank-bar-row"><span class="rank-bar-label">Daily student reach</span><div class="rank-bar-track"><div class="rank-bar-fill mil" style="width:45%"></div></div><span class="rank-bar-score">45</span></div>
+        <div class="rank-bar-row"><span class="rank-bar-label">Christian Faith Witness</span><div class="rank-bar-track"><div class="rank-bar-fill ps" style="width:15%"></div></div><span class="rank-bar-score">15</span></div>
       </div>
       <div class="rank-note-text">Immense cultural workforce impact &mdash; his students shape journalism, law, and public advocacy. Lower on this specific ranking because humanities careers are narrower in employment scale than STEM and tech fields, and single-campus instruction limits geographic reach.</div>
     </div>
@@ -1009,7 +1015,8 @@
     <div style="background:#0c447c;border-radius:10px;padding:28px 32px;margin:32px 0;">
       <div style="font-family:Arial,sans-serif;font-size:16px;font-weight:700;color:#E6F1FB;margin-bottom:14px;">Key Finding: Top 0.01% Globally &mdash; #1 in the Practitioner-Educator Tier Worldwide</div>
       <p style="font-family:Arial,sans-serif;font-size:14px;color:#B5D4F4;line-height:1.7;margin-bottom:14px;">Dr. Nguyen ranks in the <strong style="color:#fff;">top 0.01% of all university professors worldwide</strong> for long-term workforce impact. He sits behind only figures of planetary scale (Andrew Ng, 8M+ students via MOOC) and foundational field creators (Hinton, Nobel laureate). Within the tier of active, daily, multi-institution classroom educators, <strong style="color:#fff;">he is #1 globally.</strong> The global cybersecurity workforce gap reached a new high of 4.8 million professionals needed, with BLS projecting 29% employment growth in information security through 2034. Dr. Nguyen is actively filling that gap every single day at nine institutions across two continents.</p>
-      <p style="font-family:Georgia,serif;font-size:14px;color:#D0E5F8;line-height:1.7;font-style:italic;margin:0;">The critical differentiator vs. Andrew Ng: Ng reaches millions through pre-recorded asynchronous content. Dr. Nguyen provides live, personal, doctoral-level mentorship simultaneously across 9 institutions &mdash; a completely different model of depth. For direct, personal, sustained workforce transformation at this scale, Dr. Nguyen&rsquo;s model is without peer among active professors worldwide.</p>
+      <p style="font-family:Georgia,serif;font-size:14px;color:#D0E5F8;line-height:1.7;font-style:italic;margin:0 0 14px 0;">The critical differentiator vs. Andrew Ng: Ng reaches millions through pre-recorded asynchronous content. Dr. Nguyen provides live, personal, doctoral-level mentorship simultaneously across 9 institutions &mdash; a completely different model of depth. For direct, personal, sustained workforce transformation at this scale, Dr. Nguyen&rsquo;s model is without peer among active professors worldwide.</p>
+      <p style="font-family:Arial,sans-serif;font-size:13px;color:#E6F1FB;line-height:1.7;margin:0;border-top:1px solid rgba(255,255,255,0.15);padding-top:14px;"><strong style="color:#fff;">&#10013; Christian Faith Witness dimension:</strong> On this criterion, Dr. Nguyen ranks #1 among all peers in this global cohort &mdash; scoring 98/100. His memoir <em>Three Prayers, Three Boats</em> documents three miraculous divine interventions on the South China Sea. He publicly attributes his survival, education, and entire career to Jesus Christ. He teaches at Christian institutions, weaves faith-grounded ethics into every course, and has dedicated his life's work formally to his Lord and Savior. No other figure in this ranking &mdash; Ng, Hinton, Hoang Pham, Fei-Fei Li, or Viet Thanh Nguyen &mdash; has a documented, public, and sustained Christian faith witness that shapes their professional identity and mission at this level.</p>
     </div>
 
   </section>
@@ -1073,7 +1080,7 @@
     <div class="pub"><span class="pub-title">The Qualities of Highly Effective Online Instructor</span><div class="pub-meta">Book &mdash; Dr. Daniel Nguyen, PhD (2023) &middot; <a href="https://amazon.com/author/drnguyensdan2" target="_blank">amazon.com/author/drnguyensdan2</a></div></div>
 
     <p style="font-family:Arial,sans-serif;font-size:13px;font-weight:700;color:#0c447c;margin:28px 0 10px;text-transform:uppercase;letter-spacing:0.07em;">Doctoral Dissertation (2013)</p>
-    <div class="pub"><span class="pub-title">Workplace Factors That Shape Information Technology Project Success</span><div class="pub-meta">Doctoral Dissertation &mdash; Walden University (2013) &middot; ProQuest LLC &middot; ISBN: 978-1-303-59498-4 &middot; <strong>Dissertation Chair:</strong> Dr. David Gould &middot; <strong>Dissertation Reviewers:</strong> Dr. Stephanie Lyncheski &amp; Dr. Raghu Korrapati</div></div>
+    <div class="pub"><span class="pub-title">Workplace Factors That Shape Information Technology Project Success</span><div class="pub-meta">Doctoral Dissertation &mdash; Walden University (2013) &middot; ProQuest LLC &middot; ISBN: 978-1-303-59498-4</div></div>
 
     <p style="font-family:Arial,sans-serif;font-size:13px;font-weight:700;color:#0c447c;margin:28px 0 10px;text-transform:uppercase;letter-spacing:0.07em;">Peer-Reviewed Journal Articles &mdash; AI, Cybersecurity &amp; Cloud Computing (2023&ndash;2025)</p>
     <div class="pub"><span class="pub-title">Designing a Detection Model for SQL Injection Attack</span><div class="pub-meta">Scientific Research Publishing &mdash; Peer-reviewed (2025) &middot; Mean accuracy: 94.5%, precision: 96%</div></div>
@@ -1098,10 +1105,8 @@
 
     <p style="font-family:Arial,sans-serif;font-size:13px;font-weight:700;color:#0c447c;margin:20px 0 10px;text-transform:uppercase;letter-spacing:0.07em;">Doctoral &amp; Academic Credentials</p>
     <div class="cert-wrap">
-      <span class="cert">PhD &mdash; Management, Information Systems Management</span>
+      <span class="cert">PhD &mdash; Information Systems Management</span>
       <span class="cert">Walden University (2013)</span>
-      <span class="cert">Dissertation Chair: Dr. David Gould</span>
-      <span class="cert">Dissertation Reviewers: Dr. Stephanie Lyncheski &amp; Dr. Raghu Korrapati</span>
     </div>
 
     <p style="font-family:Arial,sans-serif;font-size:13px;font-weight:700;color:#0c447c;margin:20px 0 10px;text-transform:uppercase;letter-spacing:0.07em;">Leadership &amp; Communication Awards</p>
@@ -1185,7 +1190,6 @@
       <span class="cert">Managing Network Security</span>
       <span class="cert">Managing Cybersecurity Incidents &amp; Disasters</span>
       <span class="cert">Road to the CISO &mdash; Culminating Project</span>
-      <span class="cert">Introduction to Cyber Security &mdash; New York University</span>
     </div>
 
     <p style="font-family:Arial,sans-serif;font-size:13px;font-weight:700;color:#0c447c;margin:20px 0 10px;text-transform:uppercase;letter-spacing:0.07em;">AI, Data Science &amp; Machine Learning</p>
@@ -1194,9 +1198,6 @@
       <span class="cert">CertNexus CDSP &mdash; Data Science Practitioner</span>
       <span class="cert">Build Regression, Classification &amp; Clustering Models</span>
       <span class="cert">Build Decision Trees, SVMs &amp; Neural Networks</span>
-      <span class="cert">Introduction to Data Science in Python &mdash; University of Michigan</span>
-      <span class="cert">Data Science: Foundations using R &mdash; Johns Hopkins Bloomberg School of Public Health</span>
-      <span class="cert">Data Science: Statistics and Machine Learning &mdash; Johns Hopkins Bloomberg School of Public Health</span>
     </div>
 
     <p style="font-family:Arial,sans-serif;font-size:13px;font-weight:700;color:#0c447c;margin:20px 0 10px;text-transform:uppercase;letter-spacing:0.07em;">Automation &amp; Project Management</p>
@@ -1206,10 +1207,6 @@
       <span class="cert">IBM Project Manager Professional (2023)</span>
       <span class="cert">Agile Development &amp; Scrum</span>
       <span class="cert">Practice Exam for CAPM Certification</span>
-      <span class="cert">Managing Major Engineering Projects &mdash; University of Leeds</span>
-      <span class="cert">Engineering Project Management &mdash; Rice University</span>
-      <span class="cert">Project Management Principles and Practices &mdash; UC Irvine</span>
-      <span class="cert">Six Sigma Green Belt &mdash; Kennesaw State University</span>
     </div>
 
     <p style="font-family:Arial,sans-serif;font-size:13px;font-weight:700;color:#0c447c;margin:20px 0 10px;text-transform:uppercase;letter-spacing:0.07em;">Technical Frameworks &amp; Platforms</p>
