@@ -457,6 +457,17 @@
     border-bottom: 2px solid var(--gold);
     display: inline-block;
     line-height: 1.25;
+    animation: secTitleFlash 3s ease-in-out infinite;
+  }
+  @keyframes secTitleFlash {
+    0%, 100% {
+      color: var(--navy);
+      text-shadow: none;
+    }
+    50% {
+      color: var(--navy-light);
+      text-shadow: 0 0 12px rgba(42,122,196,0.55), 0 0 28px rgba(42,122,196,0.25);
+    }
   }
 
   /* ===== TYPOGRAPHY ===== */
@@ -1050,12 +1061,33 @@
   .h2h-win-block { display: block; }
 
   /* ===== HERO SUB STRUCTURED LAYOUT ===== */
+  /* ── HERO SUB PILLS: horizontal ticker scroll ── */
   .hero-sub-pills {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 10px;
     margin-bottom: 24px;
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
   }
+  /* Inner track that actually scrolls — duplicated content for seamless loop */
+  .hero-sub-pills-track {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    animation: chipTicker 28s linear infinite;
+    white-space: nowrap;
+  }
+  .hero-sub-pills:hover .hero-sub-pills-track {
+    animation-play-state: paused;
+  }
+  @keyframes chipTicker {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
   .hero-sub-chip {
     font-family: var(--font-ui);
     font-size: 13px;
@@ -1065,12 +1097,39 @@
     border: 1px solid rgba(255,255,255,0.14);
     border-radius: 6px;
     padding: 5px 12px;
+    flex-shrink: 0;
+    display: inline-block;
   }
   .hero-sub-chip strong { color: #fff; }
+
+  /* Gold #1 chips: flashing gold glow */
   .hero-sub-chip.gold-chip {
     background: rgba(201,162,39,0.20);
-    border-color: rgba(201,162,39,0.45);
+    border-color: rgba(201,162,39,0.55);
     color: #FDF6DC;
+    animation: goldChipFlash 2.2s ease-in-out infinite;
+  }
+  @keyframes goldChipFlash {
+    0%,100% {
+      background: rgba(201,162,39,0.20);
+      border-color: rgba(201,162,39,0.55);
+      box-shadow: 0 0 0px rgba(201,162,39,0);
+    }
+    45% {
+      background: rgba(201,162,39,0.45);
+      border-color: rgba(245,200,66,0.95);
+      box-shadow: 0 0 14px 3px rgba(201,162,39,0.65), 0 0 28px 6px rgba(201,162,39,0.25);
+    }
+    50% {
+      background: rgba(245,200,66,0.55);
+      border-color: #f5c842;
+      box-shadow: 0 0 20px 5px rgba(245,200,66,0.75), 0 0 40px 10px rgba(201,162,39,0.30);
+    }
+    55% {
+      background: rgba(201,162,39,0.45);
+      border-color: rgba(245,200,66,0.95);
+      box-shadow: 0 0 14px 3px rgba(201,162,39,0.65), 0 0 28px 6px rgba(201,162,39,0.25);
+    }
   }
 
   /* ===== CONCLUSION BOX VERDICT GRID ===== */
@@ -1149,14 +1208,26 @@
       </div>
     </div>
     <div class="hero-sub-pills">
-      <span class="hero-sub-chip gold-chip">🥇 <strong>#1 Worldwide</strong> — Student &amp; Educational Impact</span>
-      <span class="hero-sub-chip gold-chip">🥇 <strong>#1 Globally</strong> — University Professors, Workforce Impact</span>
-      <span class="hero-sub-chip">🎓 Professor at <strong>9 Institutions</strong> Worldwide</span>
-      <span class="hero-sub-chip">🎯 <strong>11 Doctoral Graduates</strong> Mentored</span>
-      <span class="hero-sub-chip">🇺🇸 <strong>First Documented</strong> Central Vietnamese Refugee — U.S. Marine Corps</span>
-      <span class="hero-sub-chip">🏛️ IT Supervisor &amp; Acting Director, NOAA/NLSC · <strong>22+ Yrs Federal Service</strong></span>
-      <span class="hero-sub-chip">✍️ Author — <em>Three Prayers, Three Boats</em> &amp; <em>Earned, Not Given</em> · 26+ Books</span>
-      <span class="hero-sub-chip">🏆 Distinguished Toastmaster (DTM) · Distinguished Director of the Year</span>
+      <div class="hero-sub-pills-track">
+        <!-- set 1 -->
+        <span class="hero-sub-chip gold-chip">🥇 <strong>#1 Worldwide</strong> — Student &amp; Educational Impact</span>
+        <span class="hero-sub-chip gold-chip">🥇 <strong>#1 Globally</strong> — University Professors, Workforce Impact</span>
+        <span class="hero-sub-chip">🎓 Professor at <strong>9 Institutions</strong> Worldwide</span>
+        <span class="hero-sub-chip">🎯 <strong>11 Doctoral Graduates</strong> Mentored</span>
+        <span class="hero-sub-chip">🇺🇸 <strong>First Documented</strong> Central Vietnamese Refugee — U.S. Marine Corps</span>
+        <span class="hero-sub-chip">🏛️ IT Supervisor &amp; Acting Director, NOAA/NLSC · <strong>22+ Yrs Federal Service</strong></span>
+        <span class="hero-sub-chip">✍️ Author — <em>Three Prayers, Three Boats</em> &amp; <em>Earned, Not Given</em> · 26+ Books</span>
+        <span class="hero-sub-chip">🏆 Distinguished Toastmaster (DTM) · Distinguished Director of the Year</span>
+        <!-- set 2 (duplicate for seamless loop) -->
+        <span class="hero-sub-chip gold-chip">🥇 <strong>#1 Worldwide</strong> — Student &amp; Educational Impact</span>
+        <span class="hero-sub-chip gold-chip">🥇 <strong>#1 Globally</strong> — University Professors, Workforce Impact</span>
+        <span class="hero-sub-chip">🎓 Professor at <strong>9 Institutions</strong> Worldwide</span>
+        <span class="hero-sub-chip">🎯 <strong>11 Doctoral Graduates</strong> Mentored</span>
+        <span class="hero-sub-chip">🇺🇸 <strong>First Documented</strong> Central Vietnamese Refugee — U.S. Marine Corps</span>
+        <span class="hero-sub-chip">🏛️ IT Supervisor &amp; Acting Director, NOAA/NLSC · <strong>22+ Yrs Federal Service</strong></span>
+        <span class="hero-sub-chip">✍️ Author — <em>Three Prayers, Three Boats</em> &amp; <em>Earned, Not Given</em> · 26+ Books</span>
+        <span class="hero-sub-chip">🏆 Distinguished Toastmaster (DTM) · Distinguished Director of the Year</span>
+      </div>
     </div>
     <div class="pill-row">
       <span class="pill" style="background:rgba(201,162,39,0.28);border-color:rgba(201,162,39,0.55);color:#FDF6DC;font-weight:700;">#1 Worldwide &mdash; Student &amp; Educational Impact</span>
