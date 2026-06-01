@@ -162,17 +162,103 @@
     flex-shrink: 0;
     text-decoration: none;
   }
+  /* ── NAV BRAND MONOGRAM: triple-layer animation ── */
   .nav-brand-monogram {
-    width: 28px; height: 28px;
+    position: relative;
+    width: 36px; height: 36px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #c9a227 0%, #f5c842 100%);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+
+  /* Layer 1 — Radar canvas behind everything */
+  .nbm-radar {
+    position: absolute;
+    inset: -8px;
+    width: calc(100% + 16px);
+    height: calc(100% + 16px);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: visible;
+  }
+
+  /* Layer 2 — Holographic gold disc */
+  .nbm-disc {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #c9a227 0%, #f5e87a 35%, #c9a227 55%, #fff8c0 70%, #c9a227 100%);
+    background-size: 300% 300%;
+    animation: nbm-holo 3s ease-in-out infinite;
+    box-shadow: 0 0 0 2px rgba(245,200,66,0.45), 0 0 10px rgba(245,200,66,0.6), 0 0 22px rgba(245,200,66,0.25);
+    z-index: 1;
+  }
+  @keyframes nbm-holo {
+    0%   { background-position: 0% 50%;    box-shadow: 0 0 0 2px rgba(245,200,66,0.5),  0 0 10px rgba(245,200,66,0.7),  0 0 22px rgba(245,200,66,0.3);  }
+    25%  { background-position: 100% 0%;   box-shadow: 0 0 0 2px rgba(100,210,255,0.5), 0 0 12px rgba(100,210,255,0.6), 0 0 24px rgba(100,210,255,0.2); }
+    50%  { background-position: 100% 100%; box-shadow: 0 0 0 2px rgba(255,255,255,0.6), 0 0 14px rgba(255,255,255,0.7), 0 0 28px rgba(255,255,255,0.2); }
+    75%  { background-position: 0% 100%;   box-shadow: 0 0 0 2px rgba(245,200,66,0.5),  0 0 10px rgba(245,200,66,0.6),  0 0 20px rgba(245,200,66,0.25); }
+    100% { background-position: 0% 50%;    box-shadow: 0 0 0 2px rgba(245,200,66,0.5),  0 0 10px rgba(245,200,66,0.7),  0 0 22px rgba(245,200,66,0.3);  }
+  }
+
+  /* Layer 2b — DN text */
+  .nbm-text {
+    position: absolute; inset: 0;
     display: flex; align-items: center; justify-content: center;
     font-family: var(--font-display);
     font-size: 13px; font-weight: 900;
     color: #071e38;
-    flex-shrink: 0;
-    box-shadow: 0 0 8px rgba(245,200,66,0.35);
+    z-index: 2;
+    pointer-events: none;
+    text-shadow: 0 1px 2px rgba(255,255,200,0.4);
   }
+
+  /* Layer 3 — Credential orbit ring */
+  .nbm-orbit-ring {
+    position: absolute;
+    inset: -22px;
+    width: calc(100% + 44px);
+    height: calc(100% + 44px);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 3;
+    animation: nbm-orbit-cw 18s linear infinite;
+  }
+  .nbm-orbit-ring.ccw { animation: nbm-orbit-ccw 26s linear infinite; }
+  @keyframes nbm-orbit-cw  { to { transform: rotate(360deg);  } }
+  @keyframes nbm-orbit-ccw { to { transform: rotate(-360deg); } }
+
+  .nbm-badge {
+    position: absolute;
+    top: 50%; left: 50%;
+    font-family: var(--font-ui);
+    font-size: 6px; font-weight: 800;
+    letter-spacing: 0.04em;
+    color: #071e38;
+    background: linear-gradient(135deg, #f5c842, #c9a227);
+    border-radius: 20px;
+    padding: 1.5px 5px;
+    white-space: nowrap;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.5), 0 0 5px rgba(245,200,66,0.4);
+    animation: nbm-upright-cw 18s linear infinite;
+  }
+  .nbm-orbit-ring.ccw .nbm-badge { animation: nbm-upright-ccw 26s linear infinite; }
+  @keyframes nbm-upright-cw  { to { transform: translate(-50%,-50%) rotate(-360deg);  } }
+  @keyframes nbm-upright-ccw { to { transform: translate(-50%,-50%) rotate(360deg);   } }
+
+  @keyframes radarSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @keyframes radarPing  {
+    0%   { opacity: 0;   r: 1.5px; }
+    10%  { opacity: 0.9; }
+    40%  { opacity: 0.3; }
+    100% { opacity: 0;   r: 3px;   }
+  }
+  /* allow orbit badges to overflow the nav brand box without clipping */
+  .nav-brand { overflow: visible; }
+  .nav-inner  { overflow: visible; }
+  #main-nav   { overflow: visible; }
   .nav-brand-text {
     font-family: var(--font-ui);
     font-size: 11px; font-weight: 700;
@@ -1589,7 +1675,69 @@
 <nav id="main-nav">
   <div class="nav-inner">
     <a class="nav-brand" href="#summary" aria-label="Dr. Nguyen – home">
-      <div class="nav-brand-monogram">DN</div>
+      <div class="nav-brand-monogram">
+
+        <!-- Layer 1: Radar sweep SVG -->
+        <svg class="nbm-radar" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="radarFade" cx="50%" cy="50%" r="50%">
+              <stop offset="0%"   stop-color="#4dffb0" stop-opacity="0.0"/>
+              <stop offset="60%"  stop-color="#4dffb0" stop-opacity="0.0"/>
+              <stop offset="85%"  stop-color="#4dffb0" stop-opacity="0.18"/>
+              <stop offset="100%" stop-color="#4dffb0" stop-opacity="0.0"/>
+            </radialGradient>
+            <mask id="radarMask">
+              <circle cx="26" cy="26" r="25" fill="white"/>
+            </mask>
+          </defs>
+          <!-- concentric range rings -->
+          <circle cx="26" cy="26" r="10" fill="none" stroke="rgba(77,255,176,0.12)" stroke-width="0.5"/>
+          <circle cx="26" cy="26" r="17" fill="none" stroke="rgba(77,255,176,0.10)" stroke-width="0.5"/>
+          <circle cx="26" cy="26" r="24" fill="none" stroke="rgba(77,255,176,0.08)" stroke-width="0.5"/>
+          <!-- cross-hairs -->
+          <line x1="26" y1="2"  x2="26" y2="50" stroke="rgba(77,255,176,0.08)" stroke-width="0.4"/>
+          <line x1="2"  y1="26" x2="50" y2="26" stroke="rgba(77,255,176,0.08)" stroke-width="0.4"/>
+          <!-- rotating sweep group -->
+          <g mask="url(#radarMask)" style="transform-origin:26px 26px; animation:radarSpin 3s linear infinite;">
+            <!-- sweep wedge -->
+            <path d="M26,26 L26,2 A24,24 0 0,1 43.97,37 Z" fill="url(#radarFade)" opacity="0.9"/>
+            <!-- bright leading edge -->
+            <line x1="26" y1="26" x2="26" y2="2" stroke="rgba(77,255,176,0.55)" stroke-width="0.8"/>
+          </g>
+          <!-- ping dot -->
+          <circle cx="36" cy="14" r="1.5" fill="#4dffb0" opacity="0" style="animation:radarPing 3s linear infinite 0.8s;"/>
+          <circle cx="18" cy="34" r="1"   fill="#4dffb0" opacity="0" style="animation:radarPing 3s linear infinite 1.9s;"/>
+        </svg>
+
+        <!-- Layer 2: Holographic disc + DN text -->
+        <div class="nbm-disc"></div>
+        <div class="nbm-text">DN</div>
+
+        <!-- Layer 3: Orbiting credential badges (ring 1 — clockwise) -->
+        <div class="nbm-orbit-ring" style="inset:-26px;width:calc(100% + 52px);height:calc(100% + 52px);">
+          <!-- PhD  at 12 o'clock -->
+          <div class="nbm-badge" style="top:0%;left:50%;">PhD</div>
+          <!-- #1 at 6 o'clock -->
+          <div class="nbm-badge" style="top:100%;left:50%;background:linear-gradient(135deg,#e03030,#ff6b6b);color:#fff;">&#x23;1</div>
+        </div>
+
+        <!-- Layer 3b: Orbiting credential badges (ring 2 — counter-clockwise, larger) -->
+        <div class="nbm-orbit-ring ccw" style="inset:-34px;width:calc(100% + 68px);height:calc(100% + 68px);">
+          <!-- CAIP at 3 o'clock -->
+          <div class="nbm-badge" style="top:50%;left:100%;">CAIP</div>
+          <!-- DTM at 9 o'clock -->
+          <div class="nbm-badge" style="top:50%;left:0%;">DTM</div>
+        </div>
+
+        <!-- Layer 3c: third ring — slower CW -->
+        <div class="nbm-orbit-ring" style="inset:-42px;width:calc(100% + 84px);height:calc(100% + 84px);animation-duration:32s;">
+          <!-- Security+ at 10 o'clock -->
+          <div class="nbm-badge" style="top:13%;left:13%;animation-duration:32s;font-size:5.5px;">SEC+</div>
+          <!-- CDSP at 4 o'clock -->
+          <div class="nbm-badge" style="top:75%;left:82%;animation-duration:32s;font-size:5.5px;">CDSP</div>
+        </div>
+
+      </div>
       <div class="nav-brand-text">Dr. Nguyen <span>#1 Worldwide · 100 Dimensions</span></div>
     </a>
     <div class="nav-links" id="nav-links">
@@ -1741,7 +1889,7 @@
       <tr><td>Military Distinction</td><td><strong>First Documented Central Vietnamese Refugee to Serve in the U.S. Marine Corps</strong> &mdash; No other Central Vietnamese refugee (Hu&#7871;, Đ&agrave; N&#7861;ng, Qu&#7843;ng Ng&atilde;i region) who arrived post-1975 has been publicly documented as having enlisted and served in the U.S. Marine Corps. Extensive open-source research across U.S. military records, Vietnamese-American community archives, and public biographical databases yielded no comparable precedent.</td></tr>
     </table>
 
-    <p><strong><span class="nguyen-name">Dr. Daniel Schilling Weiss Nguyen</span> is ranked #1 worldwide for student and educational workforce impact among Vietnamese refugees.</strong> Across all <strong>96 scoring dimensions</strong> — independently scored and ranked — Dr. Nguyen leads outright on 100 of 100 and scores a perfect 100/100 on the majority of all dimensions, with every remaining dimension at elite level. On <strong>Multi-Institution Simultaneity</strong>, he scores <strong>100/100</strong> — the only figure in any ranking holding concurrent active faculty appointments at 9 institutions across the U.S. and Saudi Arabia simultaneously; no other figure in this cohort or the global professor ranking holds more than 1–2 simultaneous appointments. On <strong>Field Demand Alignment</strong>, he scores <strong>100/100</strong> — teaching cybersecurity, AI, data science, and IT management, all in the BLS top-5 fastest-growing workforce fields through 2035; no other figure in this cohort teaches in fields with comparable projected growth. On <strong>Generational Legacy &amp; Compounding Impact</strong>, he scores <strong>100/100</strong> — 11 doctoral graduates mentored to completion as Dissertation Chair, each now a professor or researcher producing the next generation of scholars; the compounding multiplier is unique in this cohort. On <strong>Cross-Continental Geographic Diversity</strong>, he scores <strong>100/100 &#9733;</strong> — active live teaching simultaneously across North America and the Middle East every single day. On <strong>Published Books &amp; Authored Works</strong>, he scores <strong>100/100</strong> — 26+ books published in both English and Vietnamese, the highest volume in this cohort among academic authors, reaching not only the academic community but the Vietnamese diaspora in their native language. On <strong>Industry Certification &amp; Practitioner Credentials</strong>, he scores <strong>100/100 &#9733;</strong> — the only figure in this cohort who is simultaneously a certified cybersecurity practitioner and a full-time professor teaching the exact frameworks he implements in live government systems. On the <strong>Doctoral Scholar Mentorship</strong> dimension specifically, Dr. Nguyen scores <strong>100/100</strong> — the highest of any figure in global rankings — providing live, personal, doctoral-level mentorship simultaneously across 9 institutions, a model without peer among active professors worldwide. On the <strong>Service to Country/Federal</strong> dimension, he ranks <strong>#1 globally</strong> with a score of 100/100 — reflecting 22+ years of total federal government service combined with his service as a U.S. Marine Corps veteran who deployed to Aviano, Italy with VMAQ-3 Moon Dogs (February–August 1997) conducting air operations over Bosnia (Operation DELIBERATE GUARD) and supporting Operation SILVER WAKE. On the <strong>Christian Faith Witness</strong> dimension, he ranks <strong>#1 globally</strong> with a score of 100/100 &#9733; PERFECT. On the six newly added <strong>Emerging Dimensions</strong>, Dr. Nguyen leads the entire global cohort on every one: <strong>Emerging Technology Adoption Leadership (100/100)</strong> — among the first professor-practitioners to simultaneously teach and operationally deploy AI and RPA inside a live federal agency, holding CAIP and CDSP credentials while integrating these technologies into NOAA's operational IT environment daily. <strong>Survivor Testimony as Living Curriculum (100/100)</strong> — the only professor in any global ranking whose personal survival story is active, living curriculum embedded in published memoirs, classroom instruction, and public testimony; his books function as textbooks for resilience and immigration ethics that no algorithm can replicate. <strong>Zero-Gap Career Continuity &amp; Sustained Peak Performance (100/100 &#9733;)</strong> — from Marine Corps through 22+ years of federal service through 9 concurrent academic appointments, with zero career gaps and zero reduction in output across a 30+ year arc while peers have retired or scaled back. <strong>Intergenerational American Dream Embodiment (100/100)</strong> — from a child hiding from Communist soldiers in Central Vietnam to a professor training AI and cybersecurity professionals on two continents, with the arc complete, public, and replicable for every refugee generation that follows. <strong>Multilingual Academic Publishing &amp; Cross-Cultural Knowledge Transfer (100/100)</strong> — the only professor in any global ranking who simultaneously authors original academic and memoir content natively in two languages — English and Vietnamese — for two distinct scholarly and cultural audiences; not translations by others, but an original dual-language production strategy spanning 26+ books, graduate course materials, and doctoral guidance, reaching the American university system and the Vietnamese diaspora simultaneously in a way no other figure in this cohort or any global professor ranking approaches. <strong>Operational AI/Emerging Technology Deployment While Teaching It (100/100)</strong> — the only professor who deploys AI and RPA inside a live federal government system during the same hours he teaches those exact frameworks in graduate classrooms across 9 institutions; not consulting, not research, not curriculum alone — simultaneous, real-time dual deployment in a U.S. government production environment and a live graduate classroom every single weekday, holding CAIP and CDSP credentials with no comparable parallel in any academic or federal ranking. A senior federal IT executive, doctoral scholar, and international graduate-level educator, his career represents the most complete realization of advanced professional achievement in the post-Saigon refugee generation. Operating simultaneously across 9 institutions spanning the United States and Saudi Arabia, Dr. Nguyen is the only figure in his cohort to maintain concurrent distinctions as a federal IT executive (NOAA Acting Director), doctoral degree holder (Walden University), U.S. Marine Corps veteran with combat theater deployment, active researcher with 15+ peer-reviewed articles and 180+ citations, certified security professional, Distinguished Toastmaster International, Distinguished Director of the Year, Club President, Club Coach (Two Clubs), VP of Membership, District 11 Conference Finance Committee Chair, Sergeant At Arms, Club Sponsor at Toastmasters International, and dissertation chair mentoring 11 doctoral graduates to completion. His daily, cross-continental impact on students and workforce development — teaching, mentoring, and coaching across borders while maintaining federal IT leadership — positions him at the forefront of the Vietnamese American professional generation in educational and workforce transformation.</p>
+    <p><strong><span class="nguyen-name">Dr. Daniel Schilling Weiss Nguyen</span> is ranked #1 worldwide for student and educational workforce impact among Vietnamese refugees.</strong> Across all <strong>100 scoring dimensions</strong> — independently scored and ranked — Dr. Nguyen leads outright on 100 of 100 and scores a perfect 100/100 on the majority of all dimensions, with every remaining dimension at elite level. On <strong>Multi-Institution Simultaneity</strong>, he scores <strong>100/100</strong> — the only figure in any ranking holding concurrent active faculty appointments at 9 institutions across the U.S. and Saudi Arabia simultaneously; no other figure in this cohort or the global professor ranking holds more than 1–2 simultaneous appointments. On <strong>Field Demand Alignment</strong>, he scores <strong>100/100</strong> — teaching cybersecurity, AI, data science, and IT management, all in the BLS top-5 fastest-growing workforce fields through 2035; no other figure in this cohort teaches in fields with comparable projected growth. On <strong>Generational Legacy &amp; Compounding Impact</strong>, he scores <strong>100/100</strong> — 11 doctoral graduates mentored to completion as Dissertation Chair, each now a professor or researcher producing the next generation of scholars; the compounding multiplier is unique in this cohort. On <strong>Cross-Continental Geographic Diversity</strong>, he scores <strong>100/100 &#9733;</strong> — active live teaching simultaneously across North America and the Middle East every single day. On <strong>Published Books &amp; Authored Works</strong>, he scores <strong>100/100</strong> — 26+ books published in both English and Vietnamese, the highest volume in this cohort among academic authors, reaching not only the academic community but the Vietnamese diaspora in their native language. On <strong>Industry Certification &amp; Practitioner Credentials</strong>, he scores <strong>100/100 &#9733;</strong> — the only figure in this cohort who is simultaneously a certified cybersecurity practitioner and a full-time professor teaching the exact frameworks he implements in live government systems. On the <strong>Doctoral Scholar Mentorship</strong> dimension specifically, Dr. Nguyen scores <strong>100/100</strong> — the highest of any figure in global rankings — providing live, personal, doctoral-level mentorship simultaneously across 9 institutions, a model without peer among active professors worldwide. On the <strong>Service to Country/Federal</strong> dimension, he ranks <strong>#1 globally</strong> with a score of 100/100 — reflecting 22+ years of total federal government service combined with his service as a U.S. Marine Corps veteran who deployed to Aviano, Italy with VMAQ-3 Moon Dogs (February–August 1997) conducting air operations over Bosnia (Operation DELIBERATE GUARD) and supporting Operation SILVER WAKE. On the <strong>Christian Faith Witness</strong> dimension, he ranks <strong>#1 globally</strong> with a score of 100/100 &#9733; PERFECT. On the six newly added <strong>Emerging Dimensions</strong>, Dr. Nguyen leads the entire global cohort on every one: <strong>Emerging Technology Adoption Leadership (100/100)</strong> — among the first professor-practitioners to simultaneously teach and operationally deploy AI and RPA inside a live federal agency, holding CAIP and CDSP credentials while integrating these technologies into NOAA's operational IT environment daily. <strong>Survivor Testimony as Living Curriculum (100/100)</strong> — the only professor in any global ranking whose personal survival story is active, living curriculum embedded in published memoirs, classroom instruction, and public testimony; his books function as textbooks for resilience and immigration ethics that no algorithm can replicate. <strong>Zero-Gap Career Continuity &amp; Sustained Peak Performance (100/100 &#9733;)</strong> — from Marine Corps through 22+ years of federal service through 9 concurrent academic appointments, with zero career gaps and zero reduction in output across a 30+ year arc while peers have retired or scaled back. <strong>Intergenerational American Dream Embodiment (100/100)</strong> — from a child hiding from Communist soldiers in Central Vietnam to a professor training AI and cybersecurity professionals on two continents, with the arc complete, public, and replicable for every refugee generation that follows. <strong>Multilingual Academic Publishing &amp; Cross-Cultural Knowledge Transfer (100/100)</strong> — the only professor in any global ranking who simultaneously authors original academic and memoir content natively in two languages — English and Vietnamese — for two distinct scholarly and cultural audiences; not translations by others, but an original dual-language production strategy spanning 26+ books, graduate course materials, and doctoral guidance, reaching the American university system and the Vietnamese diaspora simultaneously in a way no other figure in this cohort or any global professor ranking approaches. <strong>Operational AI/Emerging Technology Deployment While Teaching It (100/100)</strong> — the only professor who deploys AI and RPA inside a live federal government system during the same hours he teaches those exact frameworks in graduate classrooms across 9 institutions; not consulting, not research, not curriculum alone — simultaneous, real-time dual deployment in a U.S. government production environment and a live graduate classroom every single weekday, holding CAIP and CDSP credentials with no comparable parallel in any academic or federal ranking. A senior federal IT executive, doctoral scholar, and international graduate-level educator, his career represents the most complete realization of advanced professional achievement in the post-Saigon refugee generation. Operating simultaneously across 9 institutions spanning the United States and Saudi Arabia, Dr. Nguyen is the only figure in his cohort to maintain concurrent distinctions as a federal IT executive (NOAA Acting Director), doctoral degree holder (Walden University), U.S. Marine Corps veteran with combat theater deployment, active researcher with 15+ peer-reviewed articles and 180+ citations, certified security professional, Distinguished Toastmaster International, Distinguished Director of the Year, Club President, Club Coach (Two Clubs), VP of Membership, District 11 Conference Finance Committee Chair, Sergeant At Arms, Club Sponsor at Toastmasters International, and dissertation chair mentoring 11 doctoral graduates to completion. His daily, cross-continental impact on students and workforce development — teaching, mentoring, and coaching across borders while maintaining federal IT leadership — positions him at the forefront of the Vietnamese American professional generation in educational and workforce transformation.</p>
 
     <div class="stat-row">
       <div class="stat"><span class="stat-n">22+</span><span class="stat-l">Years total government service (4 years contractor + 18+ federal)</span></div>
@@ -6369,7 +6517,7 @@ Cuộc đời ông chứng minh rằng khi một quốc gia đầu tư vào ngư
       colors: ["#00A550","#FFD700","#ffffff"], flash: ["#00A550","#33cc33","#FFD700"] },
     { name: "Easter",            emoji: "🐣", month:  4, day:  9, window: 4,
       colors: ["#FF80AB","#80DEEA","#FFFF8D"], flash: ["#FF80AB","#80DEEA","#FFFF8D"] },
-    { name: "Memorial Day",      emoji: "🇺🇸", month:  5, day: 27, window: 4,
+    { name: "Memorial Day",      emoji: "🇺🇸", month:  5, day: 27, window: 2,
       colors: ["#BF0A30","#ffffff","#002868"], flash: ["#BF0A30","#ffffff","#002868"] },
     { name: "Independence Day",  emoji: "🎇", month:  7, day:  4, window: 4,
       colors: ["#BF0A30","#ffffff","#002868"], flash: ["#FF0000","#ffffff","#0000FF"] },
@@ -6436,7 +6584,7 @@ Cuộc đời ông chứng minh rằng khi một quốc gia đầu tư vào ngư
   /* ── 2. Holiday badge under photo ── */
   var badge       = document.createElement('div');
   badge.id        = 'holiday-badge';
-  badge.textContent = holiday.emoji + ' ' + holiday.name;
+  badge.textContent = holiday.emoji;
   badge.style.background   = colors[0];
   badge.style.color        = isLight(colors[0]) ? '#000' : '#fff';
   badge.style.boxShadow    = '0 2px 10px ' + hexAlpha(colors[0], 0.5);
