@@ -1576,6 +1576,10 @@
   .rank-bar-fill.animated {
     transform: scaleX(var(--bar-scale, 1));
   }
+  /* Dr. Daniel's cards animate 2x faster — his bars shoot to 100 instantly */
+  .rank-card.you .rank-bar-fill {
+    transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  }
 
   /* Rank cards: use content-visibility so off-screen cards skip paint entirely */
   .rank-card {
@@ -2696,17 +2700,35 @@
         </div>
         <div class="verdict-item silver">
           <div class="v-rank">🥈 #2 Overall · #1 Cultural &amp; Literary Impact</div>
-          <div class="v-name">Viet Thanh Nguyen</div>
+          <div class="v-photo-wrap" style="display:flex;align-items:center;gap:14px;margin-bottom:10px;">
+            <div class="v-photo-slot" style="width:72px;height:72px;border-radius:50%;border:2px solid #8a9ba8;background:linear-gradient(135deg,#1a2a3a 0%,#2c3e50 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;position:relative;">
+              <img id="VietThanh.JPG" src="" alt="Viet Thanh Nguyen" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none;" onerror="this.style.display='none'" onload="this.style.display='block'">
+              <span style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:700;color:rgba(255,255,255,0.4);pointer-events:none;position:absolute;">VT</span>
+            </div>
+            <div class="v-name" style="margin-bottom:0;">Viet Thanh Nguyen</div>
+          </div>
           <div class="v-desc">His Pulitzer Prize-winning voice has reshaped how millions understand the Vietnamese refugee experience. The most-acclaimed Vietnamese American literary voice of the post-Saigon generation — his cultural readership, global translations, Pulitzer Prize, HBO series, Harvard Norton Lectures, and MacArthur Fellowship make him the undisputed #1 on the cultural and literary impact dimension. Leads outright on cultural readership &amp; global reach over all other figures in this cohort.</div>
         </div>
         <div class="verdict-item blue">
           <div class="v-rank">🎓 #3 Overall · #1 Raw Credential Volume &amp; Patent Innovation · Reassessed</div>
-          <div class="v-name">Dr. Tue Nguyen</div>
+          <div class="v-photo-wrap" style="display:flex;align-items:center;gap:14px;margin-bottom:10px;">
+            <div class="v-photo-slot" style="width:72px;height:72px;border-radius:50%;border:2px solid var(--navy-light,#1a4a7c);background:linear-gradient(135deg,#0c2340 0%,#1a3a5c 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;position:relative;">
+              <img id="TueNguyen.JPG" src="" alt="Dr. Tue Nguyen" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none;" onerror="this.style.display='none'" onload="this.style.display='block'">
+              <span style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:700;color:rgba(255,255,255,0.4);pointer-events:none;position:absolute;">TN</span>
+            </div>
+            <div class="v-name" style="margin-bottom:0;">Dr. Tue Nguyen</div>
+          </div>
           <div class="v-desc">7 MIT degrees and 200+ U.S. patents remain one of the most extraordinary raw credential and invention records in American history. Leads outright on patents &amp; technical innovation and holds the highest raw-credential volume score in this cohort. However, <em>academic achievement scored across all 100 dimensions</em> — active professorial rank, institutional appointment breadth, doctoral chair completions, and daily live student impact — places Dr. Daniel S.W. Nguyen #1 on the overall academic achievement dimension: formally promoted Associate Professor (CTU), Lead Faculty &amp; Dissertation Chair (Aspen), DBA Research Chair &amp; Dissertation Chair (IWU), 9 concurrent faculty appointments, and 11 doctoral graduates to completion. Dr. Tue Nguyen's model is industry-inventor, not active professor — his raw-credential and patent dominance is unmatched, but the broadest and most actively deployed professional achievement record belongs to Dr. Nguyen.</div>
         </div>
         <div class="verdict-item" style="border-top-color:#e53935;">
           <div class="v-rank">🏥 #4 Notable — #1 Clinical Research Leadership in this Cohort</div>
-          <div class="v-name">Quynh-Thu Le, MD</div>
+          <div class="v-photo-wrap" style="display:flex;align-items:center;gap:14px;margin-bottom:10px;">
+            <div class="v-photo-slot" style="width:72px;height:72px;border-radius:50%;border:2px solid #e53935;background:linear-gradient(135deg,#3b0a0a 0%,#7b1a1a 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;position:relative;">
+              <img id="DrQuynh.JPG" src="" alt="Quynh-Thu Le, MD" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none;" onerror="this.style.display='none'" onload="this.style.display='block'">
+              <span style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:700;color:rgba(255,255,255,0.4);pointer-events:none;position:absolute;">QL</span>
+            </div>
+            <div class="v-name" style="margin-bottom:0;">Quynh-Thu Le, MD</div>
+          </div>
           <div class="v-desc">A boat person from Hu&#7871;, Central Vietnam — the same city as Dr. Nguyen — who escaped pirates, a Malaysian beach camp, and two years in Italy before arriving in California at 14. Caltech graduate. MD from UCSF (1993). Chair of Radiation Oncology at Stanford and Co-Director of the Stanford Cancer Institute. Elected to the National Academy of Medicine in 2013. Led landmark multicenter Phase II and III clinical trials in head and neck cancer. Her journey from Hu&#7871; to Stanford's highest academic chair is one of the most remarkable in this cohort — and the parallel with Dr. Nguyen's Central Vietnamese origin, boat people escape, and rise to institutional leadership makes her story a direct complement to his. Her impact is concentrated in clinical research and cancer treatment rather than the multi-institution professorial and workforce-pipeline model of this ranking.</div>
         </div>
       </div>
@@ -7411,5 +7433,21 @@ Cuộc đời ông chứng minh rằng khi một quốc gia đầu tư vào ngư
   setTimeout(function() { requestAnimationFrame(loop); }, 900);
 })();
 </script>
+
+  <script>
+  // ===== VERDICT PHOTO ACTIVATOR =====
+  // To add a photo, call in browser console: setVerdictPhoto('viet-thanh', 'https://...')
+  // Available IDs: photo-viet-thanh | photo-tue-nguyen | photo-quynh-thu
+  window.setVerdictPhoto = function(id, url) {
+    var img = document.getElementById('photo-' + id);
+    if (!img) return;
+    img.src = url;
+    img.addEventListener('load', function() {
+      var slot = img.parentElement;
+      if (slot) { var sp = slot.querySelector('span'); if(sp) sp.style.display='none'; }
+      img.style.display = 'block';
+    });
+  };
+  </script>
 </html>
 
