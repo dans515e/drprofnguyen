@@ -2157,6 +2157,154 @@
     letter-spacing: 0.18em;
     color: #c9a227;
   }
+
+  /* ════════════════════════════════════════════════════════
+     SCHOLARLY PEER ANALYSIS — ORBIT ANIMATIONS
+     Each scholar gets a unique colored orbit ring + 4 badges
+     ════════════════════════════════════════════════════════ */
+  .peer-photo-wrap {
+    position: relative;
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+  }
+  /* Orbit track — spins around the photo */
+  .peer-orbit-track {
+    position: absolute;
+    inset: -22px;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(255,255,255,0.25);
+    animation: peer-orbit-cw 16s linear infinite;
+    pointer-events: none;
+    z-index: 10;
+  }
+  @keyframes peer-orbit-cw {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  /* Counter-clockwise track (slower) */
+  .peer-orbit-track.ccw {
+    inset: -30px;
+    border-style: dotted;
+    border-color: rgba(255,255,255,0.12);
+    animation: peer-orbit-ccw 26s linear infinite;
+  }
+  @keyframes peer-orbit-ccw {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(-360deg); }
+  }
+  /* Individual badge on the orbit track */
+  .peer-orbit-badge {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', monospace;
+    font-size: 6.5px;
+    font-weight: 800;
+    line-height: 1.15;
+    text-align: center;
+    letter-spacing: 0.03em;
+    box-shadow: 0 0 10px rgba(0,0,0,0.35);
+    animation: peer-badge-upright-cw 16s linear infinite;
+  }
+  .peer-orbit-track.ccw .peer-orbit-badge {
+    width: 22px;
+    height: 22px;
+    font-size: 5.8px;
+    animation: peer-badge-upright-ccw 26s linear infinite;
+  }
+  @keyframes peer-badge-upright-cw  { from{transform:rotate(0deg)} to{transform:rotate(-360deg)} }
+  @keyframes peer-badge-upright-ccw { from{transform:rotate(0deg)} to{transform:rotate(360deg)}  }
+
+  /* Badge positions — top / right / bottom / left */
+  .peer-orbit-badge:nth-child(1) { top:  -13px; left: calc(50% - 13px); }
+  .peer-orbit-badge:nth-child(2) { top:  calc(50% - 13px); right: -13px; }
+  .peer-orbit-badge:nth-child(3) { bottom:-13px; left: calc(50% - 13px); }
+  .peer-orbit-badge:nth-child(4) { top:  calc(50% - 13px); left: -13px; }
+  .peer-orbit-track.ccw .peer-orbit-badge:nth-child(1) { top:-11px;  left:calc(50% - 11px); }
+  .peer-orbit-track.ccw .peer-orbit-badge:nth-child(2) { top:calc(50% - 11px); right:-11px; }
+  .peer-orbit-track.ccw .peer-orbit-badge:nth-child(3) { bottom:-11px; left:calc(50% - 11px); }
+  .peer-orbit-track.ccw .peer-orbit-badge:nth-child(4) { top:calc(50% - 11px); left:-11px; }
+
+  /* ── Quynh-Thu Le — navy/blue (#0c447c) ── */
+  .peer-orbit-quynh .peer-orbit-track        { border-color: rgba(12,68,124,0.55); }
+  .peer-orbit-quynh .peer-orbit-track.ccw    { border-color: rgba(122,184,245,0.22); }
+  .peer-orbit-quynh .peer-orbit-badge {
+    background: #0c447c;
+    border: 1.5px solid #7ab8f5;
+    color: #e0f0ff;
+  }
+  .peer-orbit-quynh .peer-orbit-track.ccw .peer-orbit-badge {
+    background: #071e38;
+    border: 1.5px solid rgba(122,184,245,0.55);
+    color: #7ab8f5;
+  }
+  /* Pulsing glow for Quynh photo border */
+  .peer-orbit-quynh > div:first-child {
+    animation: quynh-border-pulse 3s ease-in-out infinite;
+  }
+  @keyframes quynh-border-pulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(12,68,124,0.4); }
+    50%      { box-shadow: 0 0 0 6px rgba(12,68,124,0); }
+  }
+
+  /* ── Dr. Mai-Linh Hong — forest green (#3B6D11) ── */
+  .peer-orbit-mai .peer-orbit-track     { border-color: rgba(59,109,17,0.55); }
+  .peer-orbit-mai .peer-orbit-track.ccw { border-color: rgba(165,214,167,0.22); }
+  .peer-orbit-mai .peer-orbit-badge {
+    background: #2a5010;
+    border: 1.5px solid #a5d6a7;
+    color: #d4edda;
+  }
+  .peer-orbit-mai .peer-orbit-track.ccw .peer-orbit-badge {
+    background: #0f2a06;
+    border: 1.5px solid rgba(165,214,167,0.55);
+    color: #a5d6a7;
+  }
+  .peer-orbit-mai > div:first-child {
+    animation: mai-border-pulse 3.4s ease-in-out infinite;
+  }
+  @keyframes mai-border-pulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(59,109,17,0.4); }
+    50%      { box-shadow: 0 0 0 6px rgba(59,109,17,0); }
+  }
+
+  /* ── Lan Cao — gold (#c9a227) ── */
+  .peer-orbit-cao .peer-orbit-track     { border-color: rgba(201,162,39,0.55); }
+  .peer-orbit-cao .peer-orbit-track.ccw { border-color: rgba(245,200,66,0.22); }
+  .peer-orbit-cao .peer-orbit-badge {
+    background: #3a2800;
+    border: 1.5px solid #f5c842;
+    color: #fff8dc;
+  }
+  .peer-orbit-cao .peer-orbit-track.ccw .peer-orbit-badge {
+    background: #1a1000;
+    border: 1.5px solid rgba(245,200,66,0.55);
+    color: #f5c842;
+  }
+  .peer-orbit-cao > div:first-child {
+    animation: cao-border-pulse 3.8s ease-in-out infinite;
+  }
+  @keyframes cao-border-pulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(201,162,39,0.45); }
+    50%      { box-shadow: 0 0 0 7px rgba(201,162,39,0); }
+  }
+
+  /* Radar sweep canvas for each scholar */
+  .peer-radar-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0.55;
+  }
+
 </style>
 </head>
 <body>
@@ -4361,11 +4509,38 @@
         <div style="background:#fff;border-radius:10px;box-shadow:0 4px 18px rgba(0,0,0,0.09);border-top:4px solid #0c447c;padding:24px 22px;">
           <!-- PHOTO SLOT — Quynh-Thu Le, MD -->
           <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
-            <div style="width:72px;height:72px;border-radius:50%;border:2.5px solid #0c447c;background:linear-gradient(135deg,#071e38 0%,#1a4a7c 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;position:relative;">
-              <img id="peer-quynh-thu" src="https://dans515e.github.io/drprofnguyen/DrQuynh.jpg" alt="Quynh-Thu Le, MD" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none;" onerror="this.style.display='none'" onload="this.style.display='block';this.previousElementSibling.style.display='none'">
-              <span style="font-family:'Playfair Display',Georgia,serif;font-size:21px;font-weight:700;color:rgba(255,255,255,0.38);pointer-events:none;user-select:none;position:absolute;">QL</span>
+            <div class="peer-photo-wrap peer-orbit-quynh">
+              <!-- Inner photo circle -->
+              <div style="width:72px;height:72px;border-radius:50%;border:2.5px solid #0c447c;background:linear-gradient(135deg,#071e38 0%,#1a4a7c 100%);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;">
+                <!-- Radar sweep SVG -->
+                <svg class="peer-radar-svg" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <radialGradient id="rg-q" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#7ab8f5" stop-opacity="0.55"/>
+                      <stop offset="100%" stop-color="#7ab8f5" stop-opacity="0"/>
+                    </radialGradient>
+                  </defs>
+                  <path d="M36,36 L36,4 A32,32 0 0,1 63.7,52 Z" fill="url(#rg-q)" opacity="0.8" style="transform-origin:36px 36px;animation:peer-orbit-cw 4s linear infinite;"/>
+                  <circle cx="36" cy="36" r="34" fill="none" stroke="#0c447c" stroke-width="0.5" opacity="0.3"/>
+                </svg>
+                <img id="peer-quynh-thu" src="https://dans515e.github.io/drprofnguyen/DrQuynh.jpg" alt="Quynh-Thu Le, MD" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none;position:relative;z-index:6;" onerror="this.style.display='none'" onload="this.style.display='block';this.previousElementSibling.style.display='none'">
+                <span style="font-family:'Playfair Display',Georgia,serif;font-size:21px;font-weight:700;color:rgba(255,255,255,0.38);pointer-events:none;user-select:none;position:absolute;z-index:7;">QL</span>
+              </div>
+              <!-- Outer orbit track — clockwise -->
+              <div class="peer-orbit-track">
+                <div class="peer-orbit-badge">MD<br>Stan</div>
+                <div class="peer-orbit-badge">NAM<br>2013</div>
+                <div class="peer-orbit-badge">Cal<br>tech</div>
+                <div class="peer-orbit-badge">UCSF<br>92</div>
+              </div>
+              <!-- Inner orbit track — counter-clockwise -->
+              <div class="peer-orbit-track ccw">
+                <div class="peer-orbit-badge">Huế</div>
+                <div class="peer-orbit-badge">RAD<br>ONC</div>
+                <div class="peer-orbit-badge">Ph.D<br>PI</div>
+                <div class="peer-orbit-badge">ACR<br>Fell</div>
+              </div>
             </div>
-
           </div>
           <div style="font-family:'Playfair Display',Georgia,serif;font-size:17px;font-weight:700;color:#0c447c;margin-bottom:4px;">Quynh-Thu Le, MD</div>
           <div style="font-family:Arial,sans-serif;font-size:11px;color:#888;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;">Caltech · UCSF · Stanford</div>
@@ -4405,11 +4580,36 @@
         <div style="background:#fff;border-radius:10px;box-shadow:0 4px 18px rgba(0,0,0,0.09);border-top:4px solid #3B6D11;padding:24px 22px;">
           <!-- PHOTO SLOT — Dr. Mai-Linh K. Hong -->
           <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
-            <div style="width:72px;height:72px;border-radius:50%;border:2.5px solid #3B6D11;background:linear-gradient(135deg,#0f2a06 0%,#2a5010 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;position:relative;">
-              <img id="peer-mai-linh" src="https://dans515e.github.io/drprofnguyen/DrHong.jpeg" alt="Dr. Mai-Linh K. Hong" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none;" onerror="this.style.display='none'" onload="this.style.display='block';this.previousElementSibling.style.display='none'">
-              <span style="font-family:'Playfair Display',Georgia,serif;font-size:21px;font-weight:700;color:rgba(255,255,255,0.38);pointer-events:none;user-select:none;position:absolute;">MH</span>
+            <div class="peer-photo-wrap peer-orbit-mai">
+              <div style="width:72px;height:72px;border-radius:50%;border:2.5px solid #3B6D11;background:linear-gradient(135deg,#0f2a06 0%,#2a5010 100%);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;">
+                <svg class="peer-radar-svg" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <radialGradient id="rg-m" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#a5d6a7" stop-opacity="0.55"/>
+                      <stop offset="100%" stop-color="#a5d6a7" stop-opacity="0"/>
+                    </radialGradient>
+                  </defs>
+                  <path d="M36,36 L36,4 A32,32 0 0,1 63.7,52 Z" fill="url(#rg-m)" opacity="0.8" style="transform-origin:36px 36px;animation:peer-orbit-ccw 5s linear infinite;"/>
+                  <circle cx="36" cy="36" r="34" fill="none" stroke="#3B6D11" stroke-width="0.5" opacity="0.3"/>
+                </svg>
+                <img id="peer-mai-linh" src="https://dans515e.github.io/drprofnguyen/DrHong.jpeg" alt="Dr. Mai-Linh K. Hong" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none;position:relative;z-index:6;" onerror="this.style.display='none'" onload="this.style.display='block';this.previousElementSibling.style.display='none'">
+                <span style="font-family:'Playfair Display',Georgia,serif;font-size:21px;font-weight:700;color:rgba(255,255,255,0.38);pointer-events:none;user-select:none;position:absolute;z-index:7;">MH</span>
+              </div>
+              <!-- Outer orbit — clockwise -->
+              <div class="peer-orbit-track">
+                <div class="peer-orbit-badge">PhD<br>JD</div>
+                <div class="peer-orbit-badge">Yale<br>BA</div>
+                <div class="peer-orbit-badge">Col<br>umbia</div>
+                <div class="peer-orbit-badge">UVA<br>Law</div>
+              </div>
+              <!-- Inner orbit — counter-clockwise -->
+              <div class="peer-orbit-track ccw">
+                <div class="peer-orbit-badge">Poet</div>
+                <div class="peer-orbit-badge">Ref<br>Stud</div>
+                <div class="peer-orbit-badge">Crit<br>Lit</div>
+                <div class="peer-orbit-badge">VN<br>Disp</div>
+              </div>
             </div>
-
           </div>
           <div style="font-family:'Playfair Display',Georgia,serif;font-size:17px;font-weight:700;color:#3B6D11;margin-bottom:4px;">Dr. Mai-Linh K. Hong</div>
           <div style="font-family:Arial,sans-serif;font-size:11px;color:#888;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;">Yale · Columbia · UVA (PhD + JD)</div>
@@ -4449,11 +4649,36 @@
         <div style="background:#fff;border-radius:10px;box-shadow:0 4px 18px rgba(0,0,0,0.09);border-top:4px solid #c9a227;padding:24px 22px;">
           <!-- PHOTO SLOT — Lan Cao, JD -->
           <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
-            <div style="width:72px;height:72px;border-radius:50%;border:2.5px solid #c9a227;background:linear-gradient(135deg,#3a2800 0%,#7a5c00 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;position:relative;">
-              <img id="peer-lan-cao" src="https://dans515e.github.io/drprofnguyen/LanCao.jpg" alt="Lan Cao, JD" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none;" onerror="this.style.display='none'" onload="this.style.display='block';this.previousElementSibling.style.display='none'">
-              <span style="font-family:'Playfair Display',Georgia,serif;font-size:21px;font-weight:700;color:rgba(255,255,255,0.38);pointer-events:none;user-select:none;position:absolute;">LC</span>
+            <div class="peer-photo-wrap peer-orbit-cao">
+              <div style="width:72px;height:72px;border-radius:50%;border:2.5px solid #c9a227;background:linear-gradient(135deg,#3a2800 0%,#7a5c00 100%);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;">
+                <svg class="peer-radar-svg" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <radialGradient id="rg-c" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#f5c842" stop-opacity="0.6"/>
+                      <stop offset="100%" stop-color="#f5c842" stop-opacity="0"/>
+                    </radialGradient>
+                  </defs>
+                  <path d="M36,36 L36,4 A32,32 0 0,1 63.7,52 Z" fill="url(#rg-c)" opacity="0.8" style="transform-origin:36px 36px;animation:peer-orbit-cw 3.5s linear infinite;"/>
+                  <circle cx="36" cy="36" r="34" fill="none" stroke="#c9a227" stroke-width="0.5" opacity="0.3"/>
+                </svg>
+                <img id="peer-lan-cao" src="https://dans515e.github.io/drprofnguyen/LanCao.jpg" alt="Lan Cao, JD" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none;position:relative;z-index:6;" onerror="this.style.display='none'" onload="this.style.display='block';this.previousElementSibling.style.display='none'">
+                <span style="font-family:'Playfair Display',Georgia,serif;font-size:21px;font-weight:700;color:rgba(255,255,255,0.38);pointer-events:none;user-select:none;position:absolute;z-index:7;">LC</span>
+              </div>
+              <!-- Outer orbit — clockwise -->
+              <div class="peer-orbit-track">
+                <div class="peer-orbit-badge">JD<br>Yale</div>
+                <div class="peer-orbit-badge">OUP<br>2016</div>
+                <div class="peer-orbit-badge">Vkng<br>Peng</div>
+                <div class="peer-orbit-badge">4<br>Bks</div>
+              </div>
+              <!-- Inner orbit — counter-clockwise -->
+              <div class="peer-orbit-track ccw">
+                <div class="peer-orbit-badge">Law<br>Prof</div>
+                <div class="peer-orbit-badge">Mnt<br>Hlyke</div>
+                <div class="peer-orbit-badge">NYT<br>OpEd</div>
+                <div class="peer-orbit-badge">Chap<br>man</div>
+              </div>
             </div>
-
           </div>
           <div style="font-family:'Playfair Display',Georgia,serif;font-size:17px;font-weight:700;color:#7a5c00;margin-bottom:4px;">Lan Cao, JD</div>
           <div style="font-family:Arial,sans-serif;font-size:11px;color:#888;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;">Mount Holyoke · Yale Law School</div>
