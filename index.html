@@ -1488,7 +1488,7 @@
   .rank-bar-row { display: flex; align-items: center; gap: 10px; }
   .rank-bar-label { font-family: var(--font-ui); font-size: 12px; color: var(--text-muted); width: 160px; flex-shrink: 0; }
   .rank-bar-track { flex: 1; background: #eee; border-radius: 4px; height: 9px; overflow: hidden; }
-  .rank-bar-fill { height: 100%; border-radius: 4px; transition: width 1s ease-out; }
+  .rank-bar-fill { height: 100%; border-radius: 4px; }
   .rank-bar-fill.ach { background: linear-gradient(90deg, #185FA5, #2a7ac4); }
   .rank-bar-fill.imp { background: linear-gradient(90deg, #3B6D11, #5a9e1a); }
   .rank-bar-fill.mil { background: linear-gradient(90deg, #c9a227, #f0c840); }
@@ -1569,27 +1569,15 @@
     transform-origin: left center;
     transform: scaleX(0);
     will-change: transform;
-    /* Fast: 0.65s for small bars, slows naturally for large ones */
-    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   }
   /* data-w attribute drives the final scale — set by JS */
   .rank-bar-fill.animated {
     transform: scaleX(var(--bar-scale, 1));
   }
-  /* Dr. Daniel's cards animate 2x faster — his bars shoot to 100 instantly */
+  /* Dr. Daniel's cards animate instantly */
   .rank-card.you .rank-bar-fill {
-    transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  /* Rank cards: use content-visibility so off-screen cards skip paint entirely */
-  .rank-card {
-    content-visibility: auto;
-    contain-intrinsic-size: 0 320px;   /* hint: approximate card height */
-    contain: layout style;
-  }
-  /* Override: once a card is observed/visible, remove content-visibility guard */
-  .rank-card.cv-visible {
-    content-visibility: visible;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   /* ===== BACK TO TOP BUTTON ===== */
@@ -3239,7 +3227,7 @@
   height: 100%;
   border-radius: 3px;
   width: 0%;
-  transition: width 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .rc-gold  .rc-bar-fill { background: linear-gradient(90deg, #c9a227, #f5e87a); }
 .rc-silver .rc-bar-fill { background: linear-gradient(90deg, #8a9ba8, #d0e0ec); }
@@ -3590,7 +3578,7 @@
         io.unobserve(el);
       }
     });
-  }, {threshold:0.3});
+  }, {threshold: 0, rootMargin: '0px 0px 100px 0px'});
   bars.forEach(function(b){ io.observe(b); });
 })();
 </script>
@@ -7905,13 +7893,8 @@ Cuộc đời ông chứng minh rằng khi một quốc gia đầu tư vào ngư
   function flushBarQueue() {
     var batch = _barQueue.splice(0, _barQueue.length);
     batch.forEach(function(card) {
-      card.classList.add('cv-visible'); // lift content-visibility guard
-      card.querySelectorAll('.rank-bar-fill:not(.animated)').forEach(function(bar, idx) {
-        // Stagger: 40ms per bar (faster than old 35ms + 80ms base)
-        var delay = idx * 40;
-        setTimeout(function() {
-          bar.classList.add('animated');
-        }, delay);
+      card.querySelectorAll('.rank-bar-fill:not(.animated)').forEach(function(bar) {
+        bar.classList.add('animated');
       });
     });
     _barRAF = null;
@@ -7931,7 +7914,7 @@ Cuộc đời ông chứng minh rằng khi một quốc gia đầu tư vào ngư
     }
   }, {
     threshold: 0,
-    rootMargin: '0px 0px 80px 0px'  // pre-trigger 80px before card enters view
+    rootMargin: '0px 0px 150px 0px'  // pre-trigger 150px before card enters view
   });
 
   document.querySelectorAll('.rank-card').forEach(function(card) {
