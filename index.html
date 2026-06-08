@@ -1543,7 +1543,7 @@
   .reveal {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.65s ease, transform 0.65s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
   .reveal.visible {
     opacity: 1;
@@ -3578,7 +3578,7 @@
         io.unobserve(el);
       }
     });
-  }, {threshold: 0, rootMargin: '0px 0px 100px 0px'});
+  }, {threshold: 0, rootMargin: '0px 0px 200px 0px'});
   bars.forEach(function(b){ io.observe(b); });
 })();
 </script>
@@ -7844,7 +7844,7 @@ Cuộc đời ông chứng minh rằng khi một quốc gia đầu tư vào ngư
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   // Add reveal class to major section elements
-  document.querySelectorAll('.section > p, .section > span.sec-title, .stat-row, .role-block, .univ-grid, .compare, .compare-table, .conclusion-box, .contact-block, .profile-card, blockquote, .rank-card, .cert-wrap').forEach(function(el, i) {
+  document.querySelectorAll('.section > p, .section > span.sec-title, .stat-row, .role-block, .univ-grid, .compare, .compare-table, .conclusion-box, .contact-block, .profile-card, blockquote, .cert-wrap').forEach(function(el, i) {
     el.classList.add('reveal');
     if (i % 3 === 1) el.classList.add('reveal-delay-1');
     if (i % 3 === 2) el.classList.add('reveal-delay-2');
@@ -7875,7 +7875,17 @@ Cuộc đời ông chứng minh rằng khi một quốc gia đầu tư vào ngư
   // Step 1: Convert all bars from width-based to scaleX-based
   // We set --bar-scale CSS var (0..1) and keep width at 100% so track fills correctly
   document.querySelectorAll('.rank-bar-fill').forEach(function(bar) {
-    var w = bar.style.width || '0%';
+    var w = bar.style.width;
+    if (!w || w === '100%') {
+      // Try computed style to detect bars whose width was set by a CSS class (not inline)
+      var computed = window.getComputedStyle(bar).width;
+      var trackW = bar.parentElement ? window.getComputedStyle(bar.parentElement).width : null;
+      if (computed && trackW && parseFloat(trackW) > 0) {
+        w = (parseFloat(computed) / parseFloat(trackW) * 100).toFixed(1) + '%';
+      } else {
+        w = bar.style.width || '0%';
+      }
+    }
     var pct = parseFloat(w) / 100;
     if (isNaN(pct)) pct = 0;
     bar.style.setProperty('--bar-scale', pct);
@@ -7914,7 +7924,7 @@ Cuộc đời ông chứng minh rằng khi một quốc gia đầu tư vào ngư
     }
   }, {
     threshold: 0,
-    rootMargin: '0px 0px 150px 0px'  // pre-trigger 150px before card enters view
+    rootMargin: '0px 0px 200px 0px'  // pre-trigger 200px before card enters view
   });
 
   document.querySelectorAll('.rank-card').forEach(function(card) {
