@@ -1322,8 +1322,33 @@
     border-top: 3px solid var(--navy);
     box-shadow: var(--shadow-sm);
     transition: box-shadow .2s;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
   }
   .univ:hover { box-shadow: var(--shadow-md); }
+  .univ:hover .univ-icon { animation: univ-icon-spin 0.7s cubic-bezier(0.4,0,0.2,1) forwards; }
+  .univ-icon {
+    font-size: 26px;
+    line-height: 1;
+    flex-shrink: 0;
+    display: inline-block;
+    filter: drop-shadow(0 1px 3px rgba(12,68,124,0.18));
+    transform-origin: center center;
+    animation: univ-icon-float 3s ease-in-out infinite;
+  }
+  @keyframes univ-icon-spin {
+    0%   { transform: rotate(0deg) scale(1); }
+    40%  { transform: rotate(200deg) scale(1.18); }
+    70%  { transform: rotate(340deg) scale(1.08); }
+    100% { transform: rotate(360deg) scale(1); }
+  }
+  @keyframes univ-icon-float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33%       { transform: translateY(-3px) rotate(6deg); }
+    66%       { transform: translateY(1px) rotate(-4deg); }
+  }
+  .univ-text { flex: 1; min-width: 0; }
   .univ-name { font-family: var(--font-ui); font-size: 13.5px; font-weight: 700; color: var(--navy); }
   .univ-role { font-family: var(--font-ui); font-size: 12px; color: var(--text-muted); margin-top: 3px; }
 
@@ -5832,15 +5857,15 @@
     <p>He serves as <strong>dissertation committee chair and faculty reviewer</strong> across multiple institutions, mentoring doctoral candidates through the design, execution, and defense of original scholarly research. His mentees are producing peer-reviewed doctoral research on artificial intelligence, cybersecurity architecture, blockchain user experience, and information governance &mdash; a scholarly legacy that extends his own contributions to the field across successive generations of researchers. His credibility as a dissertation chair is grounded in personal experience: he completed his own doctoral dissertation at Walden University without any prior transfer credits, earning every doctoral credit from the ground up, at a time when many of his peers took 10 or more years to complete their own dissertation work.</p>
 
     <div class="univ-grid">
-      <div class="univ"><div class="univ-name">University of Maryland Global Campus</div><div class="univ-role">Professor &mdash; Cybersecurity</div></div>
-      <div class="univ"><div class="univ-name">Indiana Wesleyan University</div><div class="univ-role">Graduate Faculty &mdash; IS, Cybersecurity & IT Management &nbsp;|&nbsp; DBA Research Chair &nbsp;|&nbsp; Dissertation Chair</div></div>
-      <div class="univ" style="border-top-color:#c9a227;"><div class="univ-name">Aspen University</div><div class="univ-role">Graduate Faculty &nbsp;&middot;&nbsp; Dissertation Committee Chair &nbsp;&middot;&nbsp; Lead Faculty &nbsp;&middot;&nbsp; Faculty Senator &nbsp;&middot;&nbsp; <strong style="color:#0c447c;">Peer Reviewer</strong> &nbsp;&middot;&nbsp; <strong style="color:#c9a227;">Prominent Book Author (AU-Recognized)</strong></div></div>
-      <div class="univ"><div class="univ-name">Purdue University Global</div><div class="univ-role">Graduate Faculty &mdash; IT Strategy & Data Analytics</div></div>
-      <div class="univ"><div class="univ-name">Grand Canyon University</div><div class="univ-role">Graduate Faculty &mdash; Technology & IS</div></div>
-      <div class="univ"><div class="univ-name">Colorado Technical University</div><div class="univ-role">Graduate Faculty &mdash; Computer Science</div></div>
-      <div class="univ"><div class="univ-name">CSU Global (Colorado State University Global)</div><div class="univ-role">Graduate Faculty &mdash; Data Analytics & Data Science</div></div>
-      <div class="univ"><div class="univ-name">Saudi Electronic University</div><div class="univ-role">Graduate Faculty &mdash; Cybersecurity & Information Systems</div></div>
-      <div class="univ"><div class="univ-name">Ivy Tech Community College</div><div class="univ-role">Faculty &mdash; Computer Science</div></div>
+      <div class="univ"><span class="univ-icon">🎓</span><div class="univ-text"><div class="univ-name">University of Maryland Global Campus</div><div class="univ-role">Professor &mdash; Cybersecurity</div></div></div>
+      <div class="univ"><span class="univ-icon">🎓</span><div class="univ-text"><div class="univ-name">Indiana Wesleyan University</div><div class="univ-role">Graduate Faculty &mdash; IS, Cybersecurity & IT Management &nbsp;|&nbsp; DBA Research Chair &nbsp;|&nbsp; Dissertation Chair</div></div></div>
+      <div class="univ" style="border-top-color:#c9a227;"><span class="univ-icon">🌟</span><div class="univ-text"><div class="univ-name">Aspen University</div><div class="univ-role">Graduate Faculty &nbsp;&middot;&nbsp; Dissertation Committee Chair &nbsp;&middot;&nbsp; Lead Faculty &nbsp;&middot;&nbsp; Faculty Senator &nbsp;&middot;&nbsp; <strong style="color:#0c447c;">Peer Reviewer</strong> &nbsp;&middot;&nbsp; <strong style="color:#c9a227;">Prominent Book Author (AU-Recognized)</strong></div></div></div>
+      <div class="univ"><span class="univ-icon">🎓</span><div class="univ-text"><div class="univ-name">Purdue University Global</div><div class="univ-role">Graduate Faculty &mdash; IT Strategy & Data Analytics</div></div></div>
+      <div class="univ"><span class="univ-icon">🎓</span><div class="univ-text"><div class="univ-name">Grand Canyon University</div><div class="univ-role">Graduate Faculty &mdash; Technology & IS</div></div></div>
+      <div class="univ"><span class="univ-icon">🎓</span><div class="univ-text"><div class="univ-name">Colorado Technical University</div><div class="univ-role">Graduate Faculty &mdash; Computer Science</div></div></div>
+      <div class="univ"><span class="univ-icon">🎓</span><div class="univ-text"><div class="univ-name">CSU Global (Colorado State University Global)</div><div class="univ-role">Graduate Faculty &mdash; Data Analytics & Data Science</div></div></div>
+      <div class="univ"><span class="univ-icon">🎓</span><div class="univ-text"><div class="univ-name">Saudi Electronic University</div><div class="univ-role">Graduate Faculty &mdash; Cybersecurity & Information Systems</div></div></div>
+      <div class="univ"><span class="univ-icon">🎓</span><div class="univ-text"><div class="univ-name">Ivy Tech Community College</div><div class="univ-role">Faculty &mdash; Computer Science</div></div></div>
     </div>
   </section>
 
