@@ -252,6 +252,23 @@
     scroll-padding-top: 60px; /* offset for sticky nav */
   }
 
+  /* ===== NINE PILLARS — ICON SPIN ON HOVER ===== */
+  .pillar-icon {
+    display: inline-block;
+    font-size: 26px;
+    margin-bottom: 8px;
+    transition: transform 0.1s ease;
+  }
+  .pillar-card:hover .pillar-icon {
+    animation: pillar-icon-spin 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  @keyframes pillar-icon-spin {
+    0%   { transform: rotate(0deg)   scale(1.0); }
+    40%  { transform: rotate(200deg) scale(1.25); }
+    70%  { transform: rotate(340deg) scale(1.15); }
+    100% { transform: rotate(360deg) scale(1.0);  }
+  }
+
   body {
     font-family: var(--font-body);
     background: var(--bg);
@@ -2631,59 +2648,59 @@
       <div style="font-family:'Playfair Display',Georgia,serif;font-size:17px;font-weight:700;color:#0c447c;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #e8f0fa;">The Nine Pillars of an Unreplicable Career</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;">
 
-        <div style="background:linear-gradient(135deg,#071e38 0%,#0c2d52 100%);border-radius:10px;padding:20px 18px;border-top:3px solid #c9a227;">
-          <div style="font-size:26px;margin-bottom:8px;">🏛️</div>
+        <div class="pillar-card" style="background:linear-gradient(135deg,#071e38 0%,#0c2d52 100%);border-radius:10px;padding:20px 18px;border-top:3px solid #c9a227;">
+          <div class="pillar-icon">🏛️</div>
           <div style="font-family:'Playfair Display',Georgia,serif;font-size:13.5px;font-weight:700;color:#f5c842;margin-bottom:6px;">Federal Executive</div>
           <div style="font-family:Arial,sans-serif;font-size:12px;color:#B5D4F4;line-height:1.6;">IT Supervisor &amp; Acting Director, NOAA · ISSO · Oracle 19c DBA · 22+ years · $1.5M+ documented cost avoidance · Active security clearance</div>
         </div>
 
-        <div style="background:linear-gradient(135deg,#071e38 0%,#0c2d52 100%);border-radius:10px;padding:20px 18px;border-top:3px solid #185FA5;">
-          <div style="font-size:26px;margin-bottom:8px;">🎓</div>
+        <div class="pillar-card" style="background:linear-gradient(135deg,#071e38 0%,#0c2d52 100%);border-radius:10px;padding:20px 18px;border-top:3px solid #185FA5;">
+          <div class="pillar-icon">🎓</div>
           <div style="font-family:'Playfair Display',Georgia,serif;font-size:13.5px;font-weight:700;color:#7ab8f5;margin-bottom:6px;">Scholar &amp; Educator</div>
           <div style="font-family:Arial,sans-serif;font-size:12px;color:#B5D4F4;line-height:1.6;">9 institutions simultaneously · Associate Professor · Lead Faculty · Dissertation Chair · 11 doctoral graduates · 15+ peer-reviewed articles · 180+ citations</div>
         </div>
 
-        <div style="background:linear-gradient(135deg,#071e38 0%,#0c2d52 100%);border-radius:10px;padding:20px 18px;border-top:3px solid #8B0000;">
-          <div style="font-size:26px;margin-bottom:8px;">🎖️</div>
+        <div class="pillar-card" style="background:linear-gradient(135deg,#071e38 0%,#0c2d52 100%);border-radius:10px;padding:20px 18px;border-top:3px solid #8B0000;">
+          <div class="pillar-icon">🎖️</div>
           <div style="font-family:'Playfair Display',Georgia,serif;font-size:13.5px;font-weight:700;color:#ef9a9a;margin-bottom:6px;">Marine Corps Veteran</div>
           <div style="font-family:Arial,sans-serif;font-size:12px;color:#B5D4F4;line-height:1.6;">First documented Central Vietnamese refugee to serve in the USMC · VMAQ-3 Moon Dogs · Bosnia &amp; Albania combat deployments · Aviano, Italy (1997)</div>
         </div>
 
-        <div style="background:linear-gradient(135deg,#071e38 0%,#0c2d52 100%);border-radius:10px;padding:20px 18px;border-top:3px solid #6A1B9A;">
-          <div style="font-size:26px;margin-bottom:8px;">✍️</div>
+        <div class="pillar-card" style="background:linear-gradient(135deg,#071e38 0%,#0c2d52 100%);border-radius:10px;padding:20px 18px;border-top:3px solid #6A1B9A;">
+          <div class="pillar-icon">✍️</div>
           <div style="font-family:'Playfair Display',Georgia,serif;font-size:13.5px;font-weight:700;color:#ce93d8;margin-bottom:6px;">Author &amp; Voice</div>
           <div style="font-family:Arial,sans-serif;font-size:12px;color:#B5D4F4;line-height:1.6;">26+ books in English &amp; Vietnamese · Dual-language original authorship · Memoir as live graduate curriculum · AU-recognized Prominent Book Author</div>
         </div>
 
-        <div style="background:linear-gradient(135deg,#071e38 0%,#0c2d52 100%);border-radius:10px;padding:20px 18px;border-top:3px solid #2E7D32;">
-          <div style="font-size:26px;margin-bottom:8px;">🌏</div>
+        <div class="pillar-card" style="background:linear-gradient(135deg,#071e38 0%,#0c2d52 100%);border-radius:10px;padding:20px 18px;border-top:3px solid #2E7D32;">
+          <div class="pillar-icon">🌏</div>
           <div style="font-family:'Playfair Display',Georgia,serif;font-size:13.5px;font-weight:700;color:#a5d6a7;margin-bottom:6px;">Survivor &amp; Witness</div>
           <div style="font-family:Arial,sans-serif;font-size:12px;color:#B5D4F4;line-height:1.6;">Boat refugee · Three near-deaths · Communist gunpoint · Child hiding from soldiers in Huế · Faith witness spanning 30+ years · American Dream completed and documented</div>
         </div>
 
-        <div style="background:linear-gradient(135deg,#1a0a00 0%,#3d1500 60%,#5c2200 100%);border-radius:10px;padding:20px 18px;border-top:3px solid #FFD700;box-shadow:0 0 24px rgba(255,180,0,0.12),inset 0 1px 0 rgba(255,215,0,0.15);">
-          <div style="font-size:26px;margin-bottom:8px;">✝️</div>
+        <div class="pillar-card" style="background:linear-gradient(135deg,#1a0a00 0%,#3d1500 60%,#5c2200 100%);border-radius:10px;padding:20px 18px;border-top:3px solid #FFD700;box-shadow:0 0 24px rgba(255,180,0,0.12),inset 0 1px 0 rgba(255,215,0,0.15);">
+          <div class="pillar-icon">✝️</div>
           <div style="font-family:'Playfair Display',Georgia,serif;font-size:13.5px;font-weight:700;color:#FFD700;margin-bottom:6px;">Faith-Forged Leadership</div>
           <div style="font-family:Arial,sans-serif;font-size:12px;color:#FFE0A0;line-height:1.6;">Three documented divine interventions at sea · Armed soldiers at the door, Huế 1975 · 40+ years of unbroken Christian witness · The only #1 global professor ranking built entirely on answered prayer — not privilege</div>
         </div>
 
         <!-- PILLAR 7 — Leadership Architect -->
-        <div style="background:linear-gradient(135deg,#0a1a0f 0%,#0f2d1a 60%,#163d24 100%);border-radius:10px;padding:20px 18px;border-top:3px solid #43A047;box-shadow:0 0 20px rgba(67,160,71,0.10),inset 0 1px 0 rgba(67,160,71,0.12);">
-          <div style="font-size:26px;margin-bottom:8px;">🎙️</div>
+        <div class="pillar-card" style="background:linear-gradient(135deg,#0a1a0f 0%,#0f2d1a 60%,#163d24 100%);border-radius:10px;padding:20px 18px;border-top:3px solid #43A047;box-shadow:0 0 20px rgba(67,160,71,0.10),inset 0 1px 0 rgba(67,160,71,0.12);">
+          <div class="pillar-icon">🎙️</div>
           <div style="font-family:'Playfair Display',Georgia,serif;font-size:13.5px;font-weight:700;color:#A5D6A7;margin-bottom:6px;">Leadership Architect</div>
           <div style="font-family:Arial,sans-serif;font-size:12px;color:#C8E6C9;line-height:1.6;">Distinguished Toastmaster (DTM) — Toastmasters International's highest designation · Distinguished Director of the Year · Club President · Club Coach (2 clubs) · VP of Membership · District 11 Conference Finance Chair · Sergeant At Arms · Club Sponsor · 10 DTMs personally coached — the only #1-ranked global professor who has built, governed, and multiplied leadership at every level of a global nonprofit simultaneously</div>
         </div>
 
         <!-- PILLAR 8 — Practitioner-Educator -->
-        <div style="background:linear-gradient(135deg,#0d0a1f 0%,#1a1040 60%,#251560 100%);border-radius:10px;padding:20px 18px;border-top:3px solid #7C4DFF;box-shadow:0 0 20px rgba(124,77,255,0.10),inset 0 1px 0 rgba(124,77,255,0.12);">
-          <div style="font-size:26px;margin-bottom:8px;">⚙️</div>
+        <div class="pillar-card" style="background:linear-gradient(135deg,#0d0a1f 0%,#1a1040 60%,#251560 100%);border-radius:10px;padding:20px 18px;border-top:3px solid #7C4DFF;box-shadow:0 0 20px rgba(124,77,255,0.10),inset 0 1px 0 rgba(124,77,255,0.12);">
+          <div class="pillar-icon">⚙️</div>
           <div style="font-family:'Playfair Display',Georgia,serif;font-size:13.5px;font-weight:700;color:#B39DDB;margin-bottom:6px;">Practitioner-Educator</div>
           <div style="font-family:Arial,sans-serif;font-size:12px;color:#D1C4E9;line-height:1.6;">CAIP · CDSP · CompTIA Security+ · SSCP · ISC2 CC · Red Hat RHEL · Oracle 19c DBA · RPA/UiPath — 8 active industry certifications deployed in live federal production systems at NOAA, on the same days those exact frameworks are taught in graduate classrooms across 9 institutions · No other professor in any global ranking governs the systems he teaches</div>
         </div>
 
         <!-- PILLAR 9 — Iron Discipline -->
-        <div style="background:linear-gradient(135deg,#1a0a00 0%,#2d1500 60%,#3d1f00 100%);border-radius:10px;padding:20px 18px;border-top:3px solid #FF6F00;box-shadow:0 0 20px rgba(255,111,0,0.12),inset 0 1px 0 rgba(255,111,0,0.15);">
-          <div style="font-size:26px;margin-bottom:8px;">🏃</div>
+        <div class="pillar-card" style="background:linear-gradient(135deg,#1a0a00 0%,#2d1500 60%,#3d1f00 100%);border-radius:10px;padding:20px 18px;border-top:3px solid #FF6F00;box-shadow:0 0 20px rgba(255,111,0,0.12),inset 0 1px 0 rgba(255,111,0,0.15);">
+          <div class="pillar-icon">🏃</div>
           <div style="font-family:'Playfair Display',Georgia,serif;font-size:13.5px;font-weight:700;color:#FFCC80;margin-bottom:6px;">Iron Discipline</div>
           <div style="font-family:Arial,sans-serif;font-size:12px;color:#FFE0B2;line-height:1.6;">4-year varsity track (indoor &amp; outdoor) &amp; cross-country athlete, elected team Captain (Jr./Sr. year), PEHS · NCAA Division III runner, Illinois Institute of Technology — competing as a refugee engineering student mastering English · First Vietnamese American finisher &amp; top-1,000 overall in a major marathon — trained and completed under 9 concurrent faculty appointments, federal IT executive duties, and active dissertation chairship · Physical excellence and professional excellence, simultaneously, without compromise</div>
         </div>
@@ -5992,7 +6009,7 @@
     <div class="pub"><span class="pub-title">Chaos Game &amp; Pseudo-Random Generator</span><div class="pub-meta">Nguyen, D.S. (1993) &middot; Illinois Institute of Technology &middot; Undergraduate research paper exploring fractal geometry and computational pseudo-random number generation</div></div>
   </section>
 
-  <section class="section" id="certifications">
+  <section class="section" id="certifications" style="scroll-margin-top:70px;">
     <p class="sec-label">Credentials &amp; certifications</p>
     <span class="sec-title">Professional Qualifications &amp; Certifications</span>
 
