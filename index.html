@@ -1591,11 +1591,170 @@
   .dn-orbit-ring.ccw .dn-badge:nth-child(3) { bottom: -10px; left: calc(50% - 10px); }
   .dn-orbit-ring.ccw .dn-badge:nth-child(4) { top: calc(50% - 10px); left: -10px; }
 
+  /* ===== SILVER ORBITAL — #2 rank person ===== */
+  .s2-orbit-wrap {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+  }
+  .s2-orbit-photo {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    border: 2px solid #8a9ba8;
+    background: linear-gradient(135deg, #1a2a35 0%, #2c3e50 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; z-index: 2;
+    animation: s2-pulse 4s ease-in-out infinite;
+  }
+  @keyframes s2-pulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(138,155,168,0.5), 0 0 10px rgba(138,155,168,0.2); }
+    50%      { box-shadow: 0 0 0 4px rgba(138,155,168,0.0), 0 0 18px rgba(138,155,168,0.35); }
+  }
+  .s2-orbit-photo .s2-initials {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 14px; font-weight: 700;
+    color: rgba(176,196,214,0.85);
+    position: absolute; z-index: 4;
+    pointer-events: none; user-select: none;
+  }
+  .s2-orbit-ring {
+    position: absolute;
+    inset: -16px;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(138,155,168,0.5);
+    animation: s2-cw 16s linear infinite;
+    pointer-events: none; z-index: 10;
+  }
+  .s2-orbit-ring.ccw {
+    inset: -24px;
+    border-style: dotted;
+    border-color: rgba(176,196,214,0.25);
+    animation: s2-ccw 24s linear infinite;
+  }
+  @keyframes s2-cw  { to { transform: rotate(360deg);  } }
+  @keyframes s2-ccw { to { transform: rotate(-360deg); } }
+  .s2-orbit-ring .s2-badge {
+    position: absolute;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6b7f8c, #9ab0bf);
+    border: 1.5px solid #d0dde5;
+    color: #0e1f2b;
+    font-family: 'Courier New', monospace;
+    font-size: 5.5px; font-weight: 800;
+    line-height: 1.2; text-align: center;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 7px rgba(138,155,168,0.55);
+    animation: s2-badge-cw 16s linear infinite;
+  }
+  .s2-orbit-ring.ccw .s2-badge {
+    width: 18px; height: 18px;
+    background: linear-gradient(135deg, #1a2a35, #2c3e50);
+    border: 1.5px solid rgba(138,155,168,0.55);
+    color: #9ab0bf;
+    font-size: 5px;
+    box-shadow: 0 0 5px rgba(138,155,168,0.25);
+    animation: s2-badge-ccw 24s linear infinite;
+  }
+  @keyframes s2-badge-cw  { from{transform:rotate(0deg)} to{transform:rotate(-360deg)} }
+  @keyframes s2-badge-ccw { from{transform:rotate(0deg)} to{transform:rotate(360deg)}  }
+  .s2-orbit-ring .s2-badge:nth-child(1) { top: -11px; left: calc(50% - 11px); }
+  .s2-orbit-ring .s2-badge:nth-child(2) { top: calc(50% - 11px); right: -11px; }
+  .s2-orbit-ring .s2-badge:nth-child(3) { bottom: -11px; left: calc(50% - 11px); }
+  .s2-orbit-ring .s2-badge:nth-child(4) { top: calc(50% - 11px); left: -11px; }
+  .s2-orbit-ring.ccw .s2-badge:nth-child(1) { top: -9px; left: calc(50% - 9px); }
+  .s2-orbit-ring.ccw .s2-badge:nth-child(2) { top: calc(50% - 9px); right: -9px; }
+  .s2-orbit-ring.ccw .s2-badge:nth-child(3) { bottom: -9px; left: calc(50% - 9px); }
+  .s2-orbit-ring.ccw .s2-badge:nth-child(4) { top: calc(50% - 9px); left: -9px; }
+
+  /* ===== CRIMSON ORBITAL — Dr. Quynh-Thu Le ===== */
+  .ql-orbit-wrap {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+  }
+  .ql-orbit-photo {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    border: 2px solid #e53935;
+    background: linear-gradient(135deg, #2a0a0a 0%, #5c1a1a 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; z-index: 2;
+    animation: ql-pulse 4s ease-in-out infinite;
+  }
+  @keyframes ql-pulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(229,57,53,0.5), 0 0 10px rgba(229,57,53,0.2); }
+    50%      { box-shadow: 0 0 0 4px rgba(229,57,53,0.0), 0 0 18px rgba(229,57,53,0.35); }
+  }
+  .ql-orbit-photo img {
+    width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+    display: none; position: relative; z-index: 3;
+  }
+  .ql-orbit-photo .ql-initials {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 14px; font-weight: 700;
+    color: rgba(255,180,180,0.85);
+    position: absolute; z-index: 4;
+    pointer-events: none; user-select: none;
+  }
+  .ql-orbit-ring {
+    position: absolute;
+    inset: -16px;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(229,57,53,0.55);
+    animation: ql-cw 16s linear infinite;
+    pointer-events: none; z-index: 10;
+  }
+  .ql-orbit-ring.ccw {
+    inset: -24px;
+    border-style: dotted;
+    border-color: rgba(255,138,128,0.25);
+    animation: ql-ccw 24s linear infinite;
+  }
+  @keyframes ql-cw  { to { transform: rotate(360deg);  } }
+  @keyframes ql-ccw { to { transform: rotate(-360deg); } }
+  .ql-orbit-ring .ql-badge {
+    position: absolute;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #c62828, #e53935);
+    border: 1.5px solid #ffcdd2;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    font-size: 5.5px; font-weight: 800;
+    line-height: 1.2; text-align: center;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 7px rgba(229,57,53,0.6);
+    animation: ql-badge-cw 16s linear infinite;
+  }
+  .ql-orbit-ring.ccw .ql-badge {
+    width: 18px; height: 18px;
+    background: linear-gradient(135deg, #2a0a0a, #5c1a1a);
+    border: 1.5px solid rgba(229,57,53,0.55);
+    color: #ffcdd2;
+    font-size: 5px;
+    box-shadow: 0 0 5px rgba(229,57,53,0.25);
+    animation: ql-badge-ccw 24s linear infinite;
+  }
+  @keyframes ql-badge-cw  { from{transform:rotate(0deg)} to{transform:rotate(-360deg)} }
+  @keyframes ql-badge-ccw { from{transform:rotate(0deg)} to{transform:rotate(360deg)}  }
+  .ql-orbit-ring .ql-badge:nth-child(1) { top: -11px; left: calc(50% - 11px); }
+  .ql-orbit-ring .ql-badge:nth-child(2) { top: calc(50% - 11px); right: -11px; }
+  .ql-orbit-ring .ql-badge:nth-child(3) { bottom: -11px; left: calc(50% - 11px); }
+  .ql-orbit-ring .ql-badge:nth-child(4) { top: calc(50% - 11px); left: -11px; }
+  .ql-orbit-ring.ccw .ql-badge:nth-child(1) { top: -9px; left: calc(50% - 9px); }
+  .ql-orbit-ring.ccw .ql-badge:nth-child(2) { top: calc(50% - 9px); right: -9px; }
+  .ql-orbit-ring.ccw .ql-badge:nth-child(3) { bottom: -9px; left: calc(50% - 9px); }
+  .ql-orbit-ring.ccw .ql-badge:nth-child(4) { top: calc(50% - 9px); left: -9px; }
+
   .rank-card {
     background: var(--white); border: 1px solid var(--border);
     border-radius: var(--r); padding: 20px 22px; margin-bottom: 12px;
     transition: border-color .15s, box-shadow .15s;
     box-shadow: var(--shadow-sm);
+    overflow: visible;
   }
   .rank-card:hover { border-color: #bbb; box-shadow: var(--shadow-md); }
   .rank-card.you { border-color: var(--navy-mid) !important; border-width: 2px !important; box-shadow: 0 0 0 3px rgba(24,95,165,0.08); overflow: visible; }
@@ -3832,132 +3991,27 @@
       </table>
     </div>
 
-    <!-- REASSESSED Rank 2 — Eugene Trinh -->
+    <!-- REASSESSED Rank 2 — Quynh-Thu Le (Score #2 in comparison table at 83/100) -->
     <div class="rank-card" style="border-top:4px solid #EEF1F3;margin-top:12px;">
       <div class="rank-card-header">
-        <span class="rank-medal m2">#2</span>
-        <div>
-          <span class="rank-name">Eugene H. Trinh, PhD</span>
-          <span class="rank-hi-tag">Columbia + Yale + Yale &mdash; Dual Ivy League &middot; NASA Astronaut</span>
-          <div class="rank-origin">First Vietnamese-American astronaut &mdash; NASA STS-50, 1992</div>
-        </div>
-      </div>
-      <table style="width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:13px;margin-bottom:10px;">
-        <tr><td style="padding:6px 10px;background:#E6F1FB;color:#0c447c;font-weight:700;width:10%;white-space:nowrap;">Degree 1</td><td style="padding:6px 10px;border-bottom:1px solid #eee;"><strong>BS, Mechanical Engineering &amp; Applied Physics</strong> &mdash; Columbia University (1972) &nbsp;<span style="background:#FDF6DC;color:#7a5c00;font-size:11px;font-weight:700;padding:1px 7px;border-radius:4px;">Ivy League</span></td></tr>
-        <tr><td style="padding:6px 10px;background:#E6F1FB;color:#0c447c;font-weight:700;">Degree 2</td><td style="padding:6px 10px;border-bottom:1px solid #eee;"><strong>MS, Applied Physics</strong> &mdash; Yale University (1974) &nbsp;<span style="background:#FDF6DC;color:#7a5c00;font-size:11px;font-weight:700;padding:1px 7px;border-radius:4px;">Ivy League</span></td></tr>
-        <tr><td style="padding:6px 10px;background:#E6F1FB;color:#0c447c;font-weight:700;">Degree 3</td><td style="padding:6px 10px;"><strong>PhD, Applied Physics</strong> &mdash; Yale University (1977) &nbsp;<span style="background:#FDF6DC;color:#7a5c00;font-size:11px;font-weight:700;padding:1px 7px;border-radius:4px;">Ivy League</span></td></tr>
-      </table>
-      <table style="width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:12.5px;margin-bottom:12px;">
-        <tr style="background:#1F3864;color:#fff;">
-          <td style="padding:6px 10px;font-weight:700;">Dimension</td>
-          <td style="padding:6px 10px;font-weight:700;text-align:center;">Score (0–20)</td>
-          <td style="padding:6px 10px;font-weight:700;">Rationale</td>
-        </tr>
-        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Field Rigor &amp; STEM Demand</td><td style="padding:6px 10px;text-align:center;font-weight:700;">19 / 20</td><td style="padding:6px 10px;color:#333;">Applied Physics and Mechanical Engineering are among the most rigorous STEM disciplines. Near-equivalent to EE on technical demand.</td></tr>
-        <tr><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Financial Independence / Self-Funding</td><td style="padding:6px 10px;text-align:center;font-weight:700;">10 / 20</td><td style="padding:6px 10px;color:#333;">Full tuition scholarship at Columbia; Sheffield Fellowship at Yale. Exceptional academic merit — but institutionally funded, not self-funded. Significant distinction from Dr. Nguyen's fully out-of-pocket model.</td></tr>
-        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Doctoral Relevance to Active Career</td><td style="padding:6px 10px;text-align:center;font-weight:700;">15 / 20</td><td style="padding:6px 10px;color:#333;">PhD deployed in NASA research and astronaut mission. No longer in active daily classroom teaching or doctoral mentorship at scale. Career impact is historic but past-peak in terms of daily active deployment.</td></tr>
-        <tr><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Credential Leverage</td><td style="padding:6px 10px;text-align:center;font-weight:700;">14 / 20</td><td style="padding:6px 10px;color:#333;">Credentials produced one astronaut mission and a research career at NASA JPL. Significant achievement. Does not produce active doctoral mentorship chain, multi-institution teaching, or daily workforce pipeline at the scale of #1.</td></tr>
-        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Institutional Tier</td><td style="padding:6px 10px;text-align:center;font-weight:700;">20 / 20</td><td style="padding:6px 10px;color:#333;">Columbia and Yale consistently rank among America's top 5 universities globally. Three Ivy League degrees — the highest institutional tier in this cohort on this single dimension alone.</td></tr>
-        <tr style="background:#4a5a70;"><td style="padding:6px 10px;font-weight:700;color:#FFD700;">TOTAL</td><td style="padding:6px 10px;text-align:center;font-weight:700;color:#FFD700;font-size:15px;">78 / 100</td><td style="padding:6px 10px;color:#E6F1FB;">Strongest institutional pedigree in the cohort. Historic NASA achievement. Scores lower on self-funding, active career leverage, and daily doctoral impact than the #1 figure.</td></tr>
-      </table>
-    </div>
-
-    <!-- REASSESSED Rank 3 — Dr. Hoang Pham -->
-    <div class="rank-card" style="border-top:4px solid #FAEEDA;margin-top:12px;">
-      <div class="rank-card-header">
-        <span class="rank-medal m3">#3</span>
-        <div>
-          <span class="rank-name">Dr. Hoang Pham</span>
-          <span class="rank-hi-tag">NEIU &rarr; UIUC &rarr; SUNY Buffalo &middot; IEEE Life Fellow &middot; 19,370+ Citations</span>
-          <div class="rank-origin">Rutgers Distinguished Professor &middot; Impact far exceeds institutional pedigree</div>
-        </div>
-      </div>
-      <table style="width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:13px;margin-bottom:10px;">
-        <tr><td style="padding:6px 10px;background:#E6F1FB;color:#0c447c;font-weight:700;width:10%;white-space:nowrap;">Degree 1</td><td style="padding:6px 10px;border-bottom:1px solid #eee;"><strong>BS</strong> &mdash; Northeastern Illinois University</td></tr>
-        <tr><td style="padding:6px 10px;background:#E6F1FB;color:#0c447c;font-weight:700;">Degree 2</td><td style="padding:6px 10px;border-bottom:1px solid #eee;"><strong>MS</strong> &mdash; University of Illinois at Urbana-Champaign &nbsp;<span style="background:#EAF3DE;color:#27500A;font-size:11px;font-weight:700;padding:1px 7px;border-radius:4px;">Top 10 Engineering</span></td></tr>
-        <tr><td style="padding:6px 10px;background:#E6F1FB;color:#0c447c;font-weight:700;">Degree 3</td><td style="padding:6px 10px;"><strong>PhD, Industrial &amp; Systems Engineering</strong> &mdash; SUNY Buffalo (1989)</td></tr>
-      </table>
-      <table style="width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:12.5px;margin-bottom:12px;">
-        <tr style="background:#1F3864;color:#fff;">
-          <td style="padding:6px 10px;font-weight:700;">Dimension</td>
-          <td style="padding:6px 10px;font-weight:700;text-align:center;">Score (0–20)</td>
-          <td style="padding:6px 10px;font-weight:700;">Rationale</td>
-        </tr>
-        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Field Rigor &amp; STEM Demand</td><td style="padding:6px 10px;text-align:center;font-weight:700;">18 / 20</td><td style="padding:6px 10px;color:#333;">Industrial & Systems Engineering PhD is rigorous and technically demanding. Strong STEM field.</td></tr>
-        <tr><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Financial Independence / Self-Funding</td><td style="padding:6px 10px;text-align:center;font-weight:700;">14 / 20</td><td style="padding:6px 10px;color:#333;">No documented full scholarship; advanced through state universities. Reasonably self-directed academic path without Ivy funding. Exact funding model not fully documented in public sources.</td></tr>
-        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Doctoral Relevance to Active Career</td><td style="padding:6px 10px;text-align:center;font-weight:700;">17 / 20</td><td style="padding:6px 10px;color:#333;">PhD in ISE actively used in Rutgers faculty role and research. 19,370+ citations demonstrate ongoing academic deployment. Strong but primarily single-institution model.</td></tr>
-        <tr><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Credential Leverage</td><td style="padding:6px 10px;text-align:center;font-weight:700;">18 / 20</td><td style="padding:6px 10px;color:#333;">19,370+ Google Scholar citations — the highest citation count in this cohort. IEEE Life Fellowship. Credential leverage through research impact is exceptional. Docked slightly vs. #1 on daily multi-institution student mentorship reach.</td></tr>
-        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Institutional Tier</td><td style="padding:6px 10px;text-align:center;font-weight:700;">13 / 20</td><td style="padding:6px 10px;color:#333;">UIUC is a top-10 engineering school — the strongest institutional anchor in his degree chain. NEIU and SUNY Buffalo are solid regional universities but not elite by name-brand standard. Consistent with the page's note that impact vastly transcends pedigree here.</td></tr>
-        <tr style="background:#4a5a70;"><td style="padding:6px 10px;font-weight:700;color:#FFD700;">TOTAL</td><td style="padding:6px 10px;text-align:center;font-weight:700;color:#FFD700;font-size:15px;">80 / 100</td><td style="padding:6px 10px;color:#E6F1FB;">The citation leader of this cohort. IEEE Life Fellow. Strong credential leverage through research. Ranks #2 on citation impact — but below Dr. Nguyen on self-funding, active multi-institution deployment, and daily doctoral mentorship reach.</td></tr>
-      </table>
-    </div>
-
-    <!-- REASSESSED Rank 4 — Viet Thanh Nguyen -->
-    <div class="rank-card" style="border-top:4px solid #EEF1F3;margin-top:12px;">
-      <div class="rank-card-header">
-        <span class="rank-medal mx" style="background:#EEF1F3;color:#3a4a55;border:2px solid #8a9ba8;">#4</span>
-        <div>
-          <span class="rank-name">Viet Thanh Nguyen, PhD</span>
-          <span class="rank-hi-tag">UC Berkeley &times;3 &mdash; Public Ivy &middot; Pulitzer Prize &middot; MacArthur Fellow</span>
-          <div class="rank-origin">USC University Professor &mdash; Institutional prestige highest in cohort after Trinh; career leverage in literary field</div>
-        </div>
-      </div>
-      <table style="width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:13px;margin-bottom:10px;">
-        <tr><td style="padding:6px 10px;background:#E6F1FB;color:#0c447c;font-weight:700;width:10%;white-space:nowrap;">Degree 1</td><td style="padding:6px 10px;border-bottom:1px solid #eee;"><strong>BA, English</strong> &mdash; University of California, Berkeley (1992) &nbsp;<span style="background:#EAF3DE;color:#27500A;font-size:11px;font-weight:700;padding:1px 7px;border-radius:4px;">Public Ivy &middot; Top 5 Public</span></td></tr>
-        <tr><td style="padding:6px 10px;background:#E6F1FB;color:#0c447c;font-weight:700;">Degree 2</td><td style="padding:6px 10px;border-bottom:1px solid #eee;"><strong>BA, Ethnic Studies</strong> &mdash; University of California, Berkeley (1992) &nbsp;<span style="background:#EAF3DE;color:#27500A;font-size:11px;font-weight:700;padding:1px 7px;border-radius:4px;">Public Ivy &middot; Top 5 Public</span></td></tr>
-        <tr><td style="padding:6px 10px;background:#E6F1FB;color:#0c447c;font-weight:700;">Degree 3</td><td style="padding:6px 10px;"><strong>PhD, English</strong> &mdash; University of California, Berkeley (1997) &nbsp;<span style="background:#EAF3DE;color:#27500A;font-size:11px;font-weight:700;padding:1px 7px;border-radius:4px;">Public Ivy &middot; Top 5 Public</span></td></tr>
-      </table>
-      <table style="width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:12.5px;margin-bottom:12px;">
-        <tr style="background:#1F3864;color:#fff;">
-          <td style="padding:6px 10px;font-weight:700;">Dimension</td>
-          <td style="padding:6px 10px;font-weight:700;text-align:center;">Score (0–20)</td>
-          <td style="padding:6px 10px;font-weight:700;">Rationale</td>
-        </tr>
-        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Field Rigor &amp; STEM Demand</td><td style="padding:6px 10px;text-align:center;font-weight:700;">8 / 20</td><td style="padding:6px 10px;color:#333;">BA English and BA Ethnic Studies are humanistic disciplines — academically rigorous in their own domain but not STEM-equivalent in workforce demand, technical prerequisite load, or BLS projected growth metrics. PhD English is a high-prestige research credential in the humanities.</td></tr>
-        <tr><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Financial Independence / Self-Funding</td><td style="padding:6px 10px;text-align:center;font-weight:700;">12 / 20</td><td style="padding:6px 10px;color:#333;">No documented full institutional scholarship on record equivalent to Trinh's Columbia/Yale awards. Funding model not fully public. Arrived as a refugee child — financial sacrifice acknowledged. Insufficient public documentation to award maximum score.</td></tr>
-        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Doctoral Relevance to Active Career</td><td style="padding:6px 10px;text-align:center;font-weight:700;">16 / 20</td><td style="padding:6px 10px;color:#333;">PhD in English actively deployed as USC University Professor and literary scholar. Pulitzer Prize-winning novelist. Strong single-institution academic career. Does not operate across multi-institution simultaneous appointments.</td></tr>
-        <tr><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Credential Leverage</td><td style="padding:6px 10px;text-align:center;font-weight:700;">15 / 20</td><td style="padding:6px 10px;color:#333;">Pulitzer Prize and MacArthur Fellowship represent extraordinary literary credential leverage. Impact on Vietnamese-American cultural narrative is significant. Does not produce active doctoral mentorship pipeline, multi-institution teaching, or direct STEM workforce output at scale.</td></tr>
-        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Institutional Tier</td><td style="padding:6px 10px;text-align:center;font-weight:700;">19 / 20</td><td style="padding:6px 10px;color:#333;">Three degrees from UC Berkeley — consistently ranked #1 public university in the world and a Public Ivy. Second only to Trinh's Columbia/Yale combination on pure institutional prestige.</td></tr>
-        <tr style="background:#4a5a70;"><td style="padding:6px 10px;font-weight:700;color:#FFD700;">TOTAL</td><td style="padding:6px 10px;text-align:center;font-weight:700;color:#FFD700;font-size:15px;">70 / 100</td><td style="padding:6px 10px;color:#E6F1FB;">Strongest institutional pedigree in the cohort alongside Trinh. Pulitzer Prize and MacArthur Fellow. Ranks lower on STEM field rigor, self-funding documentation, and multi-institution doctoral mentorship reach. Literary impact is significant and distinct in kind from the workforce-pipeline model of the #1 figure.</td></tr>
-      </table>
-    </div>
-
-    <!-- REASSESSED Rank 5 — Lan Cao -->
-    <div class="rank-card" style="border-top:4px solid #EEF1F3;margin-top:12px;">
-      <div class="rank-card-header">
-        <span class="rank-medal mx" style="background:#EEF1F3;color:#3a4a55;border:2px solid #8a9ba8;">#5</span>
-        <div>
-          <span class="rank-name">Lan Cao</span>
-          <span class="rank-hi-tag">Mount Holyoke &middot; Yale Law School &middot; Endowed Professor &middot; Pioneer Novelist</span>
-          <div class="rank-origin">Saigon, South Vietnam &mdash; fled 1975 at age 13 &middot; Betty Hutton Williams Endowed Professor, Chapman University</div>
-        </div>
-      </div>
-      <table style="width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:13px;margin-bottom:10px;">
-        <tr><td style="padding:6px 10px;background:#E6F1FB;color:#0c447c;font-weight:700;width:10%;white-space:nowrap;">Degree 1</td><td style="padding:6px 10px;border-bottom:1px solid #eee;"><strong>BA</strong> &mdash; Mount Holyoke College (1983) &nbsp;<span style="background:#FDF6DC;color:#7a5c00;font-size:11px;font-weight:700;padding:1px 7px;border-radius:4px;">Seven Sisters &middot; Highly Selective Liberal Arts</span></td></tr>
-        <tr><td style="padding:6px 10px;background:#E6F1FB;color:#0c447c;font-weight:700;">Degree 2</td><td style="padding:6px 10px;"><strong>JD</strong> &mdash; Yale Law School &nbsp;<span style="background:#FDF6DC;color:#7a5c00;font-size:11px;font-weight:700;padding:1px 7px;border-radius:4px;">Ivy League &middot; #1–#3 Law School Nationally &middot; Notes Editor, Yale Law Journal &middot; No doctoral PhD</span></td></tr>
-      </table>
-      <table style="width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:12.5px;margin-bottom:12px;">
-        <tr style="background:#1F3864;color:#fff;">
-          <td style="padding:6px 10px;font-weight:700;">Dimension</td>
-          <td style="padding:6px 10px;font-weight:700;text-align:center;">Score (0–20)</td>
-          <td style="padding:6px 10px;font-weight:700;">Rationale</td>
-        </tr>
-        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Field Rigor &amp; STEM Demand</td><td style="padding:6px 10px;text-align:center;font-weight:700;">10 / 20</td><td style="padding:6px 10px;color:#333;">BA in a liberal arts discipline and JD from Yale Law School. Legal training requires high analytical rigor, close reading of complex texts, and precise argumentation — the JD is among the most intellectually demanding professional degrees in the United States. However, Law and Humanities are not STEM-equivalent on BLS workforce demand metrics or technical prerequisite load. Scored at the mid-range, reflecting elite professional rigor without STEM field classification.</td></tr>
-        <tr><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Financial Independence / Self-Funding</td><td style="padding:6px 10px;text-align:center;font-weight:700;">14 / 20</td><td style="padding:6px 10px;color:#333;">Fled Saigon at age 13 with no resources — significant refugee-origin financial adversity is documented. Ford Foundation Scholar (1991) indicates external recognition and partial support during her legal/academic career. No documented full institutional scholarship record equivalent to Trinh's Columbia/Yale fellowships. Awarded a solid score reflecting genuine refugee financial sacrifice and demonstrated need-based achievement, without confirmed full self-funding documentation.</td></tr>
-        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Doctoral Relevance to Active Career</td><td style="padding:6px 10px;text-align:center;font-weight:700;">16 / 20</td><td style="padding:6px 10px;color:#333;">JD actively and continuously deployed across a 30+ year dual legal-literary career: law faculty at Brooklyn Law School, Duke Law, University of Michigan Law, William &amp; Mary Law, and Chapman University (current Betty Hutton Williams Endowed Professorship in International Economic Law). <em>Monkey Bridge</em> (1997) — the first Vietnamese American novel published by a major American press (Viking Penguin) — is actively assigned in AP English, comparative literature, and Vietnam War courses nationwide. Dual deployment across both legal education and literary curriculum is rare. Docked slightly vs. #1 on multi-institution simultaneity; no PhD.</td></tr>
-        <tr><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Credential Leverage (Degree-to-Impact Translation)</td><td style="padding:6px 10px;text-align:center;font-weight:700;">15 / 20</td><td style="padding:6px 10px;color:#333;">Yale JD produced: endowed law professorship at multiple nationally ranked institutions; 4 books published by Viking Penguin and Oxford University Press; Yale Law Journal Notes Editorship; clerkship under Judge Constance Baker Motley (SDNY) — one of the most distinguished clerkships available; legal practice at Paul Weiss (top-5 AmLaw firm); NYT Op-Ed contributor; Ford Foundation Scholar recognition. The dual legal-literary career arc is among the most complete in this cohort. Does not produce a doctoral mentorship pipeline or direct STEM workforce pipeline at the scale of #1.</td></tr>
-        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Institutional Tier</td><td style="padding:6px 10px;text-align:center;font-weight:700;">19 / 20</td><td style="padding:6px 10px;color:#333;">Yale Law School is consistently ranked #1–#3 among all U.S. law schools and is one of the most elite professional schools in the world. Mount Holyoke College is a highly selective Seven Sisters institution with exceptional academic standing. Combined, this represents elite Ivy-adjacent institutional prestige — second only to Eugene Trinh's dual Ivy League (Columbia + Yale) combination in raw name-brand ranking, and equivalent to Viet Thanh Nguyen's UC Berkeley triple on global standing.</td></tr>
-        <tr><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Cross-Gender Cohort Intellectual Supremacy ★D81</td><td style="padding:6px 10px;text-align:center;font-weight:700;">12 / 20</td><td style="padding:6px 10px;color:#333;">Reaches her ceiling in law-literature. Single-institution endowed professorship vs. Dr. Nguyen's 9-institution simultaneous deployment; no military service, no federal IT executive authority, no doctoral mentorship chain, no bilingual publication corpus. Among the three women, she ranks third on composite score after Quynh-Thu Le and Mai-Linh Hong on this dimension.</td></tr>
-        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Single-Domain Peak vs. All-Domain Simultaneity ★D82</td><td style="padding:6px 10px;text-align:center;font-weight:700;">7 / 20</td><td style="padding:6px 10px;color:#333;">Reaches her ceiling in one primary domain — law-literature. Dr. Nguyen has no single primary domain — he is simultaneously a STEM practitioner, federal executive, doctoral educator, military veteran, published author, and public speaking leader, all active every weekday without any domain diminishing another.</td></tr>
-        <tr><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Intellectual Formation Breadth Exceeding Any Single Comparator ★D83</td><td style="padding:6px 10px;text-align:center;font-weight:700;">11 / 20</td><td style="padding:6px 10px;color:#333;">Mount Holyoke BA + Yale Law JD is extraordinarily prestigious but deployment-narrow (law and literature at one institution). Dr. Nguyen's formation — BS EE + MS CS + PhD ISM — spans more distinct intellectual disciplines in active daily use: STEM, federal law (FISMA/NIST), organizational behavior, dissertation methodology, AI, cybersecurity, all deployed across 9 institutions simultaneously.</td></tr>
-        <tr style="background:#4a5a70;"><td style="padding:6px 10px;font-weight:700;color:#FFD700;">TOTAL</td><td style="padding:6px 10px;text-align:center;font-weight:700;color:#FFD700;font-size:15px;">80 / 100</td><td style="padding:6px 10px;color:#E6F1FB;">The only figure in this cohort whose single terminal credential is a JD from Yale Law School — one of the most elite legal degrees in the world. Her dual career as an endowed law professor and a nationally taught novelist represents a breadth of credential deployment unique in this ranking. <em>Monkey Bridge</em> (1997) — the first Vietnamese American war novel published by a major American press — gives her an ongoing literary student reach that extends far beyond any law classroom. Ranked below higher figures on STEM field rigor and the absence of a doctoral PhD, and on the three new dimensions (D81-D83) measuring cross-gender intellectual supremacy, all-domain simultaneity, and deployed disciplinary breadth. Fled Saigon at 13 — one of the most documented refugee journeys in this cohort's literary record.</td></tr>
-      </table>
-    </div>
-
-    <!-- REASSESSED Rank 6 — Quynh-Thu Le (Score #2 in comparison table at 83/100) -->
-    <div class="rank-card" style="border-top:4px solid #EEF1F3;margin-top:12px;">
-      <div class="rank-card-header">
-        <span class="rank-medal mx" style="background:#EEF1F3;color:#3a4a55;border:2px solid #8a9ba8;">#6</span>
+        <div class="ql-orbit-wrap">
+            <div class="ql-orbit-photo">
+              <span class="ql-initials">QL</span>
+              <img src="https://dans515e.github.io/drprofnguyen/DrQuynh.jpg" alt="Dr. Quynh-Thu Le, MD" onload="this.style.display='block';this.previousElementSibling.style.display='none'" onerror="this.style.display='none'">
+            </div>
+            <div class="ql-orbit-ring">
+              <div class="ql-badge">#2</div>
+              <div class="ql-badge">Calt<br>ech</div>
+              <div class="ql-badge">UCSF<br>MD</div>
+              <div class="ql-badge">Stan<br>ford</div>
+            </div>
+            <div class="ql-orbit-ring ccw">
+              <div class="ql-badge">NAM</div>
+              <div class="ql-badge">Hue<br>VN</div>
+              <div class="ql-badge">87<br>pts</div>
+              <div class="ql-badge">MD</div>
+            </div>
+          </div>
         <div>
           <span class="rank-name">Quynh-Thu Le, MD</span>
           <span class="rank-hi-tag">Caltech &middot; UCSF MD &middot; Stanford Chair &middot; National Academy of Medicine</span>
@@ -3986,10 +4040,42 @@
       </table>
     </div>
 
-    <!-- REASSESSED Rank 7 — Dr. Mai-Linh K. Hong -->
+    <!-- REASSESSED Rank 3 — Lan Cao -->
     <div class="rank-card" style="border-top:4px solid #EEF1F3;margin-top:12px;">
       <div class="rank-card-header">
-        <span class="rank-medal mx" style="background:#EEF1F3;color:#3a4a55;border:2px solid #8a9ba8;">#7</span>
+        <span class="rank-medal mx" style="background:#EEF1F3;color:#3a4a55;border:2px solid #8a9ba8;">#3</span>
+        <div>
+          <span class="rank-name">Lan Cao</span>
+          <span class="rank-hi-tag">Mount Holyoke &middot; Yale Law School &middot; Endowed Professor &middot; Pioneer Novelist</span>
+          <div class="rank-origin">Saigon, South Vietnam &mdash; fled 1975 at age 13 &middot; Betty Hutton Williams Endowed Professor, Chapman University</div>
+        </div>
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:13px;margin-bottom:10px;">
+        <tr><td style="padding:6px 10px;background:#E6F1FB;color:#0c447c;font-weight:700;width:10%;white-space:nowrap;">Degree 1</td><td style="padding:6px 10px;border-bottom:1px solid #eee;"><strong>BA</strong> &mdash; Mount Holyoke College (1983) &nbsp;<span style="background:#FDF6DC;color:#7a5c00;font-size:11px;font-weight:700;padding:1px 7px;border-radius:4px;">Seven Sisters &middot; Highly Selective Liberal Arts</span></td></tr>
+        <tr><td style="padding:6px 10px;background:#E6F1FB;color:#0c447c;font-weight:700;">Degree 2</td><td style="padding:6px 10px;"><strong>JD</strong> &mdash; Yale Law School &nbsp;<span style="background:#FDF6DC;color:#7a5c00;font-size:11px;font-weight:700;padding:1px 7px;border-radius:4px;">Ivy League &middot; #1–#3 Law School Nationally &middot; Notes Editor, Yale Law Journal &middot; No doctoral PhD</span></td></tr>
+      </table>
+      <table style="width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:12.5px;margin-bottom:12px;">
+        <tr style="background:#1F3864;color:#fff;">
+          <td style="padding:6px 10px;font-weight:700;">Dimension</td>
+          <td style="padding:6px 10px;font-weight:700;text-align:center;">Score (0–20)</td>
+          <td style="padding:6px 10px;font-weight:700;">Rationale</td>
+        </tr>
+        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Field Rigor &amp; STEM Demand</td><td style="padding:6px 10px;text-align:center;font-weight:700;">10 / 20</td><td style="padding:6px 10px;color:#333;">BA in a liberal arts discipline and JD from Yale Law School. Legal training requires high analytical rigor, close reading of complex texts, and precise argumentation — the JD is among the most intellectually demanding professional degrees in the United States. However, Law and Humanities are not STEM-equivalent on BLS workforce demand metrics or technical prerequisite load. Scored at the mid-range, reflecting elite professional rigor without STEM field classification.</td></tr>
+        <tr><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Financial Independence / Self-Funding</td><td style="padding:6px 10px;text-align:center;font-weight:700;">14 / 20</td><td style="padding:6px 10px;color:#333;">Fled Saigon at age 13 with no resources — significant refugee-origin financial adversity is documented. Ford Foundation Scholar (1991) indicates external recognition and partial support during her legal/academic career. No documented full institutional scholarship record equivalent to Trinh's Columbia/Yale fellowships. Awarded a solid score reflecting genuine refugee financial sacrifice and demonstrated need-based achievement, without confirmed full self-funding documentation.</td></tr>
+        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Doctoral Relevance to Active Career</td><td style="padding:6px 10px;text-align:center;font-weight:700;">16 / 20</td><td style="padding:6px 10px;color:#333;">JD actively and continuously deployed across a 30+ year dual legal-literary career: law faculty at Brooklyn Law School, Duke Law, University of Michigan Law, William &amp; Mary Law, and Chapman University (current Betty Hutton Williams Endowed Professorship in International Economic Law). <em>Monkey Bridge</em> (1997) — the first Vietnamese American novel published by a major American press (Viking Penguin) — is actively assigned in AP English, comparative literature, and Vietnam War courses nationwide. Dual deployment across both legal education and literary curriculum is rare. Docked slightly vs. #1 on multi-institution simultaneity; no PhD.</td></tr>
+        <tr><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Credential Leverage (Degree-to-Impact Translation)</td><td style="padding:6px 10px;text-align:center;font-weight:700;">15 / 20</td><td style="padding:6px 10px;color:#333;">Yale JD produced: endowed law professorship at multiple nationally ranked institutions; 4 books published by Viking Penguin and Oxford University Press; Yale Law Journal Notes Editorship; clerkship under Judge Constance Baker Motley (SDNY) — one of the most distinguished clerkships available; legal practice at Paul Weiss (top-5 AmLaw firm); NYT Op-Ed contributor; Ford Foundation Scholar recognition. The dual legal-literary career arc is among the most complete in this cohort. Does not produce a doctoral mentorship pipeline or direct STEM workforce pipeline at the scale of #1.</td></tr>
+        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Institutional Tier</td><td style="padding:6px 10px;text-align:center;font-weight:700;">19 / 20</td><td style="padding:6px 10px;color:#333;">Yale Law School is consistently ranked #1–#3 among all U.S. law schools and is one of the most elite professional schools in the world. Mount Holyoke College is a highly selective Seven Sisters institution with exceptional academic standing. Combined, this represents elite Ivy-adjacent institutional prestige — second only to Eugene Trinh's dual Ivy League (Columbia + Yale) combination in raw name-brand ranking, and equivalent to Viet Thanh Nguyen's UC Berkeley triple on global standing.</td></tr>
+        <tr><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Cross-Gender Cohort Intellectual Supremacy ★D81</td><td style="padding:6px 10px;text-align:center;font-weight:700;">12 / 20</td><td style="padding:6px 10px;color:#333;">Reaches her ceiling in law-literature. Single-institution endowed professorship vs. Dr. Nguyen's 9-institution simultaneous deployment; no military service, no federal IT executive authority, no doctoral mentorship chain, no bilingual publication corpus. Among the three women, she ranks third on composite score after Quynh-Thu Le and Mai-Linh Hong on this dimension.</td></tr>
+        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Single-Domain Peak vs. All-Domain Simultaneity ★D82</td><td style="padding:6px 10px;text-align:center;font-weight:700;">7 / 20</td><td style="padding:6px 10px;color:#333;">Reaches her ceiling in one primary domain — law-literature. Dr. Nguyen has no single primary domain — he is simultaneously a STEM practitioner, federal executive, doctoral educator, military veteran, published author, and public speaking leader, all active every weekday without any domain diminishing another.</td></tr>
+        <tr><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Intellectual Formation Breadth Exceeding Any Single Comparator ★D83</td><td style="padding:6px 10px;text-align:center;font-weight:700;">11 / 20</td><td style="padding:6px 10px;color:#333;">Mount Holyoke BA + Yale Law JD is extraordinarily prestigious but deployment-narrow (law and literature at one institution). Dr. Nguyen's formation — BS EE + MS CS + PhD ISM — spans more distinct intellectual disciplines in active daily use: STEM, federal law (FISMA/NIST), organizational behavior, dissertation methodology, AI, cybersecurity, all deployed across 9 institutions simultaneously.</td></tr>
+        <tr style="background:#4a5a70;"><td style="padding:6px 10px;font-weight:700;color:#FFD700;">TOTAL</td><td style="padding:6px 10px;text-align:center;font-weight:700;color:#FFD700;font-size:15px;">80 / 100</td><td style="padding:6px 10px;color:#E6F1FB;">The only figure in this cohort whose single terminal credential is a JD from Yale Law School — one of the most elite legal degrees in the world. Her dual career as an endowed law professor and a nationally taught novelist represents a breadth of credential deployment unique in this ranking. <em>Monkey Bridge</em> (1997) — the first Vietnamese American war novel published by a major American press — gives her an ongoing literary student reach that extends far beyond any law classroom. Ranked below higher figures on STEM field rigor and the absence of a doctoral PhD, and on the three new dimensions (D81-D83) measuring cross-gender intellectual supremacy, all-domain simultaneity, and deployed disciplinary breadth. Fled Saigon at 13 — one of the most documented refugee journeys in this cohort's literary record.</td></tr>
+      </table>
+    </div>
+
+    <!-- REASSESSED Rank 4 — Dr. Mai-Linh K. Hong -->
+    <div class="rank-card" style="border-top:4px solid #EEF1F3;margin-top:12px;">
+      <div class="rank-card-header">
+        <span class="rank-medal mx" style="background:#EEF1F3;color:#3a4a55;border:2px solid #8a9ba8;">#4</span>
         <div>
           <span class="rank-name">Dr. Mai-Linh K. Hong, JD, PhD</span>
           <span class="rank-hi-tag">Yale &middot; Columbia &middot; University of Virginia &mdash; Dual JD/PhD &middot; Poet-Scholar-Attorney</span>
@@ -4019,6 +4105,127 @@
         <tr style="background:#4a5a70;"><td style="padding:6px 10px;font-weight:700;color:#FFD700;">TOTAL</td><td style="padding:6px 10px;text-align:center;font-weight:700;color:#FFD700;font-size:15px;">81 / 100</td><td style="padding:6px 10px;color:#E6F1FB;">The only figure in this cohort holding both a PhD and a JD as dual terminal degrees — a credential combination unique in this ranking. Strong Ivy League pedigree (Yale, Columbia) reinforced by a Top Public Ivy doctoral institution (UVA). Ranked below higher figures on STEM field rigor, self-funding documentation, multi-institution simultaneity, active doctoral workforce pipeline reach, and the three new dimensions (D81-D83) measuring cross-gender intellectual supremacy, all-domain simultaneity, and deployed disciplinary breadth. Her dual poet-scholar-attorney identity and award-winning poetry collection represent a distinctive and growing scholarly presence in refugee and Asian American literary studies. <strong style="color:#c9a227;">&#9873; Origin Region Note:</strong> Dr. Hong's specific Vietnamese province of origin has not been verified in public biographical records — she is documented as a Vietnamese refugee, but whether her family originated from South Vietnam, Central Vietnam, or the Mekong Delta is unconfirmed at the documentation standard applied to other figures in this cohort.</td></tr>
       </table>
     </div>
+    <!-- REASSESSED Rank 5 — Dr. Hoang Pham -->
+    <div class="rank-card" style="border-top:4px solid #FAEEDA;margin-top:12px;">
+      <div class="rank-card-header">
+        <div class="s2-orbit-wrap">
+            <div class="s2-orbit-photo">
+              <span class="s2-initials">HP</span>
+              <img src="https://dans515e.github.io/drprofnguyen/hoang.jpg" alt="Dr. Hoang Pham" onload="this.style.display='block';this.previousElementSibling.style.display='none'" onerror="this.style.display='none'" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none;position:relative;z-index:3;">
+            </div>
+            <div class="s2-orbit-ring">
+              <div class="s2-badge">#5</div>
+              <div class="s2-badge">PhD</div>
+              <div class="s2-badge">IEEE<br>Life</div>
+              <div class="s2-badge">19K+<br>cite</div>
+            </div>
+            <div class="s2-orbit-ring ccw">
+              <div class="s2-badge">Rutg<br>ers</div>
+              <div class="s2-badge">210+<br>pub</div>
+              <div class="s2-badge">Reli<br>eng</div>
+              <div class="s2-badge">VN</div>
+            </div>
+          </div>
+        <div>
+          <span class="rank-name">Dr. Hoang Pham</span>
+          <span class="rank-hi-tag">NEIU &rarr; UIUC &rarr; SUNY Buffalo &middot; IEEE Life Fellow &middot; 19,370+ Citations</span>
+          <div class="rank-origin">Rutgers Distinguished Professor &middot; Impact far exceeds institutional pedigree</div>
+        </div>
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:13px;margin-bottom:10px;">
+        <tr><td style="padding:6px 10px;background:#E6F1FB;color:#0c447c;font-weight:700;width:10%;white-space:nowrap;">Degree 1</td><td style="padding:6px 10px;border-bottom:1px solid #eee;"><strong>BS</strong> &mdash; Northeastern Illinois University</td></tr>
+        <tr><td style="padding:6px 10px;background:#E6F1FB;color:#0c447c;font-weight:700;">Degree 2</td><td style="padding:6px 10px;border-bottom:1px solid #eee;"><strong>MS</strong> &mdash; University of Illinois at Urbana-Champaign &nbsp;<span style="background:#EAF3DE;color:#27500A;font-size:11px;font-weight:700;padding:1px 7px;border-radius:4px;">Top 10 Engineering</span></td></tr>
+        <tr><td style="padding:6px 10px;background:#E6F1FB;color:#0c447c;font-weight:700;">Degree 3</td><td style="padding:6px 10px;"><strong>PhD, Industrial &amp; Systems Engineering</strong> &mdash; SUNY Buffalo (1989)</td></tr>
+      </table>
+      <table style="width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:12.5px;margin-bottom:12px;">
+        <tr style="background:#1F3864;color:#fff;">
+          <td style="padding:6px 10px;font-weight:700;">Dimension</td>
+          <td style="padding:6px 10px;font-weight:700;text-align:center;">Score (0–20)</td>
+          <td style="padding:6px 10px;font-weight:700;">Rationale</td>
+        </tr>
+        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Field Rigor &amp; STEM Demand</td><td style="padding:6px 10px;text-align:center;font-weight:700;">18 / 20</td><td style="padding:6px 10px;color:#333;">Industrial & Systems Engineering PhD is rigorous and technically demanding. Strong STEM field.</td></tr>
+        <tr><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Financial Independence / Self-Funding</td><td style="padding:6px 10px;text-align:center;font-weight:700;">14 / 20</td><td style="padding:6px 10px;color:#333;">No documented full scholarship; advanced through state universities. Reasonably self-directed academic path without Ivy funding. Exact funding model not fully documented in public sources.</td></tr>
+        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Doctoral Relevance to Active Career</td><td style="padding:6px 10px;text-align:center;font-weight:700;">17 / 20</td><td style="padding:6px 10px;color:#333;">PhD in ISE actively used in Rutgers faculty role and research. 19,370+ citations demonstrate ongoing academic deployment. Strong but primarily single-institution model.</td></tr>
+        <tr><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Credential Leverage</td><td style="padding:6px 10px;text-align:center;font-weight:700;">18 / 20</td><td style="padding:6px 10px;color:#333;">19,370+ Google Scholar citations — the highest citation count in this cohort. IEEE Life Fellowship. Credential leverage through research impact is exceptional. Docked slightly vs. #1 on daily multi-institution student mentorship reach.</td></tr>
+        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Institutional Tier</td><td style="padding:6px 10px;text-align:center;font-weight:700;">13 / 20</td><td style="padding:6px 10px;color:#333;">UIUC is a top-10 engineering school — the strongest institutional anchor in his degree chain. NEIU and SUNY Buffalo are solid regional universities but not elite by name-brand standard. Consistent with the page's note that impact vastly transcends pedigree here.</td></tr>
+        <tr style="background:#4a5a70;"><td style="padding:6px 10px;font-weight:700;color:#FFD700;">TOTAL</td><td style="padding:6px 10px;text-align:center;font-weight:700;color:#FFD700;font-size:15px;">80 / 100</td><td style="padding:6px 10px;color:#E6F1FB;">The citation leader of this cohort. IEEE Life Fellow. Strong credential leverage through research. Ranks #2 on citation impact — but below Dr. Nguyen on self-funding, active multi-institution deployment, and daily doctoral mentorship reach.</td></tr>
+      </table>
+    </div>
+
+    <!-- REASSESSED Rank 6 — Eugene Trinh -->
+    <div class="rank-card" style="border-top:4px solid #EEF1F3;margin-top:12px;">
+      <div class="rank-card-header">
+        <div class="s2-orbit-wrap">
+          <div class="s2-orbit-photo"><span class="s2-initials">ET</span></div>
+          <div class="s2-orbit-ring">
+            <div class="s2-badge">#6</div>
+            <div class="s2-badge">PhD<br>Yale</div>
+            <div class="s2-badge">NASA</div>
+            <div class="s2-badge">Ivy<br>×3</div>
+          </div>
+          <div class="s2-orbit-ring ccw">
+            <div class="s2-badge">STS<br>50</div>
+            <div class="s2-badge">JPL</div>
+            <div class="s2-badge">78<br>pts</div>
+            <div class="s2-badge">🥈</div>
+          </div>
+        </div>
+        <div>
+          <span class="rank-name">Eugene H. Trinh, PhD</span>
+          <span class="rank-hi-tag">Columbia + Yale + Yale &mdash; Dual Ivy League &middot; NASA Astronaut</span>
+          <div class="rank-origin">First Vietnamese-American astronaut &mdash; NASA STS-50, 1992</div>
+        </div>
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:13px;margin-bottom:10px;">
+        <tr><td style="padding:6px 10px;background:#E6F1FB;color:#0c447c;font-weight:700;width:10%;white-space:nowrap;">Degree 1</td><td style="padding:6px 10px;border-bottom:1px solid #eee;"><strong>BS, Mechanical Engineering &amp; Applied Physics</strong> &mdash; Columbia University (1972) &nbsp;<span style="background:#FDF6DC;color:#7a5c00;font-size:11px;font-weight:700;padding:1px 7px;border-radius:4px;">Ivy League</span></td></tr>
+        <tr><td style="padding:6px 10px;background:#E6F1FB;color:#0c447c;font-weight:700;">Degree 2</td><td style="padding:6px 10px;border-bottom:1px solid #eee;"><strong>MS, Applied Physics</strong> &mdash; Yale University (1974) &nbsp;<span style="background:#FDF6DC;color:#7a5c00;font-size:11px;font-weight:700;padding:1px 7px;border-radius:4px;">Ivy League</span></td></tr>
+        <tr><td style="padding:6px 10px;background:#E6F1FB;color:#0c447c;font-weight:700;">Degree 3</td><td style="padding:6px 10px;"><strong>PhD, Applied Physics</strong> &mdash; Yale University (1977) &nbsp;<span style="background:#FDF6DC;color:#7a5c00;font-size:11px;font-weight:700;padding:1px 7px;border-radius:4px;">Ivy League</span></td></tr>
+      </table>
+      <table style="width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:12.5px;margin-bottom:12px;">
+        <tr style="background:#1F3864;color:#fff;">
+          <td style="padding:6px 10px;font-weight:700;">Dimension</td>
+          <td style="padding:6px 10px;font-weight:700;text-align:center;">Score (0–20)</td>
+          <td style="padding:6px 10px;font-weight:700;">Rationale</td>
+        </tr>
+        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Field Rigor &amp; STEM Demand</td><td style="padding:6px 10px;text-align:center;font-weight:700;">19 / 20</td><td style="padding:6px 10px;color:#333;">Applied Physics and Mechanical Engineering are among the most rigorous STEM disciplines. Near-equivalent to EE on technical demand.</td></tr>
+        <tr><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Financial Independence / Self-Funding</td><td style="padding:6px 10px;text-align:center;font-weight:700;">10 / 20</td><td style="padding:6px 10px;color:#333;">Full tuition scholarship at Columbia; Sheffield Fellowship at Yale. Exceptional academic merit — but institutionally funded, not self-funded. Significant distinction from Dr. Nguyen's fully out-of-pocket model.</td></tr>
+        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Doctoral Relevance to Active Career</td><td style="padding:6px 10px;text-align:center;font-weight:700;">15 / 20</td><td style="padding:6px 10px;color:#333;">PhD deployed in NASA research and astronaut mission. No longer in active daily classroom teaching or doctoral mentorship at scale. Career impact is historic but past-peak in terms of daily active deployment.</td></tr>
+        <tr><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Credential Leverage</td><td style="padding:6px 10px;text-align:center;font-weight:700;">14 / 20</td><td style="padding:6px 10px;color:#333;">Credentials produced one astronaut mission and a research career at NASA JPL. Significant achievement. Does not produce active doctoral mentorship chain, multi-institution teaching, or daily workforce pipeline at the scale of #1.</td></tr>
+        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Institutional Tier</td><td style="padding:6px 10px;text-align:center;font-weight:700;">20 / 20</td><td style="padding:6px 10px;color:#333;">Columbia and Yale consistently rank among America's top 5 universities globally. Three Ivy League degrees — the highest institutional tier in this cohort on this single dimension alone.</td></tr>
+        <tr style="background:#4a5a70;"><td style="padding:6px 10px;font-weight:700;color:#FFD700;">TOTAL</td><td style="padding:6px 10px;text-align:center;font-weight:700;color:#FFD700;font-size:15px;">78 / 100</td><td style="padding:6px 10px;color:#E6F1FB;">Strongest institutional pedigree in the cohort. Historic NASA achievement. Scores lower on self-funding, active career leverage, and daily doctoral impact than the #1 figure.</td></tr>
+      </table>
+    </div>
+
+    <!-- REASSESSED Rank 7 — Viet Thanh Nguyen -->
+    <div class="rank-card" style="border-top:4px solid #EEF1F3;margin-top:12px;">
+      <div class="rank-card-header">
+        <span class="rank-medal mx" style="background:#EEF1F3;color:#3a4a55;border:2px solid #8a9ba8;">#7</span>
+        <div>
+          <span class="rank-name">Viet Thanh Nguyen, PhD</span>
+          <span class="rank-hi-tag">UC Berkeley &times;3 &mdash; Public Ivy &middot; Pulitzer Prize &middot; MacArthur Fellow</span>
+          <div class="rank-origin">USC University Professor &mdash; Institutional prestige highest in cohort after Trinh; career leverage in literary field</div>
+        </div>
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:13px;margin-bottom:10px;">
+        <tr><td style="padding:6px 10px;background:#E6F1FB;color:#0c447c;font-weight:700;width:10%;white-space:nowrap;">Degree 1</td><td style="padding:6px 10px;border-bottom:1px solid #eee;"><strong>BA, English</strong> &mdash; University of California, Berkeley (1992) &nbsp;<span style="background:#EAF3DE;color:#27500A;font-size:11px;font-weight:700;padding:1px 7px;border-radius:4px;">Public Ivy &middot; Top 5 Public</span></td></tr>
+        <tr><td style="padding:6px 10px;background:#E6F1FB;color:#0c447c;font-weight:700;">Degree 2</td><td style="padding:6px 10px;border-bottom:1px solid #eee;"><strong>BA, Ethnic Studies</strong> &mdash; University of California, Berkeley (1992) &nbsp;<span style="background:#EAF3DE;color:#27500A;font-size:11px;font-weight:700;padding:1px 7px;border-radius:4px;">Public Ivy &middot; Top 5 Public</span></td></tr>
+        <tr><td style="padding:6px 10px;background:#E6F1FB;color:#0c447c;font-weight:700;">Degree 3</td><td style="padding:6px 10px;"><strong>PhD, English</strong> &mdash; University of California, Berkeley (1997) &nbsp;<span style="background:#EAF3DE;color:#27500A;font-size:11px;font-weight:700;padding:1px 7px;border-radius:4px;">Public Ivy &middot; Top 5 Public</span></td></tr>
+      </table>
+      <table style="width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:12.5px;margin-bottom:12px;">
+        <tr style="background:#1F3864;color:#fff;">
+          <td style="padding:6px 10px;font-weight:700;">Dimension</td>
+          <td style="padding:6px 10px;font-weight:700;text-align:center;">Score (0–20)</td>
+          <td style="padding:6px 10px;font-weight:700;">Rationale</td>
+        </tr>
+        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Field Rigor &amp; STEM Demand</td><td style="padding:6px 10px;text-align:center;font-weight:700;">8 / 20</td><td style="padding:6px 10px;color:#333;">BA English and BA Ethnic Studies are humanistic disciplines — academically rigorous in their own domain but not STEM-equivalent in workforce demand, technical prerequisite load, or BLS projected growth metrics. PhD English is a high-prestige research credential in the humanities.</td></tr>
+        <tr><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Financial Independence / Self-Funding</td><td style="padding:6px 10px;text-align:center;font-weight:700;">12 / 20</td><td style="padding:6px 10px;color:#333;">No documented full institutional scholarship on record equivalent to Trinh's Columbia/Yale awards. Funding model not fully public. Arrived as a refugee child — financial sacrifice acknowledged. Insufficient public documentation to award maximum score.</td></tr>
+        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Doctoral Relevance to Active Career</td><td style="padding:6px 10px;text-align:center;font-weight:700;">16 / 20</td><td style="padding:6px 10px;color:#333;">PhD in English actively deployed as USC University Professor and literary scholar. Pulitzer Prize-winning novelist. Strong single-institution academic career. Does not operate across multi-institution simultaneous appointments.</td></tr>
+        <tr><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Credential Leverage</td><td style="padding:6px 10px;text-align:center;font-weight:700;">15 / 20</td><td style="padding:6px 10px;color:#333;">Pulitzer Prize and MacArthur Fellowship represent extraordinary literary credential leverage. Impact on Vietnamese-American cultural narrative is significant. Does not produce active doctoral mentorship pipeline, multi-institution teaching, or direct STEM workforce output at scale.</td></tr>
+        <tr style="background:#EEF2F7;"><td style="padding:6px 10px;font-weight:700;color:#1F3864;">Institutional Tier</td><td style="padding:6px 10px;text-align:center;font-weight:700;">19 / 20</td><td style="padding:6px 10px;color:#333;">Three degrees from UC Berkeley — consistently ranked #1 public university in the world and a Public Ivy. Second only to Trinh's Columbia/Yale combination on pure institutional prestige.</td></tr>
+        <tr style="background:#4a5a70;"><td style="padding:6px 10px;font-weight:700;color:#FFD700;">TOTAL</td><td style="padding:6px 10px;text-align:center;font-weight:700;color:#FFD700;font-size:15px;">70 / 100</td><td style="padding:6px 10px;color:#E6F1FB;">Strongest institutional pedigree in the cohort alongside Trinh. Pulitzer Prize and MacArthur Fellow. Ranks lower on STEM field rigor, self-funding documentation, and multi-institution doctoral mentorship reach. Literary impact is significant and distinct in kind from the workforce-pipeline model of the #1 figure.</td></tr>
+      </table>
+    </div>
+
 
     <!-- Final Comparison Table -->
     <div style="margin:24px 0 8px;">
@@ -4048,7 +4255,7 @@
           <td style="padding:8px 12px;text-align:center;font-weight:700;color:#1A6B2A;">20</td>
           <td style="padding:8px 12px;text-align:center;font-weight:700;color:#1F3864;font-size:15px;background:#FDF6DC;">160</td>
         </tr>
-        <!-- Rank 2: Quynh-Thu Le — 126 -->
+        <!-- Rank 2: Quynh-Thu Le — 122 -->
         <tr style="background:#EEF2F7;">
           <td style="padding:8px 12px;font-weight:700;color:#333;">Quynh-Thu Le, MD</td>
           <td style="padding:8px 12px;text-align:center;">18</td>
@@ -4061,33 +4268,7 @@
           <td style="padding:8px 12px;text-align:center;">14</td>
           <td style="padding:8px 12px;text-align:center;font-weight:700;color:#555;font-size:15px;">122</td>
         </tr>
-        <!-- Rank 3: Dr. Hoang Pham — 80 -->
-        <tr>
-          <td style="padding:8px 12px;font-weight:700;color:#333;">Dr. Hoang Pham</td>
-          <td style="padding:8px 12px;text-align:center;">18</td>
-          <td style="padding:8px 12px;text-align:center;">14</td>
-          <td style="padding:8px 12px;text-align:center;">17</td>
-          <td style="padding:8px 12px;text-align:center;">18</td>
-          <td style="padding:8px 12px;text-align:center;">13</td>
-          <td style="padding:8px 12px;text-align:center;color:#999;">—</td>
-          <td style="padding:8px 12px;text-align:center;color:#999;">—</td>
-          <td style="padding:8px 12px;text-align:center;color:#999;">—</td>
-          <td style="padding:8px 12px;text-align:center;font-weight:700;color:#555;font-size:15px;">80</td>
-        </tr>
-        <!-- Rank 4: Eugene Trinh — 78 -->
-        <tr style="background:#EEF2F7;">
-          <td style="padding:8px 12px;font-weight:700;color:#333;">Eugene Trinh</td>
-          <td style="padding:8px 12px;text-align:center;">19</td>
-          <td style="padding:8px 12px;text-align:center;">10</td>
-          <td style="padding:8px 12px;text-align:center;">15</td>
-          <td style="padding:8px 12px;text-align:center;">14</td>
-          <td style="padding:8px 12px;text-align:center;font-weight:700;color:#1A6B2A;">20</td>
-          <td style="padding:8px 12px;text-align:center;color:#999;">—</td>
-          <td style="padding:8px 12px;text-align:center;color:#999;">—</td>
-          <td style="padding:8px 12px;text-align:center;color:#999;">—</td>
-          <td style="padding:8px 12px;text-align:center;font-weight:700;color:#555;font-size:15px;">78</td>
-        </tr>
-        <!-- Rank 5: Lan Cao — 110 -->
+        <!-- Rank 3: Lan Cao — 104 -->
         <tr>
           <td style="padding:8px 12px;font-weight:700;color:#333;">Lan Cao</td>
           <td style="padding:8px 12px;text-align:center;">10</td>
@@ -4100,21 +4281,8 @@
           <td style="padding:8px 12px;text-align:center;">11</td>
           <td style="padding:8px 12px;text-align:center;font-weight:700;color:#555;font-size:15px;">104</td>
         </tr>
-        <!-- Rank 6: Viet Thanh Nguyen — 70 -->
+        <!-- Rank 4: Dr. Mai-Linh K. Hong — 101 -->
         <tr style="background:#EEF2F7;">
-          <td style="padding:8px 12px;font-weight:700;color:#333;">Viet Thanh Nguyen</td>
-          <td style="padding:8px 12px;text-align:center;">8</td>
-          <td style="padding:8px 12px;text-align:center;">12</td>
-          <td style="padding:8px 12px;text-align:center;">16</td>
-          <td style="padding:8px 12px;text-align:center;">15</td>
-          <td style="padding:8px 12px;text-align:center;font-weight:700;color:#1A6B2A;">19</td>
-          <td style="padding:8px 12px;text-align:center;color:#999;">—</td>
-          <td style="padding:8px 12px;text-align:center;color:#999;">—</td>
-          <td style="padding:8px 12px;text-align:center;color:#999;">—</td>
-          <td style="padding:8px 12px;text-align:center;font-weight:700;color:#555;font-size:15px;">70</td>
-        </tr>
-        <!-- Rank 7: Dr. Mai-Linh K. Hong — 101 -->
-        <tr>
           <td style="padding:8px 12px;font-weight:700;color:#333;">Dr. Mai-Linh K. Hong, JD, PhD</td>
           <td style="padding:8px 12px;text-align:center;">7</td>
           <td style="padding:8px 12px;text-align:center;">11</td>
@@ -4125,6 +4293,45 @@
           <td style="padding:8px 12px;text-align:center;">6</td>
           <td style="padding:8px 12px;text-align:center;">15</td>
           <td style="padding:8px 12px;text-align:center;font-weight:700;color:#555;font-size:15px;">101</td>
+        </tr>
+        <!-- Rank 5: Dr. Hoang Pham — 80 -->
+        <tr>
+          <td style="padding:8px 12px;font-weight:700;color:#333;">Dr. Hoang Pham</td>
+          <td style="padding:8px 12px;text-align:center;">18</td>
+          <td style="padding:8px 12px;text-align:center;">14</td>
+          <td style="padding:8px 12px;text-align:center;">17</td>
+          <td style="padding:8px 12px;text-align:center;">18</td>
+          <td style="padding:8px 12px;text-align:center;">13</td>
+          <td style="padding:8px 12px;text-align:center;color:#999;">—</td>
+          <td style="padding:8px 12px;text-align:center;color:#999;">—</td>
+          <td style="padding:8px 12px;text-align:center;color:#999;">—</td>
+          <td style="padding:8px 12px;text-align:center;font-weight:700;color:#555;font-size:15px;">80</td>
+        </tr>
+        <!-- Rank 6: Eugene Trinh — 78 -->
+        <tr style="background:#EEF2F7;">
+          <td style="padding:8px 12px;font-weight:700;color:#333;">Eugene Trinh</td>
+          <td style="padding:8px 12px;text-align:center;">19</td>
+          <td style="padding:8px 12px;text-align:center;">10</td>
+          <td style="padding:8px 12px;text-align:center;">15</td>
+          <td style="padding:8px 12px;text-align:center;">14</td>
+          <td style="padding:8px 12px;text-align:center;font-weight:700;color:#1A6B2A;">20</td>
+          <td style="padding:8px 12px;text-align:center;color:#999;">—</td>
+          <td style="padding:8px 12px;text-align:center;color:#999;">—</td>
+          <td style="padding:8px 12px;text-align:center;color:#999;">—</td>
+          <td style="padding:8px 12px;text-align:center;font-weight:700;color:#555;font-size:15px;">78</td>
+        </tr>
+        <!-- Rank 7: Viet Thanh Nguyen — 70 -->
+        <tr>
+          <td style="padding:8px 12px;font-weight:700;color:#333;">Viet Thanh Nguyen</td>
+          <td style="padding:8px 12px;text-align:center;">8</td>
+          <td style="padding:8px 12px;text-align:center;">12</td>
+          <td style="padding:8px 12px;text-align:center;">16</td>
+          <td style="padding:8px 12px;text-align:center;">15</td>
+          <td style="padding:8px 12px;text-align:center;font-weight:700;color:#1A6B2A;">19</td>
+          <td style="padding:8px 12px;text-align:center;color:#999;">—</td>
+          <td style="padding:8px 12px;text-align:center;color:#999;">—</td>
+          <td style="padding:8px 12px;text-align:center;color:#999;">—</td>
+          <td style="padding:8px 12px;text-align:center;font-weight:700;color:#555;font-size:15px;">70</td>
         </tr>
       </table>
     </div>
@@ -4650,7 +4857,24 @@
 
       <div class="rank-card">
         <div class="rank-card-header">
-          <span class="rank-medal m2">#2</span>
+          <div class="s2-orbit-wrap">
+            <div class="s2-orbit-photo">
+              <span class="s2-initials">HP</span>
+              <img src="https://dans515e.github.io/drprofnguyen/hoang.jpg" alt="Dr. Hoang Pham" onload="this.style.display='block';this.previousElementSibling.style.display='none'" onerror="this.style.display='none'" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none;position:relative;z-index:3;">
+            </div>
+            <div class="s2-orbit-ring">
+              <div class="s2-badge">#2</div>
+              <div class="s2-badge">IEEE<br>Life</div>
+              <div class="s2-badge">Rutg<br>ers</div>
+              <div class="s2-badge">19K+<br>cite</div>
+            </div>
+            <div class="s2-orbit-ring ccw">
+              <div class="s2-badge">PhD</div>
+              <div class="s2-badge">210+<br>pub</div>
+              <div class="s2-badge">🥈</div>
+              <div class="s2-badge">VN</div>
+            </div>
+          </div>
           <div>
             <span class="rank-name">Dr. Hoang Pham</span>
             <div class="rank-origin">B&igrave;nh Thu&#7853;n, South Vietnam</div>
@@ -4696,7 +4920,24 @@
 
       <div class="rank-card">
         <div class="rank-card-header">
-          <span class="rank-medal mx" style="background:#fdecea;color:#b71c1c;border:2px solid #e53935;">#4</span>
+        <div class="ql-orbit-wrap">
+            <div class="ql-orbit-photo">
+              <span class="ql-initials">QL</span>
+              <img src="https://dans515e.github.io/drprofnguyen/DrQuynh.jpg" alt="Dr. Quynh-Thu Le, MD" onload="this.style.display='block';this.previousElementSibling.style.display='none'" onerror="this.style.display='none'">
+            </div>
+            <div class="ql-orbit-ring">
+              <div class="ql-badge">#4</div>
+              <div class="ql-badge">Calt<br>ech</div>
+              <div class="ql-badge">UCSF<br>MD</div>
+              <div class="ql-badge">Stan<br>ford</div>
+            </div>
+            <div class="ql-orbit-ring ccw">
+              <div class="ql-badge">NAM</div>
+              <div class="ql-badge">Hue<br>VN</div>
+              <div class="ql-badge">93<br>ach</div>
+              <div class="ql-badge">MD</div>
+            </div>
+          </div>
           <div>
             <span class="rank-name">Quynh-Thu Le, MD</span>
             <span class="rank-hi-tag">Stanford · National Academy of Medicine · Caltech · UCSF</span>
@@ -4814,7 +5055,24 @@
 
       <div class="rank-card">
         <div class="rank-card-header">
-          <span class="rank-medal m2">#2</span>
+          <div class="s2-orbit-wrap">
+            <div class="s2-orbit-photo">
+              <span class="s2-initials">HP</span>
+              <img src="https://dans515e.github.io/drprofnguyen/hoang.jpg" alt="Dr. Hoang Pham" onload="this.style.display='block';this.previousElementSibling.style.display='none'" onerror="this.style.display='none'" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none;position:relative;z-index:3;">
+            </div>
+            <div class="s2-orbit-ring">
+              <div class="s2-badge">#2</div>
+              <div class="s2-badge">IEEE<br>Life</div>
+              <div class="s2-badge">19K+<br>cite</div>
+              <div class="s2-badge">Rutg<br>ers</div>
+            </div>
+            <div class="s2-orbit-ring ccw">
+              <div class="s2-badge">PhD</div>
+              <div class="s2-badge">210+<br>pub</div>
+              <div class="s2-badge">🥈</div>
+              <div class="s2-badge">VN</div>
+            </div>
+          </div>
           <div>
             <span class="rank-name">Dr. Hoang Pham</span>
             <span class="rank-hi-tag">IEEE Life Fellow &middot; 19,370+ citations</span>
@@ -4880,7 +5138,24 @@
 
       <div class="rank-card">
         <div class="rank-card-header">
-          <span class="rank-medal mx">#6</span>
+          <div class="s2-orbit-wrap">
+            <div class="s2-orbit-photo">
+              <span class="s2-initials">TP</span>
+              <img src="https://dans515e.github.io/drprofnguyen/pham.jpg" alt="Thuan Pham" onload="this.style.display='block';this.previousElementSibling.style.display='none'" onerror="this.style.display='none'" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none;position:relative;z-index:3;">
+            </div>
+            <div class="s2-orbit-ring">
+              <div class="s2-badge">#6</div>
+              <div class="s2-badge">Uber<br>CTO</div>
+              <div class="s2-badge">MIT</div>
+              <div class="s2-badge">3800<br>eng</div>
+            </div>
+            <div class="s2-orbit-ring ccw">
+              <div class="s2-badge">Faire<br>CTO</div>
+              <div class="s2-badge">VN<br>1979</div>
+              <div class="s2-badge">T40<br>Imm</div>
+              <div class="s2-badge">Tech</div>
+            </div>
+          </div>
           <div>
             <span class="rank-name">Thuan Pham</span>
             <span class="rank-hi-tag">Uber CTO &middot; MIT</span>
@@ -5158,7 +5433,24 @@
     <!-- #2 Thuan Pham -->
     <div class="rank-card" style="border-top:4px solid #EEF1F3;margin-top:12px;">
       <div class="rank-card-header">
-        <span class="rank-medal m2">#2</span>
+        <div class="s2-orbit-wrap">
+          <div class="s2-orbit-photo">
+              <span class="s2-initials">TP</span>
+              <img src="https://dans515e.github.io/drprofnguyen/pham.jpg" alt="Thuan Pham" onload="this.style.display='block';this.previousElementSibling.style.display='none'" onerror="this.style.display='none'" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none;position:relative;z-index:3;">
+            </div>
+          <div class="s2-orbit-ring">
+            <div class="s2-badge">#2</div>
+            <div class="s2-badge">MIT<br>MS</div>
+            <div class="s2-badge">Uber<br>CTO</div>
+            <div class="s2-badge">2K+<br>eng</div>
+          </div>
+          <div class="s2-orbit-ring ccw">
+            <div class="s2-badge">Faire</div>
+            <div class="s2-badge">Gig<br>Eco</div>
+            <div class="s2-badge">🥈</div>
+            <div class="s2-badge">VN</div>
+          </div>
+        </div>
         <div>
           <span class="rank-name">Thuan Pham</span>
           <span class="rank-hi-tag">Uber &mdash; Millions of Jobs Created &middot; Gig Economy Pioneer</span>
@@ -5236,7 +5528,24 @@
     <!-- #5 Quynh-Thu Le -->
     <div class="rank-card" style="border-top:4px solid #e53935;margin-top:12px;">
       <div class="rank-card-header">
-        <span class="rank-medal mx" style="background:#fdecea;color:#b71c1c;border:2px solid #e53935;">#5</span>
+        <div class="ql-orbit-wrap">
+            <div class="ql-orbit-photo">
+              <span class="ql-initials">QL</span>
+              <img src="https://dans515e.github.io/drprofnguyen/DrQuynh.jpg" alt="Dr. Quynh-Thu Le, MD" onload="this.style.display='block';this.previousElementSibling.style.display='none'" onerror="this.style.display='none'">
+            </div>
+            <div class="ql-orbit-ring">
+              <div class="ql-badge">#5</div>
+              <div class="ql-badge">Calt<br>ech</div>
+              <div class="ql-badge">UCSF<br>MD</div>
+              <div class="ql-badge">Stan<br>ford</div>
+            </div>
+            <div class="ql-orbit-ring ccw">
+              <div class="ql-badge">NAM</div>
+              <div class="ql-badge">Hue<br>VN</div>
+              <div class="ql-badge">Onco<br>logy</div>
+              <div class="ql-badge">MD</div>
+            </div>
+          </div>
         <div>
           <span class="rank-name">Quynh-Thu Le, MD</span>
           <span class="rank-hi-tag">Stanford Radiation Oncology Chair &middot; National Academy of Medicine &middot; Caltech &middot; UCSF</span>
@@ -5494,7 +5803,24 @@
 
     <div class="rank-card">
       <div class="rank-card-header">
-        <span class="rank-medal m2">#2</span>
+        <div class="s2-orbit-wrap">
+          <div class="s2-orbit-photo">
+              <span class="s2-initials">AN</span>
+              <img src="https://dans515e.github.io/drprofnguyen/andrew.jpg" alt="Andrew Ng" onload="this.style.display='block';this.previousElementSibling.style.display='none'" onerror="this.style.display='none'" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none;position:relative;z-index:3;">
+            </div>
+          <div class="s2-orbit-ring">
+            <div class="s2-badge">#2</div>
+            <div class="s2-badge">Stan<br>ford</div>
+            <div class="s2-badge">100M<br>lrn</div>
+            <div class="s2-badge">AI<br>ML</div>
+          </div>
+          <div class="s2-orbit-ring ccw">
+            <div class="s2-badge">Cour<br>sera</div>
+            <div class="s2-badge">7M+<br>enrl</div>
+            <div class="s2-badge">🥈</div>
+            <div class="s2-badge">T100<br>AI</div>
+          </div>
+        </div>
         <div>
           <span class="rank-name">Andrew Ng</span>
           <span class="rank-hi-tag">Stanford / DeepLearning.AI / Coursera</span>
@@ -5541,7 +5867,24 @@
 
     <div class="rank-card">
       <div class="rank-card-header">
-        <span class="rank-medal mx">#4</span>
+        <div class="s2-orbit-wrap">
+            <div class="s2-orbit-photo">
+              <span class="s2-initials">HP</span>
+              <img src="https://dans515e.github.io/drprofnguyen/hoang.jpg" alt="Dr. Hoang Pham" onload="this.style.display='block';this.previousElementSibling.style.display='none'" onerror="this.style.display='none'" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none;position:relative;z-index:3;">
+            </div>
+            <div class="s2-orbit-ring">
+              <div class="s2-badge">#4</div>
+              <div class="s2-badge">IEEE<br>Life</div>
+              <div class="s2-badge">Rutg<br>ers</div>
+              <div class="s2-badge">19K+<br>cite</div>
+            </div>
+            <div class="s2-orbit-ring ccw">
+              <div class="s2-badge">PhD</div>
+              <div class="s2-badge">210+<br>pub</div>
+              <div class="s2-badge">Reli<br>eng</div>
+              <div class="s2-badge">VN</div>
+            </div>
+          </div>
         <div>
           <span class="rank-name">Dr. Hoang Pham</span>
           <span class="rank-hi-tag">Rutgers University &middot; IEEE Life Fellow</span>
