@@ -2590,6 +2590,148 @@
     opacity: 0.55;
   }
 
+  /* ═══════════════════════════════════════════════════
+     3-D EXTRUDED NAME — hero heading
+     ═══════════════════════════════════════════════════ */
+  .name-3d-wrap {
+    display: block;
+    font-family: var(--font-display);
+    line-height: 1.05;
+    margin-bottom: 10px;
+    user-select: none;
+  }
+
+  .name-3d-line {
+    display: block;
+  }
+  .name-3d-line--top { margin-bottom: 3px; }
+
+  /*
+   * Technique: position two layers on top of each other.
+   *  Layer 1 (::before) = the extruded 3-D shadow stack (plain colour text)
+   *  Layer 2 (span face) = gold gradient face clipped to text, sits on top
+   * Both share the same font metrics via a wrapper that is `position:relative`.
+   */
+  .name-3d {
+    position: relative;
+    display: inline-block;
+    font-size: clamp(28px, 4.4vw, 52px);
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    transform: rotateX(3deg);
+    transition: transform 0.35s ease;
+  }
+  .name-3d--nguyen {
+    font-size: clamp(24px, 3.8vw, 46px);
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Shadow / extrusion layer (pseudo-element, behind the face) ── */
+  .name-3d::before {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    font: inherit;
+    letter-spacing: inherit;
+    /* Stacked shadow = 3-D extrusion illusion */
+    color: transparent;
+    text-shadow:
+      0   -1px 0   rgba(255,240,160,0.55),
+      1px  1px 0   #c9a227,
+      2px  2px 0   #b8860b,
+      3px  3px 0   #a0740a,
+      4px  4px 0   #8a6209,
+      5px  5px 0   #745108,
+      6px  6px 0   #5e4107,
+      7px  7px 0   #4a3205,
+      8px  8px 0   #382504,
+      9px  9px 0   #271a03,
+      10px 10px 0  #1a1002,
+      11px 11px 0  #110b01,
+      12px 12px 0  #0a0700,
+      13px 13px 0  #060400,
+      14px 14px 0  #030200,
+      /* diffuse cast shadow */
+      16px 18px 18px rgba(0,0,0,0.55),
+      20px 24px 30px rgba(0,0,0,0.28);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── Face layer: bright gold gradient clipped to text ── */
+  .name-3d-face {
+    position: relative;
+    z-index: 1;
+    display: inline;
+    background: linear-gradient(
+      155deg,
+      #fff8dc  0%,
+      #f5c842 16%,
+      #ffd700 32%,
+      #ffe566 48%,
+      #c9a227 60%,
+      #fff0a0 74%,
+      #f5c842 88%,
+      #ffe08a 100%
+    );
+    background-size: 220% 220%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: name3d-shimmer 4.5s ease-in-out infinite;
+  }
+
+  @keyframes name3d-shimmer {
+    0%   { background-position: 0%   20%; }
+    45%  { background-position: 100% 80%; }
+    55%  { background-position: 100% 80%; }
+    100% { background-position: 0%   20%; }
+  }
+
+  /* Hover: tilt deeper for stronger depth illusion */
+  .name-3d-wrap:hover .name-3d {
+    transform: rotateX(5deg) rotateY(1.5deg) scale(1.012);
+  }
+  .name-3d-wrap:hover .name-3d::before {
+    text-shadow:
+      0   -1px 0   rgba(255,240,160,0.65),
+      1px  1px 0   #d4ae2a,
+      2px  2px 0   #c9a227,
+      3px  3px 0   #b08010,
+      4px  4px 0   #966b0c,
+      5px  5px 0   #7c5609,
+      6px  6px 0   #624307,
+      7px  7px 0   #4e3505,
+      8px  8px 0   #3a2804,
+      9px  9px 0   #291b03,
+      10px 10px 0  #1c1102,
+      11px 11px 0  #120b01,
+      12px 12px 0  #0c0701,
+      13px 13px 0  #070400,
+      14px 14px 0  #040200,
+      18px 22px 22px rgba(0,0,0,0.60),
+      24px 30px 36px rgba(0,0,0,0.28);
+  }
+
+  @media (max-width: 700px) {
+    .name-3d {
+      font-size: clamp(22px, 6.5vw, 34px);
+    }
+    .name-3d--nguyen {
+      font-size: clamp(20px, 5.8vw, 30px);
+    }
+    .name-3d::before {
+      text-shadow:
+        0  -1px 0  rgba(255,240,160,0.5),
+        1px 1px 0  #c9a227,
+        2px 2px 0  #8a6209,
+        3px 3px 0  #5e4107,
+        4px 4px 0  #271a03,
+        5px 5px 0  #0a0700,
+        8px 10px 14px rgba(0,0,0,0.5);
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -2792,7 +2934,15 @@
       </div>
       <div class="hero-photo-text">
         <p class="hero-tag">Global Executive Biography &mdash; Ranked #1 Worldwide &mdash; Student &amp; Educational Impact &nbsp;&middot;&nbsp; #1 Globally Among Professors for Workforce Impact &nbsp;&middot;&nbsp; #1 World Academic Ranking &mdash; Broadest Verified Achievement, All 100 Dimensions &nbsp;&middot;&nbsp; Vietnamese Refugee &nbsp;&middot;&nbsp; U.S. Marine Corps Veteran &nbsp;&middot;&nbsp; Distinguished Toastmaster</p>
-        <h1><span class="nguyen-name">Dr. Daniel Schilling Weiss Nguyen</span></h1>
+        <!-- ═══ 3-D EXTRUDED NAME ═══ -->
+        <h1 class="name-3d-wrap" aria-label="Dr. Daniel Schilling Weiss Nguyen">
+          <span class="name-3d-line name-3d-line--top">
+            <span class="name-3d" data-text="Dr. Daniel Schilling"><span class="name-3d-face">Dr. Daniel Schilling</span></span>
+          </span>
+          <span class="name-3d-line name-3d-line--bot">
+            <span class="name-3d name-3d--nguyen" data-text="Weiss Nguyen"><span class="name-3d-face">Weiss Nguyen</span></span>
+          </span>
+        </h1>
         <p class="hero-credentials" style="font-weight:800; font-size:1.35em; color:#00e676;">PhD, Management &mdash; Information Systems Management &nbsp;&middot;&nbsp; DTM, Toastmasters International</p>
       </div>
     </div>
