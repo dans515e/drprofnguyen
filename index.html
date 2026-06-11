@@ -2732,6 +2732,197 @@
     }
   }
 
+  /* ═══════════════════════════════════════════════════════
+     HERO ENHANCEMENT PACK
+     1. Typewriter reveal on hero-tag
+     2. Counter-up numbers with gold flare on finish
+     3. Floating credential particles (JS canvas)
+     4. Magnetic tilt on hero photo container
+     5. Impact-card pulse ring on hover
+     6. Gold spotlight sweep across the 3-D name
+     7. Staggered pill-row entrance with bounce
+     8. Heartbeat pulse on #1 impact card
+     9. Cursor-trail spark effect
+     10. Glory halo behind hero photo
+  ═══════════════════════════════════════════════════════ */
+
+  /* 1. Typewriter — hero-tag */
+  .hero-tag {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid rgba(201,162,39,0.7);
+    width: 0;
+    animation: heroTypewriter 3.2s steps(80,end) 0.3s forwards,
+               heroCursorBlink 0.75s step-end 3.5s 6;
+    max-width: 100%;
+  }
+  @keyframes heroTypewriter {
+    from { width: 0; }
+    to   { width: 100%; }
+  }
+  @keyframes heroCursorBlink {
+    0%,100% { border-color: rgba(201,162,39,0.7); }
+    50%     { border-color: transparent; }
+  }
+
+  /* 6. Gold spotlight sweep over 3-D name */
+  .name-3d-wrap::after {
+    content: '';
+    position: absolute;
+    inset: -8px -60px;
+    background: linear-gradient(
+      105deg,
+      transparent 30%,
+      rgba(255,240,160,0.18) 48%,
+      rgba(255,255,200,0.32) 50%,
+      rgba(255,240,160,0.18) 52%,
+      transparent 70%
+    );
+    pointer-events: none;
+    animation: nameSpotlight 5s ease-in-out 3.5s infinite;
+    z-index: 10;
+  }
+  .name-3d-wrap { position: relative; overflow: visible; }
+  @keyframes nameSpotlight {
+    0%   { transform: translateX(-120%); opacity: 0; }
+    8%   { opacity: 1; }
+    45%  { transform: translateX(120%); opacity: 1; }
+    50%  { opacity: 0; }
+    100% { transform: translateX(120%); opacity: 0; }
+  }
+
+  /* 5. Impact-card hover pulse ring */
+  .hero-impact-card {
+    position: relative;
+    overflow: visible;
+    cursor: default;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .hero-impact-card:hover {
+    transform: translateY(-4px) scale(1.04);
+  }
+  .hero-impact-card::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: inherit;
+    border: 2px solid rgba(201,162,39,0.7);
+    opacity: 0;
+    transform: scale(1);
+    pointer-events: none;
+    transition: none;
+  }
+  .hero-impact-card:hover::after {
+    animation: impactCardPing 0.55s ease-out forwards;
+  }
+  @keyframes impactCardPing {
+    0%   { opacity: 0.8; transform: scale(1);   }
+    100% { opacity: 0;   transform: scale(1.35);}
+  }
+
+  /* 8. Heartbeat on #1 impact card */
+  .hero-impact-card:last-child .hero-impact-num,
+  .hero-impact-card:first-child .hero-impact-num {
+    animation: num-glow 3s ease-in-out infinite alternate,
+               heartbeat 2.4s ease-in-out infinite;
+  }
+  @keyframes heartbeat {
+    0%,100% { transform: scale(1);    }
+    14%     { transform: scale(1.12); }
+    28%     { transform: scale(1);    }
+    42%     { transform: scale(1.07); }
+    70%     { transform: scale(1);    }
+  }
+
+  /* 10. Glory halo behind hero photo */
+  .hero-photo-container::before {
+    content: '';
+    position: absolute;
+    inset: -18px;
+    border-radius: 50%;
+    background: conic-gradient(
+      from 0deg,
+      rgba(201,162,39,0.0)   0deg,
+      rgba(201,162,39,0.28)  60deg,
+      rgba(255,230,80,0.42)  90deg,
+      rgba(201,162,39,0.28)  120deg,
+      rgba(255,255,255,0.12) 180deg,
+      rgba(42,122,196,0.18)  240deg,
+      rgba(77,255,176,0.12)  300deg,
+      rgba(201,162,39,0.0)   360deg
+    );
+    animation: haloSpin 12s linear infinite;
+    filter: blur(10px);
+    z-index: -1;
+    pointer-events: none;
+  }
+  @keyframes haloSpin {
+    from { transform: rotate(0deg);   }
+    to   { transform: rotate(360deg); }
+  }
+
+  /* 4. Magnetic tilt CSS fallback (JS enhances it) */
+  .hero-photo-container {
+    transition: transform 0.15s ease;
+    will-change: transform;
+  }
+
+  /* 7. Pill-row stagger entrance */
+  .pill-row .pill {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: pillEntrance 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards;
+  }
+  .pill-row .pill:nth-child(1)  { animation-delay: 0.9s; }
+  .pill-row .pill:nth-child(2)  { animation-delay: 1.05s; }
+  .pill-row .pill:nth-child(3)  { animation-delay: 1.20s; }
+  .pill-row .pill:nth-child(4)  { animation-delay: 1.35s; }
+  .pill-row .pill:nth-child(5)  { animation-delay: 1.50s; }
+  .pill-row .pill:nth-child(6)  { animation-delay: 1.65s; }
+  .pill-row .pill:nth-child(7)  { animation-delay: 1.80s; }
+  .pill-row .pill:nth-child(8)  { animation-delay: 1.95s; }
+  @keyframes pillEntrance {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* 2. Counter-up gold flare on hero-impact-num */
+  .hero-impact-num.counted-up {
+    animation: countFlare 0.6s cubic-bezier(0.34,1.56,0.64,1) forwards,
+               num-glow 3s ease-in-out 0.6s infinite alternate;
+  }
+  @keyframes countFlare {
+    0%   { transform: scale(1.0); filter: brightness(1);   }
+    40%  { transform: scale(1.3); filter: brightness(2.2); }
+    100% { transform: scale(1.0); filter: brightness(1);   }
+  }
+
+  /* Credential particle canvas (sits behind hero inner) */
+  #hero-cred-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.55;
+  }
+
+  /* Cursor spark trail */
+  .spark-dot {
+    position: fixed;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    animation: sparkFade 0.65s ease-out forwards;
+  }
+  @keyframes sparkFade {
+    0%   { opacity: 0.9; transform: translate(-50%,-50%) scale(1);   }
+    100% { opacity: 0;   transform: translate(-50%,-50%) scale(0.1); }
+  }
+
 </style>
 </head>
 <body>
@@ -2889,6 +3080,7 @@
 <div class="hero">
   <!-- Cinematic background layers -->
   <canvas id="hero-particle-canvas"></canvas>
+  <canvas id="hero-cred-canvas"></canvas>
   <div class="hero-grid"></div>
   <div class="hero-lightning"></div>
   <div class="hero-scanline"></div>
@@ -9301,5 +9493,157 @@ Cuộc đời ông chứng minh rằng khi một quốc gia đầu tư vào ngư
     });
   };
   </script>
+  <script>
+  /* ═══════════════════════════════════════════════════════
+     HERO ENHANCEMENT PACK — JavaScript
+  ═══════════════════════════════════════════════════════ */
+
+  (function() {
+
+    /* ── 1. Floating credential particles on hero-cred-canvas ── */
+    var credCanvas = document.getElementById('hero-cred-canvas');
+    if (credCanvas) {
+      var hero = document.querySelector('.hero') || credCanvas.parentElement;
+      var ctx = credCanvas.getContext('2d');
+      var words = ['PhD','DTM','#1 Worldwide','USMC','NOAA','11 PhDs','9 Institutions',
+                   'CompTIA','FISMA','NIST','22 Yrs','Security+','SSCP','CAIP','Oracle DBA',
+                   'Associate Prof','Dissertation Chair','Lead Faculty','Author','Refugee→#1'];
+      var gold  = ['rgba(201,162,39,','rgba(245,200,66,','rgba(255,220,90,','rgba(255,240,140,'];
+      var cyan  = ['rgba(77,255,176,','rgba(100,220,200,'];
+      var particles = [];
+      function resize() {
+        credCanvas.width  = credCanvas.offsetWidth  || hero.offsetWidth  || 1200;
+        credCanvas.height = credCanvas.offsetHeight || hero.offsetHeight || 600;
+      }
+      function makeParticle() {
+        var palette = Math.random() < 0.7 ? gold : cyan;
+        var col = palette[Math.floor(Math.random()*palette.length)];
+        return {
+          x: Math.random() * credCanvas.width,
+          y: credCanvas.height + 24,
+          vx: (Math.random()-0.5)*0.4,
+          vy: -(0.28 + Math.random()*0.45),
+          alpha: 0,
+          maxAlpha: 0.18 + Math.random()*0.22,
+          fadeIn: true,
+          text: words[Math.floor(Math.random()*words.length)],
+          size: 9 + Math.random()*6,
+          col: col,
+          life: 0,
+          maxLife: 260 + Math.random()*180
+        };
+      }
+      for(var i=0;i<18;i++){var p=makeParticle();p.y=Math.random()*credCanvas.height;p.alpha=p.maxAlpha*Math.random();particles.push(p);}
+      function animCred() {
+        resize();
+        ctx.clearRect(0,0,credCanvas.width,credCanvas.height);
+        if(particles.length < 22 && Math.random()<0.04) particles.push(makeParticle());
+        for(var i=particles.length-1;i>=0;i--){
+          var p=particles[i];
+          p.life++;
+          p.x+=p.vx; p.y+=p.vy;
+          if(p.fadeIn){ p.alpha+=0.008; if(p.alpha>=p.maxAlpha){p.alpha=p.maxAlpha;p.fadeIn=false;} }
+          else if(p.life>p.maxLife*0.75){ p.alpha-=0.006; }
+          if(p.alpha<=0||p.y<-30){ particles.splice(i,1); continue; }
+          ctx.save();
+          ctx.globalAlpha=p.alpha;
+          ctx.font='700 '+Math.round(p.size)+'px "DM Sans",Arial,sans-serif';
+          ctx.fillStyle=p.col+'1)';
+          ctx.shadowColor=p.col+'0.6)';
+          ctx.shadowBlur=8;
+          ctx.fillText(p.text,Math.round(p.x),Math.round(p.y));
+          ctx.restore();
+        }
+        requestAnimationFrame(animCred);
+      }
+      resize();
+      animCred();
+      window.addEventListener('resize', resize);
+    }
+
+    /* ── 2. Enhanced counter-up with gold flare on finish ── */
+    var nums = document.querySelectorAll('.hero-impact-num[data-count]');
+    var countersStarted = false;
+    function startCounters() {
+      if(countersStarted) return;
+      countersStarted = true;
+      nums.forEach(function(el) {
+        var raw = el.getAttribute('data-count');
+        var suffix = raw.replace(/[0-9]/g,'');
+        var target = parseInt(raw,10);
+        var start = 0, duration = 1400, startTime = null;
+        function step(ts) {
+          if(!startTime) startTime = ts;
+          var progress = Math.min((ts-startTime)/duration, 1);
+          var ease = 1 - Math.pow(1-progress, 3);
+          var current = Math.round(ease * target);
+          el.textContent = (suffix==='#1') ? '#1' : current + suffix;
+          if(progress < 1) { requestAnimationFrame(step); }
+          else {
+            el.textContent = raw.startsWith('#') ? raw : target+suffix;
+            el.classList.add('counted-up');
+          }
+        }
+        requestAnimationFrame(step);
+      });
+    }
+    var impactRow = document.querySelector('.hero-impact-row');
+    if(impactRow && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function(entries,obs){
+        if(entries[0].isIntersecting){ startCounters(); obs.disconnect(); }
+      },{threshold:0.3}).observe(impactRow);
+    } else { setTimeout(startCounters, 600); }
+
+    /* ── 4. Magnetic tilt on hero photo container ── */
+    var photoWrap = document.querySelector('.hero-photo-container');
+    if(photoWrap) {
+      photoWrap.addEventListener('mousemove', function(e) {
+        var r = photoWrap.getBoundingClientRect();
+        var cx = r.left + r.width/2, cy = r.top + r.height/2;
+        var dx = (e.clientX - cx) / (r.width/2);
+        var dy = (e.clientY - cy) / (r.height/2);
+        photoWrap.style.transform = 'perspective(600px) rotateY('+( dx*9)+'deg) rotateX('+(-dy*7)+'deg) scale(1.03)';
+      });
+      photoWrap.addEventListener('mouseleave', function() {
+        photoWrap.style.transform = '';
+      });
+    }
+
+    /* ── 9. Cursor spark trail (gold/cyan sparks follow the mouse inside the hero) ── */
+    var heroEl = document.querySelector('.hero');
+    var sparkColors = ['#ffd700','#f5c842','#ffe566','#4dffb0','#fff8a0','#ffec6e'];
+    var lastSparkTime = 0;
+    function spawnSpark(x, y) {
+      var dot = document.createElement('div');
+      dot.className = 'spark-dot';
+      dot.style.left = x + 'px';
+      dot.style.top  = y + 'px';
+      var col = sparkColors[Math.floor(Math.random()*sparkColors.length)];
+      dot.style.background = col;
+      dot.style.boxShadow = '0 0 6px 2px '+col;
+      var vx = (Math.random()-0.5)*60, vy = -20 - Math.random()*40;
+      dot.style.setProperty('--vx', vx+'px');
+      dot.style.setProperty('--vy', vy+'px');
+      document.body.appendChild(dot);
+      setTimeout(function(){ dot.remove(); }, 700);
+    }
+    if(heroEl) {
+      heroEl.addEventListener('mousemove', function(e) {
+        var now = Date.now();
+        if(now - lastSparkTime < 55) return;
+        lastSparkTime = now;
+        spawnSpark(e.clientX, e.clientY);
+      });
+    }
+
+    /* ── Typewriter: wrap hero-tag in a container so it doesn't overflow ── */
+    var heroTag = document.querySelector('.hero-tag');
+    if(heroTag) {
+      heroTag.style.display = 'block';
+    }
+
+  })();
+  </script>
+
 </html>
 
