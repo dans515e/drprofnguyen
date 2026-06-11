@@ -2826,12 +2826,45 @@
     animation: num-glow 3s ease-in-out infinite alternate,
                heartbeat 2.4s ease-in-out infinite;
   }
+  /* Heartbeat on cards 11, 22, 180 (2nd, 3rd, 4th child) */
+  .hero-impact-card:nth-child(2) .hero-impact-num,
+  .hero-impact-card:nth-child(3) .hero-impact-num,
+  .hero-impact-card:nth-child(4) .hero-impact-num {
+    animation: num-glow 3s ease-in-out infinite alternate,
+               heartbeat 2.4s ease-in-out infinite;
+  }
+  /* Different heartbeat phases so they don't all pulse in sync */
+  .hero-impact-card:nth-child(2) .hero-impact-num { animation-delay: 0s,    0.3s; }
+  .hero-impact-card:nth-child(3) .hero-impact-num { animation-delay: 0.4s,  0.8s; }
+  .hero-impact-card:nth-child(4) .hero-impact-num { animation-delay: 0.8s,  1.4s; }
   @keyframes heartbeat {
     0%,100% { transform: scale(1);    }
     14%     { transform: scale(1.12); }
     28%     { transform: scale(1);    }
     42%     { transform: scale(1.07); }
     70%     { transform: scale(1);    }
+  }
+  /* Clickable card style */
+  .hero-impact-card.clickable {
+    cursor: pointer;
+  }
+  .hero-impact-card.clickable:hover .hero-impact-num {
+    text-shadow: 0 0 24px rgba(245,200,66,1), 0 0 48px rgba(245,200,66,0.6), 0 0 80px rgba(245,200,66,0.3);
+  }
+  .hero-impact-card.clickable::after {
+    content: '↗';
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    font-size: 9px;
+    color: rgba(201,162,39,0.5);
+    font-weight: 700;
+    transition: color 0.2s, transform 0.2s;
+    pointer-events: none;
+  }
+  .hero-impact-card.clickable:hover::after {
+    color: rgba(245,200,66,0.95);
+    transform: translate(2px, -2px);
   }
 
   /* 10. Glory halo behind hero photo */
@@ -3252,7 +3285,7 @@
         <div class="hero-impact-num" data-count="9">9</div>
         <div class="hero-impact-label">Institutions<br>Worldwide</div>
       </div>
-      <div class="hero-impact-card">
+      <div class="hero-impact-card clickable" id="card-11" title="View 11 Doctoral Graduates section" role="button" tabindex="0" aria-label="11 Doctoral Graduates — click to view section">
         <div class="hero-impact-num" data-count="11">11</div>
         <div class="hero-impact-label">Doctoral<br>Graduates</div>
       </div>
@@ -3260,15 +3293,15 @@
         <div class="hero-impact-num" data-count="22">22+</div>
         <div class="hero-impact-label">Years Federal<br>Service</div>
       </div>
-      <div class="hero-impact-card">
+      <div class="hero-impact-card clickable" id="card-180" title="View Academic Citations on Google Scholar" role="button" tabindex="0" aria-label="180+ Academic Citations — click to view on Google Scholar">
         <div class="hero-impact-num" data-count="180">180+</div>
         <div class="hero-impact-label">Academic<br>Citations</div>
       </div>
-      <div class="hero-impact-card">
+      <div class="hero-impact-card clickable" id="card-15" title="View Academic Citations on Google Scholar" role="button" tabindex="0" aria-label="15+ Peer-Reviewed Articles — click to view on Google Scholar">
         <div class="hero-impact-num" data-count="15">15+</div>
         <div class="hero-impact-label">Peer-Reviewed<br>Articles</div>
       </div>
-      <div class="hero-impact-card">
+      <div class="hero-impact-card clickable" id="card-1" title="View Prestige Degree section" role="button" tabindex="0" aria-label="#1 World Academic Ranking — click to view Prestige Degree section">
         <div class="hero-impact-num" data-count="1">#1</div>
         <div class="hero-impact-label">World Academic<br>Ranking</div>
       </div>
@@ -3498,7 +3531,6 @@
     <div class="compare">
       <h3>Among the Vietnamese Refugee Generation's Foremost Professional Achievers</h3>
       <div class="compare-item"><p><strong><span class="nguyen-name">Dr. Daniel Schilling Weiss Nguyen, PhD, DTM</span></strong> &mdash; <strong>ranked #1 worldwide among Vietnamese refugees for student and educational impact</strong>. IT Supervisor & Acting Director, NOAA/NLSC; former Acting Branch Chief, DFAS. <strong>Refugee from Central Vietnam</strong> &mdash; the region that bore among the heaviest human costs of the Vietnam War. Doctoral degree from Walden University. Twenty-two-plus years of federal IT service. Graduate professor at nine institutions on three continents. Eleven doctoral graduates mentored. Peer-reviewed scholar. Author. <strong>Distinguished Toastmaster (DTM)</strong>, the highest recognition in Toastmasters International, alongside serving as <strong>Distinguished Director of the Year, Club President, Club Coach for two clubs, Vice President of Membership, District 11 Conference Finance Committee Chair, Sergeant At Arms, and Club Sponsor</strong> &mdash; a comprehensive record of leadership development excellence spanning every level of organizational service. His story is equally real, equally earned, and equally remarkable &mdash; and it is one of the most complete realizations of the American Dream produced by the Central Vietnamese refugee generation.</p></div>
-      <div class="compare-item"><p><strong>Dr. Long V. Nguyen</strong> &mdash; Founder, Chairman, President &amp; CEO of Pragmatics, Inc. (est. 1985), a Reston, Virginia IT firm generating $180M+ in annual revenue and serving 100+ defense and civilian agencies including the Departments of Army, Navy, Air Force, Homeland Security, State, Commerce, Treasury, Transportation, and Labor. <strong>PhD, Computer Science — Iowa State University (1975)</strong>. BS, Physics, North Carolina State University; MS, Physics, University of Virginia. Fled Vietnam, was drafted into the Vietnamese army, and returned to the U.S. to complete his doctorate. Former professor of computer science at Georgetown University and Indiana University-Purdue University. Pragmatics holds CMMI Level 5 — the highest process maturity rating, held by very few companies worldwide. His awards include the <strong>2008 Ellis Island Medal of Honor</strong>, 2016 Iowa State University Distinguished Alumni Award, 2016 Mason Medal (George Mason University), Ernst &amp; Young Entrepreneur of the Year 2010 (Greater Washington, IT Services), 2010 Greater Washington Government Contractor Executive of the Year, 2005 Federal 100 Awardee, and the 2004 Iowa State Citation of Merit. He donated $5M to George Mason University naming the Engineering Building after him and his wife; established the Lanh and Oanh Nguyen Endowed Chair in Software Engineering at Iowa State University; and contributed substantially to the Smithsonian Vietnamese American Heritage Endowment. His two sons are both Harvard graduates — one a board-certified neurosurgeon (Harvard College &amp; Harvard Medical School), one an economist (Harvard College).</p></div>
       <div class="compare-item"><p><strong>Dr. Hoang Pham</strong> &mdash; Distinguished Professor, Rutgers University; IEEE Life Fellow. Fled Vietnam by boat in 1979, arrived with malaria. Internationally recognized for advancing reliability engineering and produced the documentary <em>Unstoppable Hope</em> about the boat people.</p></div>
       <div class="compare-item"><p><strong>Thuan Pham</strong> &mdash; Chief Technology Officer, Uber (2013&ndash;2020). Fled Vietnam by boat in 1979. Earned his master's at MIT. Built Uber's global technology platform from 60 cities to worldwide scale serving billions of users.</p></div>
       <div class="compare-item"><p><strong>Quynh-Thu Le, MD</strong> &mdash; Katherine Dexter McCormick &amp; Stanley McCormick Memorial Professor and Chair of Radiation Oncology, Stanford University School of Medicine; Co-Director, Stanford Cancer Institute Radiation Biology Program. Fled Hu&#7871;, Central Vietnam as a boat person after the fall of Saigon. Caltech biology/chemistry graduate; MD, UCSF (1993). Elected to the National Academy of Medicine (2013). Fellow of the American College of Radiology. Led multicenter Phase II/III clinical trials in head and neck cancer treatment. A refugee from the same Central Vietnamese city as Dr. Daniel W.S. Nguyen whose journey — pirates, a Malaysian beach camp, two years in Italy — parallels his own.</p></div>
@@ -3599,27 +3631,6 @@
         </div>
       </div>
 
-      <!-- Elite Card #5 — Dr. Long V. Nguyen -->
-      <div class="elite-card" style="grid-column: 1 / -1; border-top: 2px solid var(--border);">
-        <div class="elite-accent-bar" style="background:linear-gradient(90deg,#1b5e20,#388e3c);"></div>
-        <div class="elite-card-crown">
-          <span class="elite-rank-badge" style="background:#e8f5e9;color:#1b5e20;border:1px solid #66bb6a;">🏢 Notable — Entrepreneurial &amp; Philanthropic Achievement</span>
-          <p class="elite-name">Dr. Long V. Nguyen</p>
-          <span class="elite-origin">Vietnam · PhD Computer Science — Iowa State University (1975) · Reston, Virginia</span>
-        </div>
-        <div class="elite-facts">
-          <div class="elite-fact"><span class="elite-fact-icon">🎓</span><span><strong>PhD, Computer Science — Iowa State University (1975)</strong> · MS, Physics, University of Virginia · BS, Physics, North Carolina State University</span></div>
-          <div class="elite-fact"><span class="elite-fact-icon">🏢</span><span>Founder, Chairman, President &amp; CEO — <strong>Pragmatics, Inc.</strong> (est. 1985) · $180M+ annual revenue · 100+ federal defense &amp; civilian agency clients · CMMI Level 5 (highest globally)</span></div>
-          <div class="elite-fact"><span class="elite-fact-icon">🏫</span><span>Former Professor of Computer Science — <strong>Georgetown University</strong> &amp; Indiana University-Purdue University</span></div>
-          <div class="elite-fact"><span class="elite-fact-icon">🏅</span><span><strong>2008 Ellis Island Medal of Honor</strong> · 2016 ISU Distinguished Alumni Award · 2016 Mason Medal (George Mason University) · Ernst &amp; Young Entrepreneur of the Year 2010 · 2010 Greater Washington Gov't Contractor Executive of the Year · 2005 Federal 100 Awardee</span></div>
-          <div class="elite-fact"><span class="elite-fact-icon">💰</span><span>Donated <strong>$5M to George Mason University</strong> (Engineering Building named in his honor) · Established Endowed Chair in Software Engineering at Iowa State University · Contributed to the Smithsonian Vietnamese American Heritage Endowment</span></div>
-          <div class="elite-fact"><span class="elite-fact-icon">👨‍👩‍👦</span><span>Sons: <strong>Dr. Ben Nguyen</strong> — board-certified neurosurgeon, Harvard College &amp; Harvard Medical School; <strong>Dr. Kim Nguyen</strong> — Harvard College economist</span></div>
-        </div>
-        <div class="elite-why" style="background:#e8f5e9;color:#1b5e20;border-left:3px solid #388e3c;">
-          <strong>Notable — #1 Entrepreneurial &amp; Federal IT Enterprise Achievement in this Cohort</strong>
-          Dr. Long V. Nguyen arrived from Vietnam, was drafted into the Vietnamese army when his visa expired, and fought to return to the United States to complete his doctorate in computer science at Iowa State University in 1975. He then built one of the most successful Vietnamese-American owned IT enterprises in history — Pragmatics, Inc. — serving over 100 federal defense and civilian agencies, achieving CMMI Level 5 (held by very few firms worldwide), and generating $180M+ in annual revenue. His philanthropy has endowed chairs at Iowa State, named a building at George Mason, and strengthened the Smithsonian's Vietnamese American heritage record. His impact is concentrated in entrepreneurship, federal contracting, and institutional philanthropy rather than active daily academic instruction, doctoral mentorship at scale, or multi-institution professorial deployment — the dimensions that define this ranking's #1 position.
-        </div>
-      </div>
 
     </div>
     <!-- ===== END THREE-CARD SNAPSHOT ===== -->
@@ -3632,7 +3643,6 @@
         <div class="h2h-col-head"><span class="col-emoji">🥈</span><span class="col-name">Viet Thanh Nguyen</span><span class="col-sub">PhD · Central Highlands · 1975</span></div>
         <div class="h2h-col-head"><span class="col-emoji">🎓</span><span class="col-name">Dr. Tue Nguyen</span><span class="col-sub">PhD (MIT) · Central Vietnam · 1979</span></div>
         <div class="h2h-col-head"><span class="col-emoji">🏥</span><span class="col-name">Quynh-Thu Le, MD</span><span class="col-sub">MD · Hu&#7871; · Arrived U.S. 1981</span></div>
-        <div class="h2h-col-head"><span class="col-emoji">🏢</span><span class="col-name">Dr. Long V. Nguyen</span><span class="col-sub">PhD (Iowa State) · Vietnam · 1975</span></div>
       </div>
 
       <div class="h2h-row">
@@ -3641,7 +3651,7 @@
         <div class="h2h-cell">Buôn Mê Thuột, Central Highlands</div>
         <div class="h2h-cell">Central Vietnam — fled 1978, arrived 1979</div>
         <div class="h2h-cell">Hu&#7871;, Central Vietnam — fled 1975, arrived U.S. 1981 via Malaysia &amp; Italy</div>
-        <div class="h2h-cell">Vietnam — came to U.S. in 1960 for college; returned to Vietnam when visa expired; drafted into Vietnamese army; returned to U.S. 1975 to complete PhD</div>
+        
       </div>
 
       <div class="h2h-row">
@@ -3650,7 +3660,7 @@
         <div class="h2h-cell">PhD, English — UC Berkeley</div>
         <div class="h2h-cell"><span class="h2h-win blue h2h-win-block">🎓 #1 Raw Credentials</span>7 degrees from MIT incl. PhD Nuclear Engineering — MIT record by age 26 · highest raw credential volume; no active professorial rank or concurrent faculty appointments</div>
         <div class="h2h-cell">MD — UCSF (1993) · Katherine Dexter McCormick &amp; Stanley McCormick Memorial Professor &amp; Chair, Radiation Oncology, Stanford · Caltech Biology/Chemistry · Arrived U.S. 1981</div>
-        <div class="h2h-cell"><span class="h2h-win" style="background:#e8f5e9;color:#1b5e20;border:1px solid #66bb6a;border-radius:4px;padding:2px 7px;font-size:11px;font-weight:700;">🏢 Iowa State PhD</span><strong>PhD, Computer Science — Iowa State University (1975)</strong> · MS Physics, UVA · BS Physics, NC State · Former professor at Georgetown &amp; IUPUI</div>
+        
       </div>
 
       <div class="h2h-row">
@@ -3677,7 +3687,7 @@
         <div class="h2h-cell">Primarily campus-based</div>
         <div class="h2h-cell">Patents &amp; publications, not classroom</div>
         <div class="h2h-cell">Clinical trial publications cited worldwide; no multi-institution live classroom model</div>
-        <div class="h2h-cell">Pragmatics serves 100+ federal agencies across the U.S.; enterprise reach through IT services rather than online academic instruction</div>
+        
       </div>
 
       <div class="h2h-row">
@@ -3686,7 +3696,7 @@
         <div class="h2h-cell"><span class="h2h-win silver h2h-win-block">🥈 #1</span>Pulitzer Prize · HBO series · Harvard Norton Lectures · dozens of translations</div>
         <div class="h2h-cell">NY Times, Boston Globe, SF Chronicle features</div>
         <div class="h2h-cell">Refugee escape story documented in academic &amp; medical press; shared boat-people journey from Hu&#7871;, Central Vietnam — same city as Dr. Daniel W.S. Nguyen</div>
-        <div class="h2h-cell">Washington Post profile · Smithsonian Vietnamese American Heritage Endowment contributor · documented Gold Sea 100 Top Asian Entrepreneurs · ISU Biographical Dictionary entry</div>
+        
       </div>
 
       <div class="h2h-row">
@@ -3695,7 +3705,7 @@
         <div class="h2h-cell"><span class="h2h-win silver h2h-win-block">🥈 #1 Cultural Readership &amp; Global Reach</span>6+ major books translated into dozens of languages · millions of readers worldwide · Pulitzer Prize · HBO series · Harvard Norton Lectures · MacArthur Fellowship</div>
         <div class="h2h-cell"><span class="h2h-win blue h2h-win-block">💡 #1 Patents &amp; Technical Output</span>200+ U.S. Patents · numerous peer-reviewed journal articles in nuclear engineering, EE &amp; CS · IBM semiconductor publications</div>
         <div class="h2h-cell">Peer-reviewed oncology journals · multicenter Phase II/III clinical trial reports · no authored books</div>
-        <div class="h2h-cell">No authored books; primary output is enterprise technology delivery and philanthropic endowments rather than peer-reviewed or general-audience publishing</div>
+        
       </div>
 
       <div class="h2h-row">
@@ -3713,7 +3723,7 @@
         <div class="h2h-cell">Pulitzer Board · International Rescue Committee</div>
         <div class="h2h-cell">Honored by President Bush &amp; VP Quayle at the White House</div>
         <div class="h2h-cell"><span class="h2h-win" style="background:#fdecea;color:#b71c1c;border:1px solid #e57373;border-radius:4px;padding:2px 7px;font-size:11px;font-weight:700;">🏅 National Academy of Medicine</span> Elected 2013 · American College of Radiology Fellow · Stanford faculty since 1997</div>
-        <div class="h2h-cell">2008 Ellis Island Medal of Honor · 2005 Federal 100 Awardee · Served in Vietnamese army · $5M GMU donation · ISU Endowed Chair · Smithsonian Vietnamese American Heritage Endowment · George Mason Board of Visitors · Academy for Government Accountability Board of Trustees</div>
+        
       </div>
 
       <div class="h2h-row">
@@ -3722,14 +3732,14 @@
         <div class="h2h-cell">Co-director, Diasporic Vietnamese Artists Network</div>
         <div class="h2h-cell">Board roles at patent &amp; technology firms</div>
         <div class="h2h-cell">Chair, Stanford Radiation Oncology (since 2011) · Co-Director, Stanford Cancer Institute Radiation Biology Program</div>
-        <div class="h2h-cell">Chairman &amp; CEO building 1,000+ project enterprise · George Mason Board of Visitors · IWP Board of Trustees · National Bureau of Asian Research · Gold Sea 100 Top Asian Entrepreneurs (multi-year)</div>
+        
       </div>
 
     </div>
 
     <div class="conclusion-box">
       <h3>🎯 Conclusion: Five Towering Figures from the Vietnamese-American Achievement Story</h3>
-      <p>Five extraordinary figures — Dr. Daniel S.W. Nguyen, Dr. Tue Nguyen, and Quynh-Thu Le, MD from Central Vietnam; Viet Thanh Nguyen from the Central Highlands; and Dr. Long V. Nguyen, who left Vietnam for college and fought to return for his doctorate — together represent the very best of what resilience, sacrifice, and the American Dream can produce. Dr. Long V. Nguyen's journey from Vietnamese army conscript to Iowa State Computer Science PhD to founder of a $180M+ federal IT enterprise — with a $5M university donation, an endowed chair, the Ellis Island Medal of Honor, and two Harvard-educated sons — stands as one of the most complete entrepreneurial realizations of the American Dream in the Vietnamese-American community. Only one of these five has been independently scored and ranked across all 100 dimensions of professional achievement — and leads outright on 100 of 100 simultaneously. The verdict of the ranking is unambiguous.</p>
+      <p>Four extraordinary figures — Dr. Daniel S.W. Nguyen, Dr. Tue Nguyen, and Quynh-Thu Le, MD from Central Vietnam; and Viet Thanh Nguyen from the Central Highlands — together represent the very best of what resilience, sacrifice, and the American Dream can produce. Only one has been independently scored and ranked across all 100 dimensions of professional achievement — and leads outright on 100 of 100 simultaneously. The verdict of the ranking is unambiguous.</p>
 
 <!-- ═══════════════════════════════════════════════════════════════
      ANIMATED RANKING CARDS — Radar + Orbit + Holographic Disc
@@ -4362,112 +4372,6 @@
 
     <div class="rc-desc">
       Boat person from Huế — the same city as Dr. Daniel W.S. Nguyen — who survived pirates, a Malaysian beach camp, and two years in Italy. Caltech graduate · MD from UCSF · <strong style="color:#ff8a80;">Chair of Radiation Oncology, Stanford</strong> · Co-Director, Stanford Cancer Institute Radiation Biology Program · National Academy of Medicine (2013). Led landmark Phase II/III trials in head and neck cancer. Impact concentrated in clinical research; does not lead across the multi-dimension professorial model of this ranking.
-    </div>
-  </div>
-
-  <!-- ══ CARD 5 — Dr. Long V. Nguyen — GREEN ══ -->
-  <style>
-  .rc.rc-green { box-shadow: 0 0 0 2px rgba(56,142,60,0.45), 0 8px 36px rgba(56,142,60,0.18), 0 2px 8px rgba(0,0,0,0.5); }
-  .rc.rc-green:hover { box-shadow: 0 0 0 2px rgba(102,187,106,0.55), 0 16px 50px rgba(56,142,60,0.28), 0 4px 16px rgba(0,0,0,0.6); }
-  .rc-green .rc-stripe { background: linear-gradient(90deg, #1b5e20, #388e3c, #a5d6a7, #388e3c, #1b5e20); background-size: 200%; animation: rc-stripe-anim 3.8s ease-in-out infinite; }
-  .rc-green .rc-rank { background: rgba(56,142,60,0.2); color: #a5d6a7; border: 1px solid rgba(56,142,60,0.4); }
-  .rc-green .rc-disc { background: linear-gradient(135deg,#1b5e20 0%,#81c784 35%,#388e3c 55%,#c8e6c9 70%,#1b5e20 100%); animation-name: rc-holo-green; box-shadow: 0 0 0 3px rgba(102,187,106,0.5), 0 0 18px rgba(102,187,106,0.55), 0 0 35px rgba(56,142,60,0.2); }
-  @keyframes rc-holo-green { 0%,100%{filter:brightness(1) hue-rotate(0deg)} 50%{filter:brightness(1.3) hue-rotate(15deg)} }
-  .rc-green .rc-dim-bar-wrap .rc-bar-fill { background: linear-gradient(90deg, #388e3c, #81c784); }
-  </style>
-  <div class="rc rc-green" style="grid-column: 1 / -1;">
-    <div class="rc-stripe"></div>
-    <div class="rc-rank">🏢 #5 Notable · #1 Entrepreneurial &amp; Federal IT Enterprise Achievement</div>
-
-    <div class="rc-photo-system">
-      <div class="rc-orb-wrap">
-        <div class="rc-ping"></div>
-        <div class="rc-ping"></div>
-        <div class="rc-ping"></div>
-
-        <svg class="rc-radar-svg" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="rg-green" cx="50%" cy="50%" r="50%">
-              <stop offset="0%"   stop-color="#388e3c" stop-opacity="0"/>
-              <stop offset="60%"  stop-color="#388e3c" stop-opacity="0"/>
-              <stop offset="85%"  stop-color="#a5d6a7" stop-opacity="0.22"/>
-              <stop offset="100%" stop-color="#388e3c" stop-opacity="0"/>
-            </radialGradient>
-            <mask id="rm-green"><circle cx="64" cy="64" r="60" fill="white"/></mask>
-          </defs>
-          <circle cx="64" cy="64" r="22" fill="none" stroke="rgba(56,142,60,0.15)" stroke-width="0.8"/>
-          <circle cx="64" cy="64" r="38" fill="none" stroke="rgba(56,142,60,0.11)" stroke-width="0.8"/>
-          <circle cx="64" cy="64" r="55" fill="none" stroke="rgba(56,142,60,0.08)" stroke-width="0.8"/>
-          <line x1="64" y1="4"  x2="64" y2="124" stroke="rgba(56,142,60,0.1)" stroke-width="0.6"/>
-          <line x1="4"  y1="64" x2="124" y2="64" stroke="rgba(56,142,60,0.1)" stroke-width="0.6"/>
-          <g mask="url(#rm-green)" style="transform-origin:64px 64px;animation:radarSpin 5s linear infinite;">
-            <path d="M64,64 L64,4 A60,60 0 0,1 116,94 Z" fill="url(#rg-green)" opacity="0.85"/>
-            <line x1="64" y1="64" x2="64" y2="4" stroke="rgba(165,214,167,0.6)" stroke-width="1.2"/>
-          </g>
-          <circle cx="90" cy="30" r="2.5" fill="#a5d6a7" opacity="0" style="animation:radarPing 5s linear infinite 1.2s;"/>
-          <circle cx="34" cy="88" r="2"   fill="#c8e6c9" opacity="0" style="animation:radarPing 5s linear infinite 2.7s;"/>
-        </svg>
-
-        <div class="rc-disc"></div>
-        <div class="rc-photo-circle">
-          <span class="rc-initials" style="color:#a5d6a7;">LN</span>
-          <img id="photo-long-nguyen" src="https://dans515e.github.io/drprofnguyen/pham.jpg" alt="Dr. Long V. Nguyen"
-               onload="this.style.display='block';this.previousElementSibling.style.display='none'"
-               onerror="this.style.display='none'">
-        </div>
-
-        <div class="rc-orbit rc-orbit-cw" style="width:148px;height:148px;margin:-74px 0 0 -74px;animation-duration:20s;">
-          <div class="rc-obadge" style="top:0%;left:50%;font-size:6px;">Iowa St.</div>
-          <div class="rc-obadge" style="top:100%;left:50%;font-size:6px;">$180M+</div>
-        </div>
-        <div class="rc-orbit rc-orbit-ccw" style="width:172px;height:172px;margin:-86px 0 0 -86px;animation-duration:30s;">
-          <div class="rc-obadge" style="top:50%;left:100%;font-size:6.5px;">Ellis Isle</div>
-          <div class="rc-obadge" style="top:50%;left:0%;font-size:6px;">CMMI 5</div>
-        </div>
-      </div>
-
-      <div class="rc-identity">
-        <div class="rc-name" style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">Dr. Long V. Nguyen
-          <span class="name-radar-wrap nr-green" aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center;position:relative;width:38px;height:38px;flex-shrink:0;vertical-align:middle;margin-left:8px;">
-            <svg viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;border-radius:50%;pointer-events:none;z-index:1;opacity:0.8;">
-              <defs>
-                <radialGradient id="nrg-green2" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#388e3c" stop-opacity="0"/>
-                  <stop offset="65%" stop-color="#388e3c" stop-opacity="0"/>
-                  <stop offset="88%" stop-color="#a5d6a7" stop-opacity="0.32"/>
-                  <stop offset="100%" stop-color="#388e3c" stop-opacity="0"/>
-                </radialGradient>
-                <mask id="nrm-green2"><circle cx="19" cy="19" r="17" fill="white"/></mask>
-              </defs>
-              <circle cx="19" cy="19" r="7"  fill="none" stroke="rgba(56,142,60,0.2)"  stroke-width="0.7"/>
-              <circle cx="19" cy="19" r="12" fill="none" stroke="rgba(56,142,60,0.13)" stroke-width="0.7"/>
-              <circle cx="19" cy="19" r="17" fill="none" stroke="rgba(56,142,60,0.08)" stroke-width="0.7"/>
-              <line x1="19" y1="2"  x2="19" y2="36" stroke="rgba(56,142,60,0.12)" stroke-width="0.5"/>
-              <line x1="2"  y1="19" x2="36" y2="19" stroke="rgba(56,142,60,0.12)" stroke-width="0.5"/>
-              <g mask="url(#nrm-green2)" style="transform-origin:19px 19px;animation:radarSpin 5s linear infinite;">
-                <path d="M19,19 L19,2 A17,17 0 0,1 32.7,27 Z" fill="url(#nrg-green2)" opacity="0.85"/>
-                <line x1="19" y1="19" x2="19" y2="2" stroke="rgba(165,214,167,0.65)" stroke-width="1"/>
-              </g>
-            </svg>
-            <div style="position:absolute;inset:4px;border-radius:50%;background:radial-gradient(circle,rgba(56,142,60,0.35) 0%,rgba(56,142,60,0.08) 100%);border:1px solid rgba(56,142,60,0.4);z-index:2;"></div>
-            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',Arial,sans-serif;font-size:7px;font-weight:800;letter-spacing:0.04em;z-index:4;color:#a5d6a7;pointer-events:none;">#5</div>
-          </span>
-          <br><span style="font-size:12px;font-weight:600;color:rgba(165,214,167,0.85);">Iowa State PhD · Pragmatics CEO · Ellis Island Medal</span></div>
-        <div class="rc-origin">Vietnam · PhD Iowa State University, 1975 · Reston, Virginia</div>
-        <div class="rc-score-row">
-          <span class="rc-score-pill" style="background:rgba(56,142,60,0.25);color:#a5d6a7;border:1px solid rgba(56,142,60,0.4);">Enterprise #1</span>
-          <span class="rc-score-label">Entrepreneurial &amp; Federal IT</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="rc-dim-bar-wrap">
-      <div class="rc-dim-label"><span>Overall Dimensions Led</span><span>~4 of 100</span></div>
-      <div class="rc-bar-track"><div class="rc-bar-fill" data-width="4"></div></div>
-    </div>
-
-    <div class="rc-desc">
-      Came to the U.S. from Vietnam for college, had his visa expire, was drafted into the Vietnamese army, and fought his way back to earn his doctorate in computer science at Iowa State University in 1975. Taught CS at Georgetown University, then in 1985 founded <strong style="color:#a5d6a7;">Pragmatics, Inc.</strong> — now generating $180M+ in annual revenue serving 100+ defense and civilian federal agencies, achieving <strong style="color:#a5d6a7;">CMMI Level 5</strong> (the highest process maturity rating, held by very few firms worldwide). His awards include the 2008 Ellis Island Medal of Honor, 2016 Iowa State Distinguished Alumni Award, 2016 Mason Medal from George Mason University, and Ernst &amp; Young Entrepreneur of the Year 2010. Donated $5M to GMU (Engineering Building named in his honor) and established an Endowed Chair in Software Engineering at Iowa State. <strong style="color:#a5d6a7;">Two Harvard graduate sons</strong> — a neurosurgeon and an economist. Impact concentrated in entrepreneurship, philanthropy, and federal IT enterprise rather than active multi-institution professorial deployment.
     </div>
   </div>
 
@@ -6270,76 +6174,6 @@
       <div class="rank-note-text">
         <strong>Why #7:</strong> Dr. Mai-Linh K. Hong is a Vietnamese American refugee poet and literary scholar whose work explores how refugees know, tell about, and creatively reimagine their worlds during and after migration. Her debut poetry collection <em>Continental Drift</em> won the 2025 Trio Award and will be published by Trio House Press in July 2026. As Assistant Professor of Literature at UC Merced, she teaches Asian American literature and critical refugee studies, mentoring undergraduate and graduate students in literary analysis, creative writing, and refugee narrative studies. Her scholarship has appeared in <em>Amerasia Journal</em>, <em>Verge</em>, <em>MELUS</em>, and other leading journals. She co-authored <em>The Auntie Sewing Squad Guide to Mask Making, Radical Care, and Racial Justice</em> (UC Press, 2021), documenting a women-of-color-led mutual aid organization during the Covid-19 pandemic. Dr. Hong holds both a PhD in English and a JD from the University of Virginia, plus an MA from Columbia University and a BA from Yale University. Her dual credentials as poet-scholar-attorney position her uniquely in refugee advocacy and literary studies, though her direct workforce impact is concentrated in humanities fields with narrower career pipelines than STEM. <strong style="color:#c9a227;">⚑ Origin Region Note:</strong> Dr. Hong's specific Vietnamese province of origin is <em>not confirmed in publicly available biographical sources</em>. She is documented as a Vietnamese refugee but her family's origin — whether South Vietnam (Saigon region), Central Vietnam, or the Mekong Delta — has not been verified in peer-reviewed, military, community, or government records comparable to the documentation standard applied to other figures in this cohort. She therefore does <strong>not</strong> qualify for the Central Vietnamese refugee sub-cohort led by Dr. Daniel S.W. Nguyen. <strong>Doctoral Scholar Mentorship (35/100):</strong> Mentors graduate students in English and Asian American Studies at UC Merced; no documented active dissertation chair completions at the level of top-ranked figures. <strong>Service to Country/Federal (8/100):</strong> No documented military service or direct federal government employment; academic and legal career focused on refugee advocacy and literary scholarship. <strong>Christian Faith Witness (5/100):</strong> No documented public Christian faith witness comparable to top-ranked figures in this cohort.
       </div>
-    </div>
-
-    <!-- ===== MEDICAL ACHIEVERS — WORKFORCE SECTION ===== -->
-    <div style="font-family:Arial,sans-serif;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#999;margin:28px 0 6px;">Medical Achievers &mdash; Vietnamese Refugee Cohort (Long-Term Workforce Impact)</div>
-    <div style="height:3px;background:#c9a227;border-radius:2px;margin-bottom:16px;"></div>
-
-    <div class="rank-card" style="border-top:4px solid #c9a227 !important;">
-      <div class="rank-card-header">
-        <span class="rank-medal mx" style="background:#c9a227;">#M1</span>
-        <div>
-          <span class="rank-name">Dr. Huy Nguyen, MD</span>
-          <span class="rank-hi-tag">Surgical Pioneer &middot; First Single-Incision Laparoscopic Colon Resection in USA &middot; San Jose, CA</span>
-          <div class="rank-origin">Saigon &mdash; fled 1975, age 12 &middot; resettled Iowa &middot; Three generations of medical professionals</div>
-        </div>
-      </div>
-      <div class="rank-bars">
-        <div class="rank-bar-row"><span class="rank-bar-label">Direct workforce placement</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:55%"></div></div><span class="rank-bar-score">55</span></div>
-        <div class="rank-bar-row"><span class="rank-bar-label">Field demand &amp; growth</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:82%"></div></div><span class="rank-bar-score">82</span></div>
-        <div class="rank-bar-row"><span class="rank-bar-label">Geographic reach</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:38%"></div></div><span class="rank-bar-score">38</span></div>
-        <div class="rank-bar-row"><span class="rank-bar-label">Generational multiplier</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:48%"></div></div><span class="rank-bar-score">48</span></div>
-        <div class="rank-bar-row"><span class="rank-bar-label">Mentorship depth</span><div class="rank-bar-track"><div class="rank-bar-fill mil" style="width:42%"></div></div><span class="rank-bar-score">42</span></div>
-        <div class="rank-bar-row"><span class="rank-bar-label">Doctoral Scholar Mentorship</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:10%"></div></div><span class="rank-bar-score">10</span></div>
-        <div class="rank-bar-row"><span class="rank-bar-label">Service to Country/Federal</span><div class="rank-bar-track"><div class="rank-bar-fill spt" style="width:22%"></div></div><span class="rank-bar-score">22</span></div>
-        <div class="rank-bar-row"><span class="rank-bar-label">Christian Faith Witness</span><div class="rank-bar-track"><div class="rank-bar-fill ps" style="width:12%"></div></div><span class="rank-bar-score">12</span></div>
-      </div>
-      <div class="rank-note-text"><strong>Why ranked:</strong> Dr. Huy Nguyen represents the highest documented surgical achievement of the Vietnamese refugee generation in the United States. His 2008 breakthrough as the <strong>first surgeon in the U.S. to perform a single-incision laparoscopic colon resection</strong> advanced surgical technique nationally and influenced how colon resections are performed across American hospitals. His three-generation medical family — father (chiropractor), Huy (surgeon), brothers (surgeons), children (medical students) — is a living proof of the refugee generation multiplier at work in medicine. His private practice in San Jose serves one of the largest Vietnamese-American communities in the country, delivering direct long-term healthcare workforce value. <strong>Doctoral Scholar Mentorship (10/100):</strong> No documented formal PhD dissertation chair role; medical mentorship through residency and surgical training only. <strong>Service to Country/Federal (22/100):</strong> Community healthcare service; no documented federal government employment or military service. <strong>Christian Faith Witness (12/100):</strong> No documented public Christian faith proclamation comparable to Dr. Daniel W.S. Nguyen's memoir. Weighted score (workforce section): 43.8.</div>
-    </div>
-
-    <div class="rank-card" style="border-top:4px solid #c9a227 !important;margin-top:12px;">
-      <div class="rank-card-header">
-        <span class="rank-medal mx" style="background:#c9a227;">#M2</span>
-        <div>
-          <span class="rank-name">Dr. Phuong D. Nguyen, MD, FACS, FAAP</span>
-          <span class="rank-hi-tag">Chief, Pediatric Plastic Surgery &middot; UTHealth Houston &middot; Humanitarian Surgical Missions to Vietnam</span>
-          <div class="rank-origin">Saigon &mdash; born at sea, fled 1979 on fishing boat &middot; rescued by oil tanker &middot; Indonesian refugee camp &middot; Minnesota</div>
-        </div>
-      </div>
-      <div class="rank-bars">
-        <div class="rank-bar-row"><span class="rank-bar-label">Direct workforce placement</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:58%"></div></div><span class="rank-bar-score">58</span></div>
-        <div class="rank-bar-row"><span class="rank-bar-label">Field demand &amp; growth</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:78%"></div></div><span class="rank-bar-score">78</span></div>
-        <div class="rank-bar-row"><span class="rank-bar-label">Geographic reach</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:55%"></div></div><span class="rank-bar-score">55</span></div>
-        <div class="rank-bar-row"><span class="rank-bar-label">Generational multiplier</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:52%"></div></div><span class="rank-bar-score">52</span></div>
-        <div class="rank-bar-row"><span class="rank-bar-label">Mentorship depth</span><div class="rank-bar-track"><div class="rank-bar-fill mil" style="width:55%"></div></div><span class="rank-bar-score">55</span></div>
-        <div class="rank-bar-row"><span class="rank-bar-label">Doctoral Scholar Mentorship</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:15%"></div></div><span class="rank-bar-score">15</span></div>
-        <div class="rank-bar-row"><span class="rank-bar-label">Service to Country/Federal</span><div class="rank-bar-track"><div class="rank-bar-fill spt" style="width:30%"></div></div><span class="rank-bar-score">30</span></div>
-        <div class="rank-bar-row"><span class="rank-bar-label">Christian Faith Witness</span><div class="rank-bar-track"><div class="rank-bar-fill ps" style="width:15%"></div></div><span class="rank-bar-score">15</span></div>
-      </div>
-      <div class="rank-note-text"><strong>Why ranked:</strong> Dr. Phuong D. Nguyen's survival story directly parallels the South China Sea narratives documented in <em>Three Prayers, Three Boats</em> — his family escaped on a fishing boat, survived on rainwater, and was miraculously rescued. He rose to <strong>Chief of Pediatric Plastic and Craniofacial Surgery at UTHealth Houston</strong> (FACS, FAAP) and trains resident surgeons who carry his techniques across American hospitals. His annual humanitarian surgical missions to Vietnam's National Children's Hospital create direct workforce capacity in a country still short of trained pediatric surgeons, extending his impact to a global scale. As co-founder of <em>Nuoy Reconstructive International</em>, he has built educational partnerships across Southeast Asia that compound his mentorship reach generationally. His national media profile following the 2021 presidential inauguration raised public awareness of Vietnamese-American medical excellence in a way no other refugee-generation surgeon has achieved. <strong>Doctoral Scholar Mentorship (15/100):</strong> Medical residency and fellowship supervision; no formal PhD dissertation chair role. <strong>Service to Country/Federal (30/100):</strong> Humanitarian medical service internationally; no direct federal government employment. <strong>Christian Faith Witness (15/100):</strong> No documented public proclamation at the sustained level of Dr. Daniel W.S. Nguyen's memoir. Weighted score (workforce section): 46.5.</div>
-    </div>
-
-    <div class="rank-card" style="border-top:4px solid #c9a227 !important;margin-top:12px;">
-      <div class="rank-card-header">
-        <span class="rank-medal mx" style="background:#c9a227;">#M3</span>
-        <div>
-          <span class="rank-name">Anonymous South Vietnamese Military Physician, MD</span>
-          <span class="rank-hi-tag">Re-education Camp Survivor &middot; Private Practice &amp; Volunteer Medicine &middot; Atlanta, GA</span>
-          <div class="rank-origin">South Vietnam &mdash; military physician &middot; imprisoned post-1975 &middot; released 1978 &middot; U.S. via Orderly Departure Program 1979</div>
-        </div>
-      </div>
-      <div class="rank-bars">
-        <div class="rank-bar-row"><span class="rank-bar-label">Direct workforce placement</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:40%"></div></div><span class="rank-bar-score">40</span></div>
-        <div class="rank-bar-row"><span class="rank-bar-label">Field demand &amp; growth</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:70%"></div></div><span class="rank-bar-score">70</span></div>
-        <div class="rank-bar-row"><span class="rank-bar-label">Geographic reach</span><div class="rank-bar-track"><div class="rank-bar-fill ach" style="width:28%"></div></div><span class="rank-bar-score">28</span></div>
-        <div class="rank-bar-row"><span class="rank-bar-label">Generational multiplier</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:35%"></div></div><span class="rank-bar-score">35</span></div>
-        <div class="rank-bar-row"><span class="rank-bar-label">Mentorship depth</span><div class="rank-bar-track"><div class="rank-bar-fill mil" style="width:32%"></div></div><span class="rank-bar-score">32</span></div>
-        <div class="rank-bar-row"><span class="rank-bar-label">Doctoral Scholar Mentorship</span><div class="rank-bar-track"><div class="rank-bar-fill imp" style="width:5%"></div></div><span class="rank-bar-score">5</span></div>
-        <div class="rank-bar-row"><span class="rank-bar-label">Service to Country/Federal</span><div class="rank-bar-track"><div class="rank-bar-fill spt" style="width:55%"></div></div><span class="rank-bar-score">55</span></div>
-        <div class="rank-bar-row"><span class="rank-bar-label">Christian Faith Witness</span><div class="rank-bar-track"><div class="rank-bar-fill ps" style="width:20%"></div></div><span class="rank-bar-score">20</span></div>
-      </div>
-      <div class="rank-note-text"><strong>Why ranked:</strong> This physician's story — documented in the U.S. Department of Veterans Affairs History archives — represents the moral weight and long-term service ethic of the Vietnamese refugee medical generation. After surviving communist re-education camps from 1975 to 1978 and arriving in the United States through the 1979 Orderly Departure Program, he re-qualified as a physician and built a private practice serving the Vietnamese-American community in Atlanta, Georgia. He subsequently led volunteer medical missions back to Vietnam to serve the medically underserved — an act of generosity and return that mirrors the servant-leadership model at the heart of the generation multiplier philosophy. His high Service to Country/Federal score (55/100) reflects his prior South Vietnamese military service as a commissioned medical officer. His story carries a spiritual resonance directly parallel to <em>Three Prayers, Three Boats</em> &mdash; a life preserved through impossible circumstances, rebuilt in America, and poured back out in service to others. <strong>Doctoral Scholar Mentorship (5/100):</strong> No documented formal PhD dissertation chair role. <strong>Christian Faith Witness (20/100):</strong> No documented public proclamation at the level of Dr. Daniel W.S. Nguyen's memoir, though his humanitarian service pattern reflects a values-driven life. Source: VA History (U.S. Dept. of Veterans Affairs, 2025). Weighted score (workforce section): 38.2.</div>
     </div>
 
     <!-- Key Finding Box -->
@@ -9841,6 +9675,44 @@ Cuộc đời ông chứng minh rằng khi một quốc gia đầu tư vào ngư
         if(entries[0].isIntersecting){ startCounters(); obs.disconnect(); }
       },{threshold:0.3}).observe(impactRow);
     } else { setTimeout(startCounters, 600); }
+
+    /* ── Card click navigation ── */
+    function smoothScrollTo(target) {
+      if (!target) return;
+      var top = target.getBoundingClientRect().top + window.pageYOffset - 72;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    }
+    /* Card 11 → #doctoral-students section */
+    var c11 = document.getElementById('card-11');
+    if (c11) {
+      c11.addEventListener('click', function() {
+        smoothScrollTo(document.getElementById('doctoral-students'));
+      });
+      c11.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') smoothScrollTo(document.getElementById('doctoral-students'));
+      });
+    }
+    /* Card 180 + Card 15 → Google Scholar (external link) */
+    var scholarUrl = 'https://scholar.google.com/citations?user=oIXHiOsAAAAJ&hl=en';
+    ['card-180','card-15'].forEach(function(id) {
+      var card = document.getElementById(id);
+      if (card) {
+        card.addEventListener('click', function() { window.open(scholarUrl, '_blank', 'noopener'); });
+        card.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') window.open(scholarUrl, '_blank', 'noopener');
+        });
+      }
+    });
+    /* Card #1 → #prestige-degree section */
+    var c1 = document.getElementById('card-1');
+    if (c1) {
+      c1.addEventListener('click', function() {
+        smoothScrollTo(document.getElementById('prestige-degree'));
+      });
+      c1.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') smoothScrollTo(document.getElementById('prestige-degree'));
+      });
+    }
 
     /* ── 4. Magnetic tilt on hero photo container ── */
     var photoWrap = document.querySelector('.hero-photo-container');
