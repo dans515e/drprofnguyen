@@ -2683,6 +2683,13 @@
     font-size: clamp(24px, 3.8vw, 46px);
     letter-spacing: 0.02em;
   }
+  .name-3d--credentials {
+    font-size: clamp(15px, 2.2vw, 28px);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .name-3d-line--credentials { margin-top: 6px; }
 
   /* ── Shadow / extrusion layer (pseudo-element, behind the face) ── */
   .name-3d::before {
@@ -3340,12 +3347,15 @@
       <div class="hero-photo-text">
         <p class="hero-tag">Global Executive Biography &mdash; Ranked #1 Worldwide &mdash; Student &amp; Educational Impact &nbsp;&middot;&nbsp; #1 Globally Among Professors for Workforce Impact &nbsp;&middot;&nbsp; #1 World Academic Ranking &mdash; Broadest Verified Achievement, All 100 Dimensions &nbsp;&middot;&nbsp; Vietnamese Refugee &nbsp;&middot;&nbsp; U.S. Marine Corps Veteran &nbsp;&middot;&nbsp; Distinguished Toastmaster</p>
         <!-- ═══ 3-D EXTRUDED NAME ═══ -->
-        <h1 class="name-3d-wrap" aria-label="Dr. Daniel Schilling Weiss Nguyen">
+        <h1 class="name-3d-wrap" aria-label="Dr. Daniel Schilling Weiss Nguyen, PhD, DTM">
           <span class="name-3d-line name-3d-line--top">
             <span class="name-3d" data-text="Dr. Daniel Schilling"><span class="name-3d-face">Dr. Daniel Schilling</span></span>
           </span>
           <span class="name-3d-line name-3d-line--bot">
             <span class="name-3d name-3d--nguyen" data-text="Weiss Nguyen"><span class="name-3d-face">Weiss Nguyen</span></span>
+          </span>
+          <span class="name-3d-line name-3d-line--credentials">
+            <span class="name-3d name-3d--credentials" data-text="PhD, DTM"><span class="name-3d-face">PhD, DTM</span></span>
           </span>
         </h1>
         <p class="hero-credentials" style="font-weight:800; font-size:1.35em; color:#00e676;">PhD, Management &mdash; Information Systems Management &nbsp;&middot;&nbsp; DTM, Toastmasters International</p>
