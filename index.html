@@ -347,25 +347,6 @@
     overflow: visible;
   }
 
-  /* Layer 1b — Broadcast pulse rings: gold signal pulses radiating outward */
-  .nbm-pulse {
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    border-radius: 50%;
-    border: 2px solid rgba(245,200,66,0.85);
-    box-shadow: 0 0 8px 1px rgba(245,200,66,0.5);
-    pointer-events: none;
-    z-index: 5;
-    box-sizing: border-box;
-    animation: nbm-pulse-ring 2.6s cubic-bezier(.25,.6,.4,1) infinite;
-  }
-  .nbm-pulse:nth-of-type(2) { animation-delay: 0.9s; }
-  .nbm-pulse:nth-of-type(3) { animation-delay: 1.8s; }
-  @keyframes nbm-pulse-ring {
-    0%   { transform: scale(0.85); opacity: 0.9; }
-    100% { transform: scale(2.6);  opacity: 0; }
-  }
-
   /* Layer 2 — Holographic gold disc */
   .nbm-disc {
     position: absolute;
@@ -3455,11 +3436,6 @@
           <circle cx="36" cy="14" r="1.5" fill="#4dffb0" opacity="0" style="animation:radarPing 3s linear infinite 0.8s;"/>
           <circle cx="18" cy="34" r="1"   fill="#4dffb0" opacity="0" style="animation:radarPing 3s linear infinite 1.9s;"/>
         </svg>
-
-        <!-- Layer 1b: Broadcast pulse rings -->
-        <span class="nbm-pulse"></span>
-        <span class="nbm-pulse"></span>
-        <span class="nbm-pulse"></span>
 
         <!-- Layer 2: Holographic disc + DN text -->
         <div class="nbm-disc"></div>
