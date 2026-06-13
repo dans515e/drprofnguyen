@@ -1138,7 +1138,7 @@
     z-index: 3;
     animation: hpc-glow-cycle 6s ease-in-out infinite;
   }
-  .hero-photo-text { flex: 1; min-width: 200px; }
+
 
   .hero-tag {
     font-family: var(--font-ui);
@@ -1279,6 +1279,265 @@
   .pill-title-cyan:hover {
     background: linear-gradient(135deg, rgba(0,210,220,0.28) 0%, rgba(255,255,255,0.13) 100%);
     box-shadow: 0 0 22px rgba(0,210,220,0.22);
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     COMMAND PANEL — achievement record sidebar in hero
+     Appears to the right of the name block
+     ═══════════════════════════════════════════════════════ */
+
+  /* Wrapper: name block + command panel side by side */
+  .hero-name-panel-wrap {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .hero-photo-text { flex: 1; min-width: 240px; }
+
+  /* Command panel outer */
+  .command-panel {
+    width: 230px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    animation: cpReveal 1s cubic-bezier(0.16,1,0.3,1) 0.7s both;
+  }
+  @keyframes cpReveal {
+    from { opacity:0; transform:translateX(28px) scale(0.97); filter:blur(4px); }
+    to   { opacity:1; transform:translateX(0)    scale(1);    filter:blur(0); }
+  }
+
+  /* Header row */
+  .cp-header {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 10px 5px 11px;
+    border-left: 3px solid #c9a227;
+    margin-bottom: 1px;
+  }
+  .cp-header-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #00e676;
+    flex-shrink: 0;
+    animation: cpDotPulse 1.2s ease-in-out infinite;
+  }
+  @keyframes cpDotPulse {
+    0%,100% { box-shadow: 0 0 0 0   rgba(0,230,118,0.7); }
+    50%     { box-shadow: 0 0 0 5px rgba(0,230,118,0);   }
+  }
+  .cp-header-label {
+    font-family: var(--font-ui);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    font-weight: 700;
+  }
+  .cp-header-badge {
+    margin-left: auto;
+    font-family: var(--font-ui);
+    font-size: 8.5px;
+    font-weight: 800;
+    color: #c9a227;
+    letter-spacing: 0.1em;
+    background: rgba(201,162,39,0.12);
+    border: 1px solid rgba(201,162,39,0.3);
+    padding: 2px 6px;
+    border-radius: 3px;
+    animation: cpBadgePulse 2.5s ease-in-out infinite;
+  }
+  @keyframes cpBadgePulse {
+    0%,100% { border-color:rgba(201,162,39,0.3); color:#c9a227; }
+    50%     { border-color:rgba(201,162,39,0.9); color:#ffd700; box-shadow:0 0 10px rgba(201,162,39,0.35); }
+  }
+
+  /* Each achievement row */
+  .cp-row {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 8px 11px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: cpRowIn 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  }
+  .cp-row::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.02));
+    pointer-events: none;
+  }
+  /* left accent bar via ::after on color variants */
+  .cp-row.cp-gold::after  { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; border-radius:8px 0 0 8px; background:linear-gradient(to bottom,#ffd700,#c9a227); animation:cpBarGlow 2.5s ease-in-out infinite; }
+  .cp-row.cp-cyan::after  { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; border-radius:8px 0 0 8px; background:linear-gradient(to bottom,#00e5ff,#007aaa); }
+  .cp-row.cp-green::after { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; border-radius:8px 0 0 8px; background:linear-gradient(to bottom,#00e676,#007a3a); }
+  @keyframes cpBarGlow {
+    0%,100% { box-shadow:0 0 4px rgba(255,215,0,0.4); }
+    50%     { box-shadow:0 0 12px rgba(255,215,0,0.9); }
+  }
+
+  /* Staggered entrance delays */
+  .cp-row:nth-child(1)  { animation-delay: 0.9s;  }
+  .cp-row:nth-child(2)  { animation-delay: 1.05s; }
+  .cp-row:nth-child(3)  { animation-delay: 1.20s; }
+  .cp-row:nth-child(4)  { animation-delay: 1.35s; }
+  .cp-row:nth-child(5)  { animation-delay: 1.50s; }
+  .cp-row:nth-child(6)  { animation-delay: 1.65s; }
+  .cp-row:nth-child(7)  { animation-delay: 1.80s; }
+
+  @keyframes cpRowIn {
+    from { opacity:0; transform:translateX(18px); }
+    to   { opacity:1; transform:translateX(0); }
+  }
+  .cp-row:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(201,162,39,0.35);
+    transform: translateX(-3px);
+  }
+
+  .cp-icon { font-size:15px; flex-shrink:0; line-height:1; }
+  .cp-text  { flex:1; min-width:0; }
+  .cp-label {
+    font-family: var(--font-ui);
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.2;
+  }
+  .cp-value {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    margin-top: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .cp-value.cp-gold  { color: #f5c842; }
+  .cp-value.cp-cyan  { color: #00e5ff; }
+  .cp-value.cp-green { color: #00e676; }
+
+  /* Score badge */
+  .cp-score {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 900;
+    padding: 2px 7px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    letter-spacing: 0.04em;
+  }
+  .cp-score.cp-gold  { background:rgba(201,162,39,0.18); color:#ffd700; border:1px solid rgba(201,162,39,0.45); }
+  .cp-score.cp-cyan  { background:rgba(0,229,255,0.12);  color:#00e5ff; border:1px solid rgba(0,229,255,0.30); }
+  .cp-score.cp-green { background:rgba(0,230,118,0.12);  color:#00e676; border:1px solid rgba(0,230,118,0.30); }
+  .cp-score.cp-perfect {
+    background: linear-gradient(135deg, rgba(255,215,0,0.22), rgba(255,180,0,0.1));
+    color: #ffd700;
+    border: 1px solid rgba(255,215,0,0.6);
+    animation: cpPerfectPulse 2s ease-in-out infinite;
+  }
+  @keyframes cpPerfectPulse {
+    0%,100% { box-shadow:0 0 0 0   rgba(255,215,0,0.4); border-color:rgba(255,215,0,0.6); }
+    50%     { box-shadow:0 0 0 4px rgba(255,215,0,0);   border-color:rgba(255,215,0,1); }
+  }
+
+  /* Thin divider */
+  .cp-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,162,39,0.2), transparent);
+    margin: 1px 0;
+  }
+
+  /* Score progress bar */
+  .cp-progress-wrap {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 8px 11px;
+    opacity: 0;
+    animation: cpRowIn 0.5s cubic-bezier(0.34,1.56,0.64,1) 1.95s both;
+  }
+  .cp-progress-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  .cp-progress-text {
+    font-family: var(--font-ui);
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+  .cp-progress-pct {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    font-weight: 900;
+    color: #ffd700;
+  }
+  .cp-bar-track {
+    height: 4px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .cp-bar-fill {
+    height: 100%;
+    width: 0;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #c9a227, #ffd700, #fff8a0);
+    box-shadow: 0 0 8px rgba(255,215,0,0.5);
+    animation: cpFillBar 1.8s cubic-bezier(0.4,0,0.2,1) 2.1s forwards;
+  }
+  @keyframes cpFillBar { to { width: 99.7%; } }
+
+  /* Scrolling dimension ticker */
+  .cp-ticker {
+    overflow: hidden;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 5px;
+    margin-top: 1px;
+    opacity: 0;
+    animation: cpRowIn 0.5s ease 2.2s both;
+  }
+  .cp-ticker-track {
+    display: flex;
+    gap: 20px;
+    animation: cpTickerScroll 22s linear infinite;
+    white-space: nowrap;
+    width: max-content;
+  }
+  @keyframes cpTickerScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .cp-ticker-item {
+    font-family: var(--font-ui);
+    font-size: 8px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .cp-ticker-item strong { color: rgba(255,215,0,0.55); }
+
+  /* Hide command panel on very narrow screens */
+  @media (max-width: 600px) {
+    .command-panel { display: none; }
   }
 
   /* ===== LAYOUT ===== */
@@ -3351,23 +3610,140 @@
         <!-- DSWN monogram bar -->
         <div class="orbit-monogram"><span>DSWN</span></div>
       </div>
-      <div class="hero-photo-text">
-        <p class="hero-tag">Global Executive Biography &mdash; Ranked #1 Worldwide &mdash; Student &amp; Educational Impact &nbsp;&middot;&nbsp; #1 Globally Among Professors for Workforce Impact &nbsp;&middot;&nbsp; #1 World Academic Ranking &mdash; Broadest Verified Achievement, All 100 Dimensions &nbsp;&middot;&nbsp; Vietnamese Refugee &nbsp;&middot;&nbsp; U.S. Marine Corps Veteran &nbsp;&middot;&nbsp; Distinguished Toastmaster</p>
-        <!-- ═══ 3-D EXTRUDED NAME ═══ -->
-        <h1 class="name-3d-wrap" aria-label="Dr. Daniel Schilling Weiss Nguyen, PhD, DTM">
-          <span class="name-3d-line name-3d-line--top">
-            <span class="name-3d" data-text="Dr. Daniel Schilling"><span class="name-3d-face">Dr. Daniel Schilling</span></span>
-          </span>
-          <span class="name-3d-line name-3d-line--bot">
-            <span class="name-3d name-3d--nguyen" data-text="Weiss Nguyen"><span class="name-3d-face">Weiss Nguyen</span></span>
-          </span>
-          <span class="name-3d-line name-3d-line--credentials">
-            <span class="name-3d name-3d--credentials" data-text="PhD, DTM"><span class="name-3d-face">PhD, DTM</span></span>
-          </span>
-        </h1>
-        <p class="hero-credentials" style="font-weight:800; font-size:1.35em; color:#00e676;">PhD, Management &mdash; Information Systems Management &nbsp;&middot;&nbsp; DTM, Toastmasters International</p>
-      </div>
-    </div>
+      <div class="hero-name-panel-wrap">
+        <div class="hero-photo-text">
+          <p class="hero-tag">Global Executive Biography &mdash; Ranked #1 Worldwide &mdash; Student &amp; Educational Impact &nbsp;&middot;&nbsp; #1 Globally Among Professors for Workforce Impact &nbsp;&middot;&nbsp; #1 World Academic Ranking &mdash; Broadest Verified Achievement, All 100 Dimensions &nbsp;&middot;&nbsp; Vietnamese Refugee &nbsp;&middot;&nbsp; U.S. Marine Corps Veteran &nbsp;&middot;&nbsp; Distinguished Toastmaster</p>
+          <!-- ═══ 3-D EXTRUDED NAME ═══ -->
+          <h1 class="name-3d-wrap" aria-label="Dr. Daniel Schilling Weiss Nguyen, PhD, DTM">
+            <span class="name-3d-line name-3d-line--top">
+              <span class="name-3d" data-text="Dr. Daniel Schilling"><span class="name-3d-face">Dr. Daniel Schilling</span></span>
+            </span>
+            <span class="name-3d-line name-3d-line--bot">
+              <span class="name-3d name-3d--nguyen" data-text="Weiss Nguyen"><span class="name-3d-face">Weiss Nguyen</span></span>
+            </span>
+            <span class="name-3d-line name-3d-line--credentials">
+              <span class="name-3d name-3d--credentials" data-text="PhD, DTM"><span class="name-3d-face">PhD, DTM</span></span>
+            </span>
+          </h1>
+          <p class="hero-credentials" style="font-weight:800; font-size:1.35em; color:#00e676;">PhD, Management &mdash; Information Systems Management &nbsp;&middot;&nbsp; DTM, Toastmasters International</p>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════
+             ACHIEVEMENT COMMAND PANEL
+             Verified live record — slides in from right
+             ═══════════════════════════════════════════════ -->
+        <div class="command-panel" aria-label="Achievement Record">
+
+          <div class="cp-header">
+            <div class="cp-header-dot"></div>
+            <span class="cp-header-label">Achievement Record</span>
+            <span class="cp-header-badge">VERIFIED</span>
+          </div>
+
+          <div class="cp-row cp-gold">
+            <span class="cp-icon">🥇</span>
+            <div class="cp-text">
+              <div class="cp-label">World Ranking</div>
+              <div class="cp-value cp-gold">#1 — All 100 Dimensions</div>
+            </div>
+            <span class="cp-score cp-perfect">100/100</span>
+          </div>
+
+          <div class="cp-row cp-gold">
+            <span class="cp-icon">🎓</span>
+            <div class="cp-text">
+              <div class="cp-label">Institutions</div>
+              <div class="cp-value cp-gold">9 Worldwide · 2 Continents</div>
+            </div>
+            <span class="cp-score cp-gold">100/100</span>
+          </div>
+
+          <div class="cp-row cp-gold">
+            <span class="cp-icon">📚</span>
+            <div class="cp-text">
+              <div class="cp-label">Doctoral Graduates</div>
+              <div class="cp-value cp-gold">11 Mentored to Completion</div>
+            </div>
+            <span class="cp-score cp-gold">100/100</span>
+          </div>
+
+          <div class="cp-divider"></div>
+
+          <div class="cp-row cp-cyan">
+            <span class="cp-icon">🏛️</span>
+            <div class="cp-text">
+              <div class="cp-label">Federal Service</div>
+              <div class="cp-value cp-cyan">22+ Yrs · NOAA · DFAS</div>
+            </div>
+            <span class="cp-score cp-cyan">100/100</span>
+          </div>
+
+          <div class="cp-row cp-cyan">
+            <span class="cp-icon">🇺🇸</span>
+            <div class="cp-text">
+              <div class="cp-label">U.S. Marine Corps</div>
+              <div class="cp-value cp-cyan">Combat Deploy · VMAQ-3</div>
+            </div>
+            <span class="cp-score cp-cyan">100/100</span>
+          </div>
+
+          <div class="cp-row cp-green">
+            <span class="cp-icon">🎤</span>
+            <div class="cp-text">
+              <div class="cp-label">Public Speaking</div>
+              <div class="cp-value cp-green">DTM · Dir. of the Year</div>
+            </div>
+            <span class="cp-score cp-green">100/100</span>
+          </div>
+
+          <div class="cp-row cp-green">
+            <span class="cp-icon">✍️</span>
+            <div class="cp-text">
+              <div class="cp-label">Published Works</div>
+              <div class="cp-value cp-green">26+ Books · EN &amp; VI</div>
+            </div>
+            <span class="cp-score cp-green">100/100</span>
+          </div>
+
+          <div class="cp-divider"></div>
+
+          <!-- Animated score bar -->
+          <div class="cp-progress-wrap">
+            <div class="cp-progress-top">
+              <span class="cp-progress-text">Weighted Score — 100 Dimensions</span>
+              <span class="cp-progress-pct">99.7</span>
+            </div>
+            <div class="cp-bar-track">
+              <div class="cp-bar-fill"></div>
+            </div>
+          </div>
+
+          <!-- Scrolling dimension ticker -->
+          <div class="cp-ticker">
+            <div class="cp-ticker-track">
+              <span class="cp-ticker-item"><strong>#1</strong> Multi-Institution Simultaneity</span>
+              <span class="cp-ticker-item"><strong>#1</strong> Doctoral Mentorship</span>
+              <span class="cp-ticker-item"><strong>#1</strong> Federal Service</span>
+              <span class="cp-ticker-item"><strong>#1</strong> Faith Witness</span>
+              <span class="cp-ticker-item"><strong>#1</strong> Bilingual Output</span>
+              <span class="cp-ticker-item"><strong>#1</strong> Crisis Leadership</span>
+              <span class="cp-ticker-item"><strong>#1</strong> AI Deployment</span>
+              <span class="cp-ticker-item"><strong>#1</strong> Field Demand Alignment</span>
+              <!-- duplicate set for seamless loop -->
+              <span class="cp-ticker-item"><strong>#1</strong> Multi-Institution Simultaneity</span>
+              <span class="cp-ticker-item"><strong>#1</strong> Doctoral Mentorship</span>
+              <span class="cp-ticker-item"><strong>#1</strong> Federal Service</span>
+              <span class="cp-ticker-item"><strong>#1</strong> Faith Witness</span>
+              <span class="cp-ticker-item"><strong>#1</strong> Bilingual Output</span>
+              <span class="cp-ticker-item"><strong>#1</strong> Crisis Leadership</span>
+              <span class="cp-ticker-item"><strong>#1</strong> AI Deployment</span>
+              <span class="cp-ticker-item"><strong>#1</strong> Field Demand Alignment</span>
+            </div>
+          </div>
+
+        </div><!-- /command-panel -->
+      </div><!-- /hero-name-panel-wrap -->
+    </div><!-- /hero-photo-wrap -->
     <div class="hero-divider"></div>
     <div class="hero-impact-row">
       <div class="hero-impact-card">
