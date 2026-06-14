@@ -3434,6 +3434,226 @@
   @media(max-width:860px){ .dc-card{flex:0 0 calc((100% - 18px)/2)} }
   @media(max-width:540px){ .dc-card{flex:0 0 88%} }
 </style>
+<!-- ══════════════════════════════════════════════════════
+     3-D CARD LAYER  — Executive Summary & below
+     Excludes .uc-card and .dc-card (carousel cards)
+     ══════════════════════════════════════════════════════ -->
+<style>
+/* ── shared 3-D foundation ───────────────────────────── */
+#summary ~ *   .rank-card,
+#summary ~ *   .rank-card.you,
+#summary ~ *   .elite-card,
+#summary ~ *   .pillar-card,
+#summary ~ *   .compare-item,
+#summary ~ *   .conclusion-box,
+#summary ~ *   .advisory-stat-card,
+#summary ~ *   .advisory-panel,
+#summary ~ *   .advisory-dimension-box,
+#summary        .rank-card,
+#summary        .rank-card.you,
+#summary        .elite-card,
+#summary        .pillar-card,
+#summary        .compare-item,
+#summary        .conclusion-box,
+#summary        .advisory-stat-card,
+#summary        .advisory-panel,
+#summary        .advisory-dimension-box {
+  position: relative;
+  transform-style: preserve-3d;
+  transition:
+    transform   0.28s cubic-bezier(.22,1,.36,1),
+    box-shadow  0.28s cubic-bezier(.22,1,.36,1),
+    border-color 0.18s ease;
+}
+
+.rank-card {
+  box-shadow:
+    0 1px 0   rgba(255,255,255,.75) inset,
+    0 4px 8px  rgba(0,0,0,.08),
+    0 8px 20px rgba(0,0,0,.08),
+    0 18px 40px rgba(0,0,0,.06),
+    4px 6px 14px rgba(0,0,0,.06);
+  border-bottom: 2px solid rgba(0,0,0,.10);
+  border-right:  1px solid rgba(0,0,0,.07);
+}
+.rank-card:hover {
+  transform: translateY(-6px) rotateX(2deg);
+  box-shadow:
+    0 1px 0   rgba(255,255,255,.80) inset,
+    0 10px 24px rgba(0,0,0,.13),
+    0 22px 50px rgba(0,0,0,.10),
+    6px 10px 20px rgba(0,0,0,.08);
+}
+.rank-card.you {
+  box-shadow:
+    0 1px 0   rgba(255,255,255,.6) inset,
+    0 0 0 3px  rgba(24,95,165,.12),
+    0 8px 24px rgba(12,68,124,.14),
+    0 18px 44px rgba(12,68,124,.10),
+    5px 8px 18px rgba(0,0,0,.10) !important;
+}
+.rank-card.you:hover {
+  transform: translateY(-7px) rotateX(2deg);
+  box-shadow:
+    0 1px 0   rgba(255,255,255,.7) inset,
+    0 0 0 3px  rgba(24,95,165,.18),
+    0 14px 36px rgba(12,68,124,.20),
+    0 28px 56px rgba(12,68,124,.12),
+    7px 12px 24px rgba(0,0,0,.12) !important;
+}
+.elite-card {
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.80) inset,
+    0 6px 16px rgba(0,0,0,.09),
+    0 14px 36px rgba(0,0,0,.07),
+    4px 5px 12px rgba(0,0,0,.06);
+  border-bottom: 2px solid rgba(0,0,0,.09);
+}
+.elite-card:hover {
+  transform: translateY(-5px) rotateX(2deg);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.85) inset,
+    0 12px 30px rgba(0,0,0,.13),
+    0 24px 52px rgba(0,0,0,.08),
+    6px 10px 20px rgba(0,0,0,.08);
+  z-index: 2;
+}
+.pillar-card {
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.12) inset,
+    0 4px 10px rgba(0,0,0,.22),
+    0 10px 28px rgba(0,0,0,.20),
+    0 22px 48px rgba(0,0,0,.16),
+    4px 6px 14px rgba(0,0,0,.18) !important;
+  border-bottom: 2px solid rgba(0,0,0,.30) !important;
+  border-right:  1px solid rgba(0,0,0,.20) !important;
+  transform: perspective(800px) rotateX(1deg);
+}
+.pillar-card:hover {
+  transform: perspective(800px) rotateX(0deg) translateY(-7px) !important;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.18) inset,
+    0 14px 36px rgba(0,0,0,.30),
+    0 28px 60px rgba(0,0,0,.22),
+    6px 10px 22px rgba(0,0,0,.22) !important;
+}
+.pillar-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.10), inset 0 -2px 0 rgba(0,0,0,.25);
+  pointer-events: none;
+}
+.compare-item {
+  background: #fffef9;
+  border: 1px solid rgba(201,162,39,.20);
+  border-radius: 10px;
+  padding: 18px 20px;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.90) inset,
+    0 3px 8px  rgba(0,0,0,.06),
+    0 8px 20px rgba(0,0,0,.05),
+    3px 4px 10px rgba(0,0,0,.05);
+  border-bottom: 2px solid rgba(0,0,0,.08);
+  border-right:  1px solid rgba(0,0,0,.05);
+}
+.compare-item:hover {
+  transform: translateY(-4px) rotateX(1.5deg);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.95) inset,
+    0 8px 20px rgba(0,0,0,.09),
+    0 18px 40px rgba(0,0,0,.07),
+    4px 6px 14px rgba(0,0,0,.07);
+  border-color: rgba(201,162,39,.40);
+}
+.conclusion-box {
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.12) inset,
+    0 6px 18px rgba(0,0,0,.22),
+    0 16px 40px rgba(0,0,0,.18),
+    0 32px 64px rgba(0,0,0,.14),
+    5px 8px 20px rgba(0,0,0,.16) !important;
+  border-bottom: 3px solid rgba(0,0,0,.25) !important;
+  border-right:  2px solid rgba(0,0,0,.18) !important;
+  transform: perspective(900px) rotateX(1deg);
+}
+.conclusion-box:hover {
+  transform: perspective(900px) rotateX(0deg) translateY(-5px);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.15) inset,
+    0 12px 32px rgba(0,0,0,.28),
+    0 28px 60px rgba(0,0,0,.20),
+    6px 10px 24px rgba(0,0,0,.18) !important;
+}
+.advisory-stat-card {
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.14) inset,
+    0 4px 12px rgba(12,68,124,.22),
+    0 12px 30px rgba(12,68,124,.18),
+    0 24px 50px rgba(0,0,0,.14),
+    4px 6px 14px rgba(0,0,0,.14) !important;
+  border-bottom: 2px solid rgba(0,0,0,.22) !important;
+  border-right:  1px solid rgba(0,0,0,.16) !important;
+  transform: perspective(700px) rotateX(1.5deg);
+  transition: transform .28s cubic-bezier(.22,1,.36,1), box-shadow .28s cubic-bezier(.22,1,.36,1);
+}
+.advisory-stat-card:hover {
+  transform: perspective(700px) rotateX(0deg) translateY(-6px) !important;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.18) inset,
+    0 10px 28px rgba(12,68,124,.28),
+    0 24px 52px rgba(12,68,124,.20),
+    6px 10px 20px rgba(0,0,0,.16) !important;
+}
+.advisory-panel {
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.85) inset,
+    0 4px 10px rgba(0,0,0,.07),
+    0 10px 26px rgba(0,0,0,.06),
+    0 22px 48px rgba(0,0,0,.05),
+    4px 5px 12px rgba(0,0,0,.06) !important;
+  border-bottom: 2px solid rgba(0,0,0,.09) !important;
+  border-right:  1px solid rgba(0,0,0,.06) !important;
+  transform: perspective(800px) rotateX(1deg);
+  transition: transform .28s cubic-bezier(.22,1,.36,1), box-shadow .28s cubic-bezier(.22,1,.36,1);
+}
+.advisory-panel:hover {
+  transform: perspective(800px) rotateX(0deg) translateY(-5px) !important;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.90) inset,
+    0 10px 24px rgba(0,0,0,.11),
+    0 22px 48px rgba(0,0,0,.08),
+    5px 8px 18px rgba(0,0,0,.08) !important;
+}
+.advisory-dimension-box {
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.80) inset,
+    0 4px 10px rgba(0,150,136,.10),
+    0 10px 24px rgba(0,0,0,.08),
+    0 20px 44px rgba(0,0,0,.06),
+    4px 5px 12px rgba(0,0,0,.07) !important;
+  border-bottom: 2px solid rgba(0,0,0,.10) !important;
+  transform: perspective(800px) rotateX(1deg);
+  transition: transform .28s cubic-bezier(.22,1,.36,1), box-shadow .28s cubic-bezier(.22,1,.36,1);
+}
+.advisory-dimension-box:hover {
+  transform: perspective(800px) rotateX(0deg) translateY(-5px) !important;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.85) inset,
+    0 10px 24px rgba(0,150,136,.14),
+    0 22px 48px rgba(0,0,0,.10),
+    5px 8px 18px rgba(0,0,0,.08) !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rank-card, .rank-card.you, .elite-card, .pillar-card,
+  .compare-item, .conclusion-box, .advisory-stat-card,
+  .advisory-panel, .advisory-dimension-box {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+</style>
 </head>
 <body>
 <!-- ===== GLOBAL LASER CURSOR ===== -->
@@ -4016,6 +4236,8 @@
     <p>Before the rankings. Before the 100 dimensions. Before the federal oath, the nine institutions, the eleven doctoral graduates, and the weighted score that no other professor on earth has matched — there was a child in Hu&#7871;, Central Vietnam, hiding from armed men in the dark. Every credential, every title, every dimension scored at 100 out of 100 traces its roots to that moment. <strong>Understanding what <span class="nguyen-name">Dr. Daniel S.W. Nguyen</span> built requires understanding what he survived to build it.</strong> He is from <strong>Central Vietnam</strong> — the narrow coastal heartland that bore among the heaviest human costs of the Vietnam War, a region where the fall of Saigon in April 1975 did not arrive as distant news but as soldiers at the door, as fathers and brothers who vanished, as families making the most consequential decision of their lives in a single terrifying night: flee by sea, or lose everything to a regime that offered no future to those who had served the wrong side of history.</p>
 
     <p>The boat people of Central Vietnam faced a crossing defined by extreme danger. The South China Sea along the central Vietnamese coastline is exposed to seasonal typhoons, unpredictable currents, and some of the most trafficked piracy routes of the late 1970s and early 1980s. Families crowded onto fishing boats built for coastal waters, not open-ocean crossings, carrying almost nothing except the belief that survival was worth any risk. An estimated 200,000 to 400,000 Vietnamese boat people perished at sea during this period. <span class="nguyen-name">Dr. Daniel S.W. Nguyen</span>&#39;s family was among those who made it.</p>
+
+    <p>But before the night of April 29 &mdash; before the armed men at the door, before the sea, before everything &mdash; there was a different kind of soldier at the Nguyen family home in Hu&#7871;. Between 1973 and 1975, South Vietnamese Marines would visit the family on weekends. They played with his brothers. They brought laughter and a sense of belonging into a household already living under the long shadow of war. For a young boy in Hamlet 2, Hu&#7871;, these were not abstract defenders of a distant cause &mdash; they were men his family knew, men who sat in his home, men who gave the word &ldquo;military&rdquo; a human face before that word became something to fear. On one of those weekends, they brought young Daniel along to visit their station near Ph&#250; B&agrave;i &mdash; the air base and military installation that was, at the time, one of the most operationally active sites in all of Central Vietnam. He saw their world from the inside: the discipline, the camaraderie, the sense of purpose that comes from serving something larger than oneself. He could not have known then that he would one day wear a uniform himself &mdash; that the child visiting South Vietnamese Marines near Ph&#250; B&agrave;i would grow up to become the first documented Central Vietnamese refugee to enlist and serve in the United States Marine Corps. But the seed of that identity &mdash; the instinct toward service, toward order, toward mission &mdash; was planted in those weekend visits, in those men who played with his brothers and showed him what soldiers looked like up close. That memory did not survive the fall of Saigon intact. The regime that arrived in April 1975 had no place for soldiers who had worn the wrong flag. The men who had visited his family disappeared into the new Vietnam &mdash; into re-education camps, into silence, or into the sea. But the impression they made on a child in Hu&#7871; was permanent.</p>
 
     <p>But before the sea, there was the night of April 29, 1975 &mdash; the night before Saigon fell. On that night, a group of armed mercenaries came to the Nguyen family home in Hu&#7871;. They threatened to tear the home down unless they could locate his father and oldest brother &mdash; both men whose South Vietnamese military ties made them immediate targets in the chaos of the collapsing government. As a child in that house, <span class="nguyen-name">Dr. Daniel S.W. Nguyen</span> felt a sharp, chilling fear run through his spine. He was certain that his family would not survive that evening. That moment &mdash; the terror of armed men at the door, the absence of the men who were supposed to protect them, the silence of a country falling apart around them &mdash; is one that no credential, no degree, and no title can fully translate. It is the lived foundation beneath everything that followed. That the family survived the night, and then survived the sea, is something <span class="nguyen-name">Dr. Daniel S.W. Nguyen</span> has attributed publicly and unapologetically to the intervention of Jesus Christ &mdash; the faith that animates both his memoir <em class="memoir-title">Three Prayers, Three Boats</em> and his entire life&#39;s work.</p>
 
@@ -10919,8 +11141,7 @@ Cuộc đời ông chứng minh rằng khi một quốc gia đầu tư vào ngư
 </script>
 <!-- ══ END UNIVERSITY CAROUSEL SCRIPT ══ -->
 
-</html>
-
+<script>
   /* ── Doctoral Students Carousel ── */
   (function(){
     var track   = document.getElementById('docTrack');
@@ -10983,6 +11204,6 @@ Cuộc đời ông chứng minh rằng khi một quốc gia đầu tư vào ngư
       if(!document.hidden) go(idx >= maxIdx() ? 0 : idx+1);
     }, 5000);
   })();
-
 </script>
+
 </html>
