@@ -3335,6 +3335,104 @@
     100% { opacity: 0;    transform: translate(calc(-50% + var(--vx)), calc(-50% + var(--vy))) scale(0.15); }
   }
 
+  /* ===== UNIVERSITY CAROUSEL ===== */
+  .uni-carousel-section { max-width: 100%; margin: 36px 0 0; }
+  .uni-carousel-eyebrow { display:flex; align-items:center; gap:12px; margin-bottom:8px; }
+  .uni-carousel-eyebrow-line { flex:1; height:1px; background:linear-gradient(90deg,var(--gold,#c9a227) 0%,transparent 100%); }
+  .uni-carousel-eyebrow-label { font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold-dark,#7a5c00); white-space:nowrap; }
+  .uni-carousel-title { font-family:'Playfair Display',Georgia,serif; font-size:clamp(18px,2.8vw,26px); font-weight:900; color:var(--navy,#0c447c); line-height:1.2; margin-bottom:4px; }
+  .uni-carousel-sub { font-size:13px; color:#6b6b68; margin-bottom:20px; }
+  .uni-carousel-sub em { color:#185FA5; font-style:normal; font-weight:700; }
+  .uni-carousel-viewport { position:relative; overflow:hidden; border-radius:12px; }
+  .uni-carousel-viewport::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,transparent 0%,rgba(201,162,39,.35) 10%,#f5c842 35%,#ffe066 50%,#f5c842 65%,rgba(201,162,39,.35) 90%,transparent 100%); z-index:10; animation:uc-shimmer 3.5s ease-in-out infinite; }
+  @keyframes uc-shimmer { 0%,100%{opacity:.75} 50%{opacity:1} }
+  .uni-carousel-track { display:flex; gap:18px; transition:transform .52s cubic-bezier(.4,0,.2,1); will-change:transform; padding:4px 2px 8px; }
+  .uc-card { flex:0 0 calc((100% - 36px)/3); background:#fff; border-radius:10px; border:1px solid #dedad4; box-shadow:0 6px 24px rgba(0,0,0,.10); overflow:hidden; display:flex; flex-direction:column; cursor:pointer; transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease; text-decoration:none; color:inherit; }
+  .uc-card:hover { transform:translateY(-5px) scale(1.015); box-shadow:0 12px 40px rgba(0,0,0,.14); border-color:rgba(201,162,39,.55); }
+  .uc-card:focus-visible { outline:3px solid #c9a227; outline-offset:3px; }
+  .uc-header { background:linear-gradient(135deg,#0a2d52 0%,#0c447c 60%,#185FA5 100%); padding:18px 16px 14px; display:flex; align-items:center; gap:12px; position:relative; overflow:hidden; }
+  .uc-header::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,.06) 0%,transparent 60%); pointer-events:none; }
+  .uc-logo { flex-shrink:0; width:46px; height:46px; border-radius:8px; background:rgba(255,255,255,.12); border:1.5px solid rgba(201,162,39,.45); display:flex; align-items:center; justify-content:center; overflow:hidden; transition:transform .3s ease; }
+  .uc-card:hover .uc-logo { transform:scale(1.08) rotate(-3deg); }
+  .uc-logo img { width:32px; height:32px; object-fit:contain; filter:brightness(0) invert(1); }
+  .uc-logo-init { font-family:'Playfair Display',Georgia,serif; font-size:12px; font-weight:900; color:#c9a227; line-height:1.2; text-align:center; }
+  .uc-header-text { flex:1; min-width:0; }
+  .uc-abbr { font-size:9px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(201,162,39,.85); margin-bottom:2px; }
+  .uc-name { font-family:'Playfair Display',Georgia,serif; font-size:13px; font-weight:700; color:#fff; line-height:1.25; }
+  .uc-body { padding:13px 15px 11px; flex:1; display:flex; flex-direction:column; gap:8px; }
+  .uc-role-tag { display:inline-block; background:#FDF6DC; color:#7a5c00; font-size:9.5px; font-weight:700; letter-spacing:.05em; padding:2px 8px; border-radius:20px; border:1px solid rgba(201,162,39,.3); align-self:flex-start; }
+  .uc-subjects { font-size:11.5px; color:#6b6b68; line-height:1.6; }
+  .uc-subjects strong { color:#0c447c; font-weight:600; }
+  .uc-footer { border-top:1px solid #dedad4; padding:9px 15px; display:flex; align-items:center; gap:10px; }
+  .uc-stat { display:flex; align-items:baseline; gap:3px; }
+  .uc-stat-n { font-family:'Playfair Display',Georgia,serif; font-size:16px; font-weight:900; color:#0c447c; line-height:1; }
+  .uc-stat-l { font-size:9px; color:#6b6b68; font-weight:500; max-width:54px; line-height:1.2; }
+  .uc-stat-div { width:1px; height:24px; background:#dedad4; }
+  .uc-arrow { margin-left:auto; width:26px; height:26px; border-radius:50%; background:#0c447c; display:flex; align-items:center; justify-content:center; transition:background .2s,transform .2s; flex-shrink:0; }
+  .uc-card:hover .uc-arrow { background:#c9a227; transform:translateX(2px); }
+  .uc-arrow svg { width:11px; height:11px; fill:none; stroke:#fff; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+  .uc-controls { display:flex; align-items:center; gap:12px; margin-top:18px; justify-content:center; }
+  .uc-ctrl { width:40px; height:40px; border-radius:50%; border:1.5px solid #dedad4; background:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .18s,border-color .18s,transform .18s; box-shadow:0 4px 14px rgba(0,0,0,.08); }
+  .uc-ctrl:hover { background:#0c447c; border-color:#0c447c; transform:scale(1.08); }
+  .uc-ctrl:hover svg { stroke:#fff; }
+  .uc-ctrl:disabled { opacity:.35; cursor:default; transform:none; }
+  .uc-ctrl svg { width:15px; height:15px; stroke:#0c447c; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; transition:stroke .18s; }
+  .uc-dots { display:flex; gap:6px; align-items:center; }
+  .uc-dot { width:7px; height:7px; border-radius:50%; background:#dedad4; cursor:pointer; transition:background .2s,width .25s; border:none; padding:0; }
+  .uc-dot.active { background:#c9a227; width:20px; border-radius:4px; }
+  .uc-counter { font-size:11px; font-weight:700; color:#6b6b68; min-width:48px; text-align:center; }
+  .uc-counter span { color:#0c447c; }
+  .uc-progress { height:2px; background:#dedad4; border-radius:2px; margin-top:14px; overflow:hidden; }
+  .uc-progress-fill { height:100%; background:linear-gradient(90deg,#c9a227,#f5c842); border-radius:2px; transition:width .4s ease; }
+  @media(max-width:860px){ .uc-card{flex:0 0 calc((100% - 18px)/2)} }
+  @media(max-width:540px){ .uc-card{flex:0 0 88%} }
+  @media(prefers-reduced-motion:reduce){ .uni-carousel-track,.uc-card,.uc-ctrl,.uc-dot,.uc-arrow,.uc-logo{transition:none!important;animation:none!important} }
+
+
+  /* ══════════════════════════════════════════
+     DOCTORAL STUDENTS CAROUSEL
+     ══════════════════════════════════════════ */
+  .doc-carousel-wrap { margin: 32px 0 0; }
+  .doc-carousel-eyebrow { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
+  .doc-carousel-eyebrow-line { flex:1; height:1px; background:linear-gradient(90deg,#c9a227 0%,transparent 100%); }
+  .doc-carousel-eyebrow-label { font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#7a5c00; white-space:nowrap; }
+  .doc-carousel-viewport { position:relative; overflow:hidden; border-radius:12px; }
+  .doc-carousel-viewport::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,transparent 0%,rgba(201,162,39,.3) 10%,#f5c842 35%,#ffe066 50%,#f5c842 65%,rgba(201,162,39,.3) 90%,transparent 100%); z-index:10; animation:uc-shimmer 3.5s ease-in-out infinite; }
+  .doc-carousel-track { display:flex; gap:18px; transition:transform .52s cubic-bezier(.4,0,.2,1); will-change:transform; padding:4px 2px 12px; }
+  .dc-card { flex:0 0 calc((100% - 36px)/3); background:#fff; border-radius:12px; border:1px solid #dedad4; box-shadow:0 6px 24px rgba(0,0,0,.09); overflow:hidden; display:flex; flex-direction:column; transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease; }
+  .dc-card:hover { transform:translateY(-6px) scale(1.012); box-shadow:0 14px 44px rgba(0,0,0,.13); border-color:rgba(201,162,39,.6); }
+  .dc-header { background:linear-gradient(135deg,#0a2d52 0%,#0c447c 55%,#185FA5 100%); padding:20px 18px 16px; position:relative; overflow:hidden; }
+  .dc-header::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,.07) 0%,transparent 60%); pointer-events:none; }
+  .dc-medal { position:absolute; top:12px; right:14px; width:28px; height:28px; border-radius:50%; background:linear-gradient(135deg,#c9a227,#f5e87a,#c9a227); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:900; color:#0c447c; box-shadow:0 2px 8px rgba(201,162,39,.5); z-index:2; }
+  .dc-avatar { width:54px; height:54px; border-radius:50%; background:linear-gradient(135deg,rgba(201,162,39,.25),rgba(201,162,39,.08)); border:2px solid rgba(201,162,39,.55); display:flex; align-items:center; justify-content:center; margin-bottom:10px; position:relative; z-index:1; }
+  .dc-avatar-init { font-family:'Playfair Display',Georgia,serif; font-size:18px; font-weight:900; color:#f5c842; }
+  .dc-name { font-family:'Playfair Display',Georgia,serif; font-size:14.5px; font-weight:700; color:#fff; line-height:1.25; margin-bottom:3px; position:relative; z-index:1; }
+  .dc-degree { font-size:9.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(201,162,39,.85); position:relative; z-index:1; }
+  .dc-body { padding:14px 16px 10px; flex:1; display:flex; flex-direction:column; gap:9px; }
+  .dc-institution { display:inline-flex; align-items:center; gap:5px; background:#f0f6ff; color:#0c447c; font-size:10px; font-weight:700; letter-spacing:.04em; padding:3px 10px; border-radius:20px; border:1px solid rgba(24,95,165,.2); align-self:flex-start; }
+  .dc-institution::before { content:'🎓'; font-size:10px; }
+  .dc-status { display:inline-flex; align-items:center; gap:5px; background:#f0faf0; color:#2d6a2d; font-size:10px; font-weight:700; padding:3px 10px; border-radius:20px; border:1px solid rgba(45,106,45,.2); align-self:flex-start; }
+  .dc-status::before { content:'✅'; font-size:9px; }
+  .dc-field { font-size:11.5px; color:#555; line-height:1.55; }
+  .dc-field strong { color:#0c447c; font-weight:600; }
+  .dc-footer { border-top:1px solid #eee; padding:10px 16px; display:flex; align-items:center; justify-content:space-between; }
+  .dc-footer-label { font-size:9.5px; color:#888; font-weight:600; letter-spacing:.05em; text-transform:uppercase; }
+  .dc-footer-chair { font-size:10px; color:#c9a227; font-weight:700; }
+  .doc-controls { display:flex; align-items:center; gap:12px; margin-top:18px; justify-content:center; }
+  .doc-ctrl { width:40px; height:40px; border-radius:50%; border:1.5px solid #dedad4; background:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .18s,border-color .18s,transform .18s; box-shadow:0 4px 14px rgba(0,0,0,.08); }
+  .doc-ctrl:hover { background:#0c447c; border-color:#0c447c; transform:scale(1.08); }
+  .doc-ctrl:hover svg { stroke:#fff; }
+  .doc-ctrl:disabled { opacity:.35; cursor:default; transform:none; }
+  .doc-ctrl svg { width:15px; height:15px; stroke:#0c447c; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; transition:stroke .18s; }
+  .doc-dots { display:flex; gap:6px; align-items:center; }
+  .doc-dot { width:7px; height:7px; border-radius:50%; background:#dedad4; cursor:pointer; transition:background .2s,width .25s; border:none; padding:0; }
+  .doc-dot.active { background:#c9a227; width:20px; border-radius:4px; }
+  .doc-counter { font-size:11px; font-weight:700; color:#6b6b68; min-width:48px; text-align:center; }
+  .doc-counter span { color:#0c447c; }
+  .doc-progress { height:2px; background:#dedad4; border-radius:2px; margin-top:14px; overflow:hidden; }
+  .doc-progress-fill { height:100%; background:linear-gradient(90deg,#c9a227,#f5c842); border-radius:2px; transition:width .4s ease; }
+  @media(max-width:860px){ .dc-card{flex:0 0 calc((100% - 18px)/2)} }
+  @media(max-width:540px){ .dc-card{flex:0 0 88%} }
 </style>
 </head>
 <body>
@@ -7314,6 +7412,253 @@
       <div class="univ"><span class="univ-icon">🎓</span><div class="univ-text"><div class="univ-name">Saudi Electronic University</div><div class="univ-role">Graduate Faculty &mdash; Cybersecurity & Information Systems</div></div></div>
       <div class="univ"><span class="univ-icon">🎓</span><div class="univ-text"><div class="univ-name">Ivy Tech Community College</div><div class="univ-role">Faculty &mdash; Computer Science</div></div></div>
     </div>
+
+    <!-- ══ UNIVERSITY CAROUSEL ══ -->
+    <div class="uni-carousel-section" id="uni-carousel" aria-label="University carousel">
+      <div class="uni-carousel-eyebrow">
+        <span class="uni-carousel-eyebrow-label">Global Academic Footprint</span>
+        <div class="uni-carousel-eyebrow-line"></div>
+      </div>
+      <h3 class="uni-carousel-title">Nine Institutions. One Unstoppable Mission.</h3>
+      <p class="uni-carousel-sub">Graduate professor across <em>9 universities on 3 continents</em> — shaping the next generation of cybersecurity, data science, and IT leaders.</p>
+
+      <div class="uni-carousel-viewport" id="ucViewport">
+        <div class="uni-carousel-track" id="ucTrack" role="list">
+
+          <!-- CARD 1: UMGC -->
+          <a class="uc-card" href="https://www.umgc.edu" target="_blank" rel="noopener" role="listitem" aria-label="University of Maryland Global Campus">
+            <div class="uc-header">
+              <div class="uc-logo">
+                <img src="images/uni-umgc.png" alt="UMGC logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                <div class="uc-logo-init" style="display:none">UM<br>GC</div>
+              </div>
+              <div class="uc-header-text">
+                <div class="uc-abbr">UMGC</div>
+                <div class="uc-name">University of Maryland Global Campus</div>
+              </div>
+            </div>
+            <div class="uc-body">
+              <span class="uc-role-tag">Professor — Cybersecurity</span>
+              <p class="uc-subjects"><strong>Cybersecurity</strong> · Information Assurance · NIST / FISMA Governance</p>
+            </div>
+            <div class="uc-footer">
+              <div class="uc-stat"><div class="uc-stat-n">90K+</div><div class="uc-stat-l">enrolled students</div></div>
+              <div class="uc-stat-div"></div>
+              <div class="uc-stat"><div class="uc-stat-n">#1</div><div class="uc-stat-l">online for veterans</div></div>
+              <div class="uc-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><polyline points="3 8 13 8"/><polyline points="9 4 13 8 9 12"/></svg></div>
+            </div>
+          </a>
+
+          <!-- CARD 2: Indiana Wesleyan -->
+          <a class="uc-card" href="https://www.indwes.edu" target="_blank" rel="noopener" role="listitem" aria-label="Indiana Wesleyan University">
+            <div class="uc-header">
+              <div class="uc-logo">
+                <img src="images/uni-iwu.png" alt="IWU logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                <div class="uc-logo-init" style="display:none">IWU</div>
+              </div>
+              <div class="uc-header-text">
+                <div class="uc-abbr">IWU</div>
+                <div class="uc-name">Indiana Wesleyan University</div>
+              </div>
+            </div>
+            <div class="uc-body">
+              <span class="uc-role-tag">DBA Research Chair · Dissertation Chair</span>
+              <p class="uc-subjects"><strong>IS, Cybersecurity</strong> · IT Management · Graduate Faculty</p>
+            </div>
+            <div class="uc-footer">
+              <div class="uc-stat"><div class="uc-stat-n">15K+</div><div class="uc-stat-l">students worldwide</div></div>
+              <div class="uc-stat-div"></div>
+              <div class="uc-stat"><div class="uc-stat-n">Top</div><div class="uc-stat-l">Christian university</div></div>
+              <div class="uc-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><polyline points="3 8 13 8"/><polyline points="9 4 13 8 9 12"/></svg></div>
+            </div>
+          </a>
+
+          <!-- CARD 3: Aspen University -->
+          <a class="uc-card" href="https://www.aspen.edu" target="_blank" rel="noopener" role="listitem" aria-label="Aspen University">
+            <div class="uc-header" style="background:linear-gradient(135deg,#0a2d52 0%,#0c447c 50%,#7a5c00 100%);">
+              <div class="uc-logo" style="border-color:rgba(255,215,0,.6);">
+                <img src="images/uni-aspen.png" alt="Aspen University logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                <div class="uc-logo-init" style="display:none">AU</div>
+              </div>
+              <div class="uc-header-text">
+                <div class="uc-abbr">Aspen · 🌟 Lead Faculty</div>
+                <div class="uc-name">Aspen University</div>
+              </div>
+            </div>
+            <div class="uc-body">
+              <span class="uc-role-tag" style="background:#FFF8E1;color:#7a5c00;">Lead Faculty · Dissertation Chair · Faculty Senator</span>
+              <p class="uc-subjects"><strong>IT Management</strong> · Peer Reviewer · Prominent Book Author (AU-Recognized)</p>
+            </div>
+            <div class="uc-footer">
+              <div class="uc-stat"><div class="uc-stat-n">5K+</div><div class="uc-stat-l">graduate students</div></div>
+              <div class="uc-stat-div"></div>
+              <div class="uc-stat"><div class="uc-stat-n">CO</div><div class="uc-stat-l">Denver, Colorado</div></div>
+              <div class="uc-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><polyline points="3 8 13 8"/><polyline points="9 4 13 8 9 12"/></svg></div>
+            </div>
+          </a>
+
+          <!-- CARD 4: Purdue Global -->
+          <a class="uc-card" href="https://www.purdueglobal.edu" target="_blank" rel="noopener" role="listitem" aria-label="Purdue University Global">
+            <div class="uc-header">
+              <div class="uc-logo">
+                <img src="images/uni-purdue.png" alt="Purdue Global logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                <div class="uc-logo-init" style="display:none">PG</div>
+              </div>
+              <div class="uc-header-text">
+                <div class="uc-abbr">Purdue Global</div>
+                <div class="uc-name">Purdue University Global</div>
+              </div>
+            </div>
+            <div class="uc-body">
+              <span class="uc-role-tag">Graduate Faculty</span>
+              <p class="uc-subjects"><strong>IT Strategy</strong> · Data Analytics · Graduate Programs</p>
+            </div>
+            <div class="uc-footer">
+              <div class="uc-stat"><div class="uc-stat-n">45K+</div><div class="uc-stat-l">students enrolled</div></div>
+              <div class="uc-stat-div"></div>
+              <div class="uc-stat"><div class="uc-stat-n">Purdue</div><div class="uc-stat-l">brand legacy</div></div>
+              <div class="uc-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><polyline points="3 8 13 8"/><polyline points="9 4 13 8 9 12"/></svg></div>
+            </div>
+          </a>
+
+          <!-- CARD 5: Grand Canyon University -->
+          <a class="uc-card" href="https://www.gcu.edu" target="_blank" rel="noopener" role="listitem" aria-label="Grand Canyon University">
+            <div class="uc-header">
+              <div class="uc-logo">
+                <img src="images/uni-gcu.png" alt="GCU logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                <div class="uc-logo-init" style="display:none">GCU</div>
+              </div>
+              <div class="uc-header-text">
+                <div class="uc-abbr">GCU</div>
+                <div class="uc-name">Grand Canyon University</div>
+              </div>
+            </div>
+            <div class="uc-body">
+              <span class="uc-role-tag">Graduate Faculty</span>
+              <p class="uc-subjects"><strong>Technology</strong> · Information Systems · Graduate Programs</p>
+            </div>
+            <div class="uc-footer">
+              <div class="uc-stat"><div class="uc-stat-n">100K+</div><div class="uc-stat-l">students worldwide</div></div>
+              <div class="uc-stat-div"></div>
+              <div class="uc-stat"><div class="uc-stat-n">AZ</div><div class="uc-stat-l">Phoenix, Arizona</div></div>
+              <div class="uc-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><polyline points="3 8 13 8"/><polyline points="9 4 13 8 9 12"/></svg></div>
+            </div>
+          </a>
+
+          <!-- CARD 6: Colorado Technical University -->
+          <a class="uc-card" href="https://www.coloradotech.edu" target="_blank" rel="noopener" role="listitem" aria-label="Colorado Technical University">
+            <div class="uc-header">
+              <div class="uc-logo">
+                <img src="images/uni-ctu.png" alt="CTU logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                <div class="uc-logo-init" style="display:none">CTU</div>
+              </div>
+              <div class="uc-header-text">
+                <div class="uc-abbr">CTU · 🌟 Associate Professor</div>
+                <div class="uc-name">Colorado Technical University</div>
+              </div>
+            </div>
+            <div class="uc-body">
+              <span class="uc-role-tag">Associate Professor · Graduate Faculty</span>
+              <p class="uc-subjects"><strong>Computer Science</strong> · Cybersecurity · STEM Programs</p>
+            </div>
+            <div class="uc-footer">
+              <div class="uc-stat"><div class="uc-stat-n">25K+</div><div class="uc-stat-l">students enrolled</div></div>
+              <div class="uc-stat-div"></div>
+              <div class="uc-stat"><div class="uc-stat-n">STEM</div><div class="uc-stat-l">focused programs</div></div>
+              <div class="uc-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><polyline points="3 8 13 8"/><polyline points="9 4 13 8 9 12"/></svg></div>
+            </div>
+          </a>
+
+          <!-- CARD 7: CSU Global -->
+          <a class="uc-card" href="https://csuglobal.edu" target="_blank" rel="noopener" role="listitem" aria-label="Colorado State University Global">
+            <div class="uc-header">
+              <div class="uc-logo">
+                <img src="images/uni-csug.png" alt="CSU Global logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                <div class="uc-logo-init" style="display:none">CSU<br>G</div>
+              </div>
+              <div class="uc-header-text">
+                <div class="uc-abbr">CSU Global</div>
+                <div class="uc-name">Colorado State University Global</div>
+              </div>
+            </div>
+            <div class="uc-body">
+              <span class="uc-role-tag">Graduate Faculty</span>
+              <p class="uc-subjects"><strong>Data Analytics</strong> · Data Science · Applied Statistics</p>
+            </div>
+            <div class="uc-footer">
+              <div class="uc-stat"><div class="uc-stat-n">20K+</div><div class="uc-stat-l">online learners</div></div>
+              <div class="uc-stat-div"></div>
+              <div class="uc-stat"><div class="uc-stat-n">#1</div><div class="uc-stat-l">online in Colorado</div></div>
+              <div class="uc-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><polyline points="3 8 13 8"/><polyline points="9 4 13 8 9 12"/></svg></div>
+            </div>
+          </a>
+
+          <!-- CARD 8: Saudi Electronic University -->
+          <a class="uc-card" href="https://seu.edu.sa" target="_blank" rel="noopener" role="listitem" aria-label="Saudi Electronic University">
+            <div class="uc-header">
+              <div class="uc-logo">
+                <img src="images/uni-seu.png" alt="SEU logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                <div class="uc-logo-init" style="display:none">SEU</div>
+              </div>
+              <div class="uc-header-text">
+                <div class="uc-abbr">SEU · Saudi Arabia 🌍</div>
+                <div class="uc-name">Saudi Electronic University</div>
+              </div>
+            </div>
+            <div class="uc-body">
+              <span class="uc-role-tag">International Graduate Faculty</span>
+              <p class="uc-subjects"><strong>Cybersecurity</strong> · Information Systems · Dual-Sovereign Reach</p>
+            </div>
+            <div class="uc-footer">
+              <div class="uc-stat"><div class="uc-stat-n">🌍</div><div class="uc-stat-l">Riyadh, KSA</div></div>
+              <div class="uc-stat-div"></div>
+              <div class="uc-stat"><div class="uc-stat-n">Global</div><div class="uc-stat-l">reach &amp; impact</div></div>
+              <div class="uc-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><polyline points="3 8 13 8"/><polyline points="9 4 13 8 9 12"/></svg></div>
+            </div>
+          </a>
+
+          <!-- CARD 9: Ivy Tech Community College -->
+          <a class="uc-card" href="https://www.ivytech.edu" target="_blank" rel="noopener" role="listitem" aria-label="Ivy Tech Community College">
+            <div class="uc-header">
+              <div class="uc-logo">
+                <img src="images/uni-ivytech.png" alt="Ivy Tech logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                <div class="uc-logo-init" style="display:none">Ivy<br>Tech</div>
+              </div>
+              <div class="uc-header-text">
+                <div class="uc-abbr">Ivy Tech · Indiana</div>
+                <div class="uc-name">Ivy Tech Community College</div>
+              </div>
+            </div>
+            <div class="uc-body">
+              <span class="uc-role-tag">Faculty — Computer Science</span>
+              <p class="uc-subjects"><strong>Computer Science</strong> · Cybersecurity · Workforce Pipeline</p>
+            </div>
+            <div class="uc-footer">
+              <div class="uc-stat"><div class="uc-stat-n">170K+</div><div class="uc-stat-l">students statewide</div></div>
+              <div class="uc-stat-div"></div>
+              <div class="uc-stat"><div class="uc-stat-n">#1</div><div class="uc-stat-l">Indiana community college</div></div>
+              <div class="uc-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><polyline points="3 8 13 8"/><polyline points="9 4 13 8 9 12"/></svg></div>
+            </div>
+          </a>
+
+        </div><!-- /track -->
+      </div><!-- /viewport -->
+
+      <div class="uc-progress"><div class="uc-progress-fill" id="ucProgressFill"></div></div>
+
+      <div class="uc-controls" role="group" aria-label="Carousel navigation">
+        <button class="uc-ctrl" id="ucPrev" aria-label="Previous universities" disabled>
+          <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
+        </button>
+        <div class="uc-dots" id="ucDots" role="tablist"></div>
+        <div class="uc-counter" id="ucCounter"><span id="ucCurrent">1</span>&thinsp;/&thinsp;<span id="ucTotal">9</span></div>
+        <button class="uc-ctrl" id="ucNext" aria-label="Next universities">
+          <svg viewBox="0 0 16 16"><polyline points="6 4 10 8 6 12"/></svg>
+        </button>
+      </div>
+    </div>
+    <!-- ══ END UNIVERSITY CAROUSEL ══ -->
+
   </section>
 
   <section class="section" id="research">
@@ -7577,81 +7922,261 @@
 
     <p>As Dissertation Committee Chair at Aspen University, <span class="nguyen-name">Dr. Daniel S.W. Nguyen</span> has guided eleven doctoral candidates through the completion of their Doctor of Science in Computer Science degrees. Each graduate represents a substantive contribution to the field of computer science, information systems, cybersecurity, and emerging technology &mdash; and a direct extension of <span class="nguyen-name">Dr. Daniel S.W. Nguyen</span>&#39;s commitment to developing the next generation of technology scholars and practitioners. <span class="nguyen-name">Dr. Daniel S.W. Nguyen</span> brings a rare authenticity to this mentorship role: he completed his own doctoral dissertation without any prior transfer credits, earning every credit from the ground up, while many of his peers at the time took 10 or more years to finish their dissertation work &mdash; a testament to the discipline and determination he now instills in every candidate he chairs.</p>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:28px 0;">
 
-      <div style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:16px 18px;border-top:3px solid #185FA5;">
-        <div style="font-family:Arial,sans-serif;font-size:15px;font-weight:700;color:#0c447c;">Desmond Alemiluyi</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#888;margin-top:3px;">Doctor of Science &mdash; Computer Science</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#3B6D11;margin-top:4px;font-weight:700;">Graduated &nbsp;&mdash;&nbsp; Aspen University</div>
+    <div class="doc-carousel-wrap">
+      <div class="doc-carousel-eyebrow">
+        <span class="doc-carousel-eyebrow-label">11 Graduates &mdash; Dissertation Chair</span>
+        <div class="doc-carousel-eyebrow-line"></div>
       </div>
 
-      <div style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:16px 18px;border-top:3px solid #185FA5;">
-        <div style="font-family:Arial,sans-serif;font-size:15px;font-weight:700;color:#0c447c;">Freeman Jackson</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#888;margin-top:3px;">Doctor of Science &mdash; Computer Science</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#3B6D11;margin-top:4px;font-weight:700;">Graduated &nbsp;&mdash;&nbsp; Aspen University</div>
-      </div>
+      <div class="doc-carousel-viewport">
+        <div class="doc-carousel-track" id="docTrack">
 
-      <div style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:16px 18px;border-top:3px solid #185FA5;">
-        <div style="font-family:Arial,sans-serif;font-size:15px;font-weight:700;color:#0c447c;">Derege Kobre</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#888;margin-top:3px;">Doctor of Science &mdash; Computer Science</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#3B6D11;margin-top:4px;font-weight:700;">Graduated &nbsp;&mdash;&nbsp; Aspen University</div>
-      </div>
+          <!-- 1 -->
+          <div class="dc-card">
+            <div class="dc-header">
+              <div class="dc-medal">#1</div>
+              <div class="dc-avatar"><span class="dc-avatar-init">DA</span></div>
+              <div class="dc-name">Desmond Alemiluyi</div>
+              <div class="dc-degree">Doctor of Science &mdash; Computer Science</div>
+            </div>
+            <div class="dc-body">
+              <span class="dc-institution">Aspen University</span>
+              <span class="dc-status">Graduated</span>
+              <p class="dc-field">Research spanning <strong>information systems &amp; emerging technology</strong> — contributing original scholarship to the applied computing literature.</p>
+            </div>
+            <div class="dc-footer">
+              <span class="dc-footer-label">Dissertation Chair</span>
+              <span class="dc-footer-chair">Dr. Daniel S.W. Nguyen</span>
+            </div>
+          </div>
 
-      <div style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:16px 18px;border-top:3px solid #185FA5;">
-        <div style="font-family:Arial,sans-serif;font-size:15px;font-weight:700;color:#0c447c;">Farhan Hallane</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#888;margin-top:3px;">Doctor of Science &mdash; Computer Science</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#3B6D11;margin-top:4px;font-weight:700;">Graduated &nbsp;&mdash;&nbsp; Aspen University</div>
-      </div>
+          <!-- 2 -->
+          <div class="dc-card">
+            <div class="dc-header">
+              <div class="dc-medal">#2</div>
+              <div class="dc-avatar"><span class="dc-avatar-init">FJ</span></div>
+              <div class="dc-name">Freeman Jackson</div>
+              <div class="dc-degree">Doctor of Science &mdash; Computer Science</div>
+            </div>
+            <div class="dc-body">
+              <span class="dc-institution">Aspen University</span>
+              <span class="dc-status">Graduated</span>
+              <p class="dc-field">Research contributions in <strong>cybersecurity governance &amp; organizational information systems</strong> — extending the practitioner-scholar tradition.</p>
+            </div>
+            <div class="dc-footer">
+              <span class="dc-footer-label">Dissertation Chair</span>
+              <span class="dc-footer-chair">Dr. Daniel S.W. Nguyen</span>
+            </div>
+          </div>
 
-      <div style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:16px 18px;border-top:3px solid #185FA5;">
-        <div style="font-family:Arial,sans-serif;font-size:15px;font-weight:700;color:#0c447c;">Richard Odigie</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#888;margin-top:3px;">Doctor of Science &mdash; Computer Science</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#3B6D11;margin-top:4px;font-weight:700;">Graduated &nbsp;&mdash;&nbsp; Aspen University</div>
-      </div>
+          <!-- 3 -->
+          <div class="dc-card">
+            <div class="dc-header">
+              <div class="dc-medal">#3</div>
+              <div class="dc-avatar"><span class="dc-avatar-init">DK</span></div>
+              <div class="dc-name">Derege Kobre</div>
+              <div class="dc-degree">Doctor of Science &mdash; Computer Science</div>
+            </div>
+            <div class="dc-body">
+              <span class="dc-institution">Aspen University</span>
+              <span class="dc-status">Graduated</span>
+              <p class="dc-field">Original doctoral research in <strong>AI &amp; cloud computing</strong> — advancing the frontier of applied technology scholarship.</p>
+            </div>
+            <div class="dc-footer">
+              <span class="dc-footer-label">Dissertation Chair</span>
+              <span class="dc-footer-chair">Dr. Daniel S.W. Nguyen</span>
+            </div>
+          </div>
 
-      <div style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:16px 18px;border-top:3px solid #185FA5;">
-        <div style="font-family:Arial,sans-serif;font-size:15px;font-weight:700;color:#0c447c;">Zahid Malik</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#888;margin-top:3px;">Doctor of Science &mdash; Computer Science</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#3B6D11;margin-top:4px;font-weight:700;">Graduated &nbsp;&mdash;&nbsp; Aspen University</div>
-      </div>
+          <!-- 4 -->
+          <div class="dc-card">
+            <div class="dc-header">
+              <div class="dc-medal">#4</div>
+              <div class="dc-avatar"><span class="dc-avatar-init">FH</span></div>
+              <div class="dc-name">Farhan Hallane</div>
+              <div class="dc-degree">Doctor of Science &mdash; Computer Science</div>
+            </div>
+            <div class="dc-body">
+              <span class="dc-institution">Aspen University</span>
+              <span class="dc-status">Graduated</span>
+              <p class="dc-field">Doctoral contributions in <strong>blockchain &amp; distributed systems security</strong> — broadening the multi-domain dissertation legacy.</p>
+            </div>
+            <div class="dc-footer">
+              <span class="dc-footer-label">Dissertation Chair</span>
+              <span class="dc-footer-chair">Dr. Daniel S.W. Nguyen</span>
+            </div>
+          </div>
 
-      <div style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:16px 18px;border-top:3px solid #185FA5;">
-        <div style="font-family:Arial,sans-serif;font-size:15px;font-weight:700;color:#0c447c;">Juliette Sondano</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#888;margin-top:3px;">Doctor of Science &mdash; Computer Science</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#3B6D11;margin-top:4px;font-weight:700;">Graduated &nbsp;&mdash;&nbsp; Aspen University</div>
-      </div>
+          <!-- 5 -->
+          <div class="dc-card">
+            <div class="dc-header">
+              <div class="dc-medal">#5</div>
+              <div class="dc-avatar"><span class="dc-avatar-init">RO</span></div>
+              <div class="dc-name">Richard Odigie</div>
+              <div class="dc-degree">Doctor of Science &mdash; Computer Science</div>
+            </div>
+            <div class="dc-body">
+              <span class="dc-institution">Aspen University</span>
+              <span class="dc-status">Graduated</span>
+              <p class="dc-field">Research in <strong>cybersecurity &amp; organizational behavior in technology adoption</strong> — bridging the human and technical dimensions of security.</p>
+            </div>
+            <div class="dc-footer">
+              <span class="dc-footer-label">Dissertation Chair</span>
+              <span class="dc-footer-chair">Dr. Daniel S.W. Nguyen</span>
+            </div>
+          </div>
 
-      <div style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:16px 18px;border-top:3px solid #185FA5;">
-        <div style="font-family:Arial,sans-serif;font-size:15px;font-weight:700;color:#0c447c;">Larzaro Serrano</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#888;margin-top:3px;">Doctor of Science &mdash; Computer Science</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#3B6D11;margin-top:4px;font-weight:700;">Graduated &nbsp;&mdash;&nbsp; Aspen University</div>
-      </div>
+          <!-- 6 -->
+          <div class="dc-card">
+            <div class="dc-header">
+              <div class="dc-medal">#6</div>
+              <div class="dc-avatar"><span class="dc-avatar-init">ZM</span></div>
+              <div class="dc-name">Zahid Malik</div>
+              <div class="dc-degree">Doctor of Science &mdash; Computer Science</div>
+            </div>
+            <div class="dc-body">
+              <span class="dc-institution">Aspen University</span>
+              <span class="dc-status">Graduated</span>
+              <p class="dc-field">Original scholarship in <strong>information security management &amp; cloud infrastructure</strong> — contributing to the practitioner-research bridge.</p>
+            </div>
+            <div class="dc-footer">
+              <span class="dc-footer-label">Dissertation Chair</span>
+              <span class="dc-footer-chair">Dr. Daniel S.W. Nguyen</span>
+            </div>
+          </div>
 
-      <div style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:16px 18px;border-top:3px solid #185FA5;">
-        <div style="font-family:Arial,sans-serif;font-size:15px;font-weight:700;color:#0c447c;">Dawood Fadhil Alrubie</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#888;margin-top:3px;">Doctor of Science &mdash; Computer Science</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#3B6D11;margin-top:4px;font-weight:700;">Graduated &nbsp;&mdash;&nbsp; Aspen University</div>
-      </div>
+          <!-- 7 -->
+          <div class="dc-card">
+            <div class="dc-header">
+              <div class="dc-medal">#7</div>
+              <div class="dc-avatar"><span class="dc-avatar-init">JS</span></div>
+              <div class="dc-name">Juliette Sondano</div>
+              <div class="dc-degree">Doctor of Science &mdash; Computer Science</div>
+            </div>
+            <div class="dc-body">
+              <span class="dc-institution">Aspen University</span>
+              <span class="dc-status">Graduated</span>
+              <p class="dc-field">Doctoral research in <strong>AI applications &amp; digital transformation strategy</strong> — extending the interdisciplinary scope of the doctoral legacy.</p>
+            </div>
+            <div class="dc-footer">
+              <span class="dc-footer-label">Dissertation Chair</span>
+              <span class="dc-footer-chair">Dr. Daniel S.W. Nguyen</span>
+            </div>
+          </div>
 
-      <div style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:16px 18px;border-top:3px solid #185FA5;">
-        <div style="font-family:Arial,sans-serif;font-size:15px;font-weight:700;color:#0c447c;">Kirstie J. Ballance</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#888;margin-top:3px;">Doctor of Science &mdash; Computer Science</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#3B6D11;margin-top:4px;font-weight:700;">Graduated &nbsp;&mdash;&nbsp; Aspen University</div>
-      </div>
+          <!-- 8 -->
+          <div class="dc-card">
+            <div class="dc-header">
+              <div class="dc-medal">#8</div>
+              <div class="dc-avatar"><span class="dc-avatar-init">LS</span></div>
+              <div class="dc-name">Larzaro Serrano</div>
+              <div class="dc-degree">Doctor of Science &mdash; Computer Science</div>
+            </div>
+            <div class="dc-body">
+              <span class="dc-institution">Aspen University</span>
+              <span class="dc-status">Graduated</span>
+              <p class="dc-field">Contributions to <strong>network security &amp; enterprise IT governance</strong> — advancing applied doctoral scholarship in critical infrastructure protection.</p>
+            </div>
+            <div class="dc-footer">
+              <span class="dc-footer-label">Dissertation Chair</span>
+              <span class="dc-footer-chair">Dr. Daniel S.W. Nguyen</span>
+            </div>
+          </div>
 
-      <div style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:16px 18px;border-top:3px solid #185FA5;">
-        <div style="font-family:Arial,sans-serif;font-size:15px;font-weight:700;color:#0c447c;">Taoufik Ennoure</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#888;margin-top:3px;">Doctor of Science &mdash; Computer Science</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#3B6D11;margin-top:4px;font-weight:700;">Graduated &nbsp;&mdash;&nbsp; Aspen University</div>
-      </div>
+          <!-- 9 -->
+          <div class="dc-card">
+            <div class="dc-header">
+              <div class="dc-medal">#9</div>
+              <div class="dc-avatar"><span class="dc-avatar-init">DA</span></div>
+              <div class="dc-name">Dawood Fadhil Alrubie</div>
+              <div class="dc-degree">Doctor of Science &mdash; Computer Science</div>
+            </div>
+            <div class="dc-body">
+              <span class="dc-institution">Aspen University</span>
+              <span class="dc-status">Graduated</span>
+              <p class="dc-field">International doctoral research in <strong>cybersecurity &amp; emerging technology governance</strong> — extending the cross-continental reach of the mentorship legacy.</p>
+            </div>
+            <div class="dc-footer">
+              <span class="dc-footer-label">Dissertation Chair</span>
+              <span class="dc-footer-chair">Dr. Daniel S.W. Nguyen</span>
+            </div>
+          </div>
 
-      <div style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:16px 18px;border-top:3px solid #185FA5;">
-        <div style="font-family:Arial,sans-serif;font-size:15px;font-weight:700;color:#0c447c;">Quynh-Thu Le</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#888;margin-top:3px;">Doctor of Science &mdash; Computer Science</div>
-        <div style="font-family:Arial,sans-serif;font-size:12px;color:#3B6D11;margin-top:4px;font-weight:700;">Graduated &nbsp;&mdash;&nbsp; Aspen University</div>
-      </div>
+          <!-- 10 -->
+          <div class="dc-card">
+            <div class="dc-header">
+              <div class="dc-medal">#10</div>
+              <div class="dc-avatar"><span class="dc-avatar-init">KB</span></div>
+              <div class="dc-name">Kirstie J. Ballance</div>
+              <div class="dc-degree">Doctor of Science &mdash; Computer Science</div>
+            </div>
+            <div class="dc-body">
+              <span class="dc-institution">Aspen University</span>
+              <span class="dc-status">Graduated</span>
+              <p class="dc-field">Scholarship in <strong>information systems leadership &amp; organizational technology adoption</strong> — connecting technical and human dimensions of enterprise IT.</p>
+            </div>
+            <div class="dc-footer">
+              <span class="dc-footer-label">Dissertation Chair</span>
+              <span class="dc-footer-chair">Dr. Daniel S.W. Nguyen</span>
+            </div>
+          </div>
 
-    </div>
+          <!-- 11 -->
+          <div class="dc-card">
+            <div class="dc-header">
+              <div class="dc-medal">#11</div>
+              <div class="dc-avatar"><span class="dc-avatar-init">TE</span></div>
+              <div class="dc-name">Taoufik Ennoure</div>
+              <div class="dc-degree">Doctor of Science &mdash; Computer Science</div>
+            </div>
+            <div class="dc-body">
+              <span class="dc-institution">Aspen University</span>
+              <span class="dc-status">Graduated</span>
+              <p class="dc-field">Doctoral research in <strong>AI &amp; data science governance</strong> — contributing original scholarship at the frontier of machine learning and responsible AI deployment.</p>
+            </div>
+            <div class="dc-footer">
+              <span class="dc-footer-label">Dissertation Chair</span>
+              <span class="dc-footer-chair">Dr. Daniel S.W. Nguyen</span>
+            </div>
+          </div>
+
+          <!-- 12 -->
+          <div class="dc-card">
+            <div class="dc-header">
+              <div class="dc-medal">#12</div>
+              <div class="dc-avatar"><span class="dc-avatar-init">QL</span></div>
+              <div class="dc-name">Quynh-Thu Le</div>
+              <div class="dc-degree">Doctor of Science &mdash; Computer Science</div>
+            </div>
+            <div class="dc-body">
+              <span class="dc-institution">Aspen University</span>
+              <span class="dc-status">Graduated</span>
+              <p class="dc-field">Original doctoral research in <strong>cybersecurity &amp; information systems management</strong> — the twelfth graduate completing the compounding doctoral legacy.</p>
+            </div>
+            <div class="dc-footer">
+              <span class="dc-footer-label">Dissertation Chair</span>
+              <span class="dc-footer-chair">Dr. Daniel S.W. Nguyen</span>
+            </div>
+          </div>
+
+        </div><!-- /doc-carousel-track -->
+      </div><!-- /doc-carousel-viewport -->
+
+      <div class="doc-progress"><div class="doc-progress-fill" id="docProgress"></div></div>
+
+      <div class="doc-controls">
+        <button class="doc-ctrl" id="docPrev" aria-label="Previous">
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="doc-dots" id="docDots"></div>
+        <span class="doc-counter"><span id="docCur">1</span> / <span id="docTotal">12</span></span>
+        <button class="doc-ctrl" id="docNext" aria-label="Next">
+          <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+        </button>
+      </div>
+    </div><!-- /doc-carousel-wrap -->
+
 
     <p style="font-family:Arial,sans-serif;font-size:14px;color:#555;font-style:italic;margin-top:16px;"><span class="nguyen-name">Dr. Daniel S.W. Nguyen</span>&#39;s doctoral mentorship legacy now spans twelve graduates whose dissertations span AI, cybersecurity, blockchain, cloud computing, and organizational information systems &mdash; each one a scholarly contribution made possible through sustained, rigorous academic guidance.</p>
 
@@ -10199,5 +10724,265 @@ Cuộc đời ông chứng minh rằng khi một quốc gia đầu tư vào ngư
   })();
   </script>
 
+<!-- ══ UNIVERSITY CAROUSEL SCRIPT ══ -->
+<script>
+(function() {
+  'use strict';
+
+  /* ── config ── */
+  var AUTOPLAY_MS = 4500;
+
+  /* ── elements ── */
+  var track    = document.getElementById('ucTrack');
+  var prevBtn  = document.getElementById('ucPrev');
+  var nextBtn  = document.getElementById('ucNext');
+  var dotsWrap = document.getElementById('ucDots');
+  var counter  = document.getElementById('ucCurrent');
+  var totalEl  = document.getElementById('ucTotal');
+  var progFill = document.getElementById('ucProgressFill');
+
+  if (!track) return; // safety check
+
+  var cards   = Array.from(track.querySelectorAll('.uc-card'));
+  var total   = cards.length;
+  var current = 0;
+  var timer   = null;
+  var dragStartX = 0, dragDelta = 0, dragging = false;
+
+  /* ── responsive visible count ── */
+  function visibleCount() {
+    return window.innerWidth <= 540 ? 1 : window.innerWidth <= 860 ? 2 : 3;
+  }
+  function maxIndex() { return Math.max(0, total - visibleCount()); }
+
+  /* ── render ── */
+  function render(idx, animate) {
+    idx = Math.max(0, Math.min(idx, maxIndex()));
+    current = idx;
+    var vc   = visibleCount();
+    var gap  = 18;
+    var vp   = document.getElementById('ucViewport');
+    var cardW = (vp.offsetWidth - gap * (vc - 1)) / vc;
+
+    track.style.transition = (animate === false) ? 'none' : 'transform .52s cubic-bezier(.4,0,.2,1)';
+    track.style.transform  = 'translateX(-' + (idx * (cardW + gap)) + 'px)';
+
+    /* dots */
+    var dotCount = maxIndex() + 1;
+    if (dotsWrap.children.length !== dotCount) buildDots(dotCount);
+    Array.from(dotsWrap.children).forEach(function(d, i) {
+      d.classList.toggle('active', i === current);
+      d.setAttribute('aria-selected', i === current ? 'true' : 'false');
+    });
+
+    counter.textContent = current + 1;
+    totalEl.textContent = total;
+    progFill.style.width = ((current / Math.max(1, maxIndex())) * 100) + '%';
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current >= maxIndex();
+  }
+
+  function buildDots(n) {
+    dotsWrap.innerHTML = '';
+    for (var i = 0; i < n; i++) {
+      var d = document.createElement('button');
+      d.className = 'uc-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('role', 'tab');
+      d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      d.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+      d.dataset.idx = i;
+      dotsWrap.appendChild(d);
+    }
+  }
+
+  /* ── autoplay ── */
+  function startAutoplay() {
+    stopAutoplay();
+    timer = setInterval(function() {
+      render(current >= maxIndex() ? 0 : current + 1, true);
+    }, AUTOPLAY_MS);
+  }
+  function stopAutoplay() { if (timer) { clearInterval(timer); timer = null; } }
+
+  /* ── events ── */
+  prevBtn.addEventListener('click', function() { stopAutoplay(); render(current - 1, true); startAutoplay(); });
+  nextBtn.addEventListener('click', function() { stopAutoplay(); render(current + 1, true); startAutoplay(); });
+
+  dotsWrap.addEventListener('click', function(e) {
+    var d = e.target.closest('.uc-dot');
+    if (!d) return;
+    stopAutoplay(); render(parseInt(d.dataset.idx, 10), true); startAutoplay();
+  });
+
+  document.getElementById('uni-carousel').addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowLeft')  { stopAutoplay(); render(current - 1, true); startAutoplay(); }
+    if (e.key === 'ArrowRight') { stopAutoplay(); render(current + 1, true); startAutoplay(); }
+  });
+
+  /* drag / swipe */
+  var vp = document.getElementById('ucViewport');
+  function onDragStart(x) { dragging = true; dragStartX = x; dragDelta = 0; stopAutoplay(); }
+  function onDragMove(x)  { if (!dragging) return; dragDelta = x - dragStartX; }
+  function onDragEnd()    {
+    if (!dragging) return; dragging = false;
+    if (dragDelta < -40)     render(current + 1, true);
+    else if (dragDelta > 40) render(current - 1, true);
+    startAutoplay();
+  }
+  vp.addEventListener('mousedown',  function(e) { onDragStart(e.clientX); });
+  vp.addEventListener('mousemove',  function(e) { onDragMove(e.clientX); });
+  vp.addEventListener('mouseup',    onDragEnd);
+  vp.addEventListener('mouseleave', onDragEnd);
+  vp.addEventListener('touchstart', function(e) { onDragStart(e.touches[0].clientX); }, { passive: true });
+  vp.addEventListener('touchmove',  function(e) { onDragMove(e.touches[0].clientX); },  { passive: true });
+  vp.addEventListener('touchend',   onDragEnd);
+  vp.addEventListener('mouseenter', stopAutoplay);
+  vp.addEventListener('mouseleave', startAutoplay);
+
+  /* resize */
+  var resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() { render(current, false); }, 120);
+  });
+
+  /* ══════════════════════════════════════════
+     SCROLL-INTO-VIEW ENTRANCE ANIMATION
+     Cards fan in from below + stagger fade
+  ══════════════════════════════════════════ */
+  var section = document.getElementById('uni-carousel');
+
+  /* initial hidden state for header elements */
+  var animEls = section.querySelectorAll(
+    '.uni-carousel-eyebrow, .uni-carousel-title, .uni-carousel-sub, .uc-controls, .uc-progress'
+  );
+  animEls.forEach(function(el) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(22px)';
+    el.style.transition = 'opacity .55s ease, transform .55s ease';
+  });
+
+  /* cards hidden */
+  cards.forEach(function(card, i) {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(40px) scale(0.96)';
+    card.style.transition =
+      'opacity .5s ease ' + (i * 80) + 'ms, ' +
+      'transform .5s ease ' + (i * 80) + 'ms, ' +
+      'box-shadow .22s ease, border-color .22s ease';
+  });
+
+  var animated = false;
+  function triggerEntrance() {
+    if (animated) return;
+    animated = true;
+
+    /* stagger header elements first */
+    animEls.forEach(function(el, i) {
+      setTimeout(function() {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      }, i * 100);
+    });
+
+    /* then stagger cards */
+    var delay = animEls.length * 100 + 80;
+    cards.forEach(function(card, i) {
+      setTimeout(function() {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0) scale(1)';
+      }, delay + i * 80);
+    });
+
+    /* start autoplay after entrance completes */
+    setTimeout(startAutoplay, delay + cards.length * 80 + 300);
+  }
+
+  /* IntersectionObserver — fire when 20% of section is visible */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        triggerEntrance();
+        io.disconnect();
+      }
+    }, { threshold: 0.12 });
+    io.observe(section);
+  } else {
+    /* fallback: animate immediately */
+    triggerEntrance();
+  }
+
+  /* ── init (render layout without autoplay — entrance animation will start it) ── */
+  render(0, false);
+
+})();
+</script>
+<!-- ══ END UNIVERSITY CAROUSEL SCRIPT ══ -->
+
 </html>
 
+  /* ── Doctoral Students Carousel ── */
+  (function(){
+    var track   = document.getElementById('docTrack');
+    var prev    = document.getElementById('docPrev');
+    var next    = document.getElementById('docNext');
+    var dotsW   = document.getElementById('docDots');
+    var cur     = document.getElementById('docCur');
+    var total   = document.getElementById('docTotal');
+    var prog    = document.getElementById('docProgress');
+    if(!track) return;
+
+    var cards   = track.querySelectorAll('.dc-card');
+    var N       = cards.length;
+    var idx     = 0;
+    var perPage = 3;
+
+    function getPerPage(){
+      var w = track.parentElement.offsetWidth;
+      return w <= 540 ? 1 : w <= 860 ? 2 : 3;
+    }
+
+    function maxIdx(){ return Math.max(0, N - perPage); }
+
+    function buildDots(){
+      dotsW.innerHTML='';
+      var pages = maxIdx()+1;
+      for(var i=0;i<pages;i++){
+        var b=document.createElement('button');
+        b.className='doc-dot'+(i===idx?' active':'');
+        b.setAttribute('aria-label','Go to slide '+(i+1));
+        (function(i){b.addEventListener('click',function(){go(i);});})(i);
+        dotsW.appendChild(b);
+      }
+      total.textContent = N;
+    }
+
+    function go(n){
+      perPage = getPerPage();
+      idx = Math.max(0, Math.min(n, maxIdx()));
+      var cardW = cards[0].offsetWidth + 18;
+      track.style.transform = 'translateX(-'+(idx*cardW)+'px)';
+      cur.textContent = idx+1;
+      prev.disabled = idx===0;
+      next.disabled = idx>=maxIdx();
+      prog.style.width = (((idx+perPage)/N)*100)+'%';
+      dotsW.querySelectorAll('.doc-dot').forEach(function(d,i){
+        d.classList.toggle('active', i===idx);
+      });
+    }
+
+    prev.addEventListener('click', function(){ go(idx-1); });
+    next.addEventListener('click', function(){ go(idx+1); });
+    window.addEventListener('resize', function(){ perPage=getPerPage(); buildDots(); go(idx); });
+
+    buildDots();
+    go(0);
+
+    /* auto-advance every 5s */
+    setInterval(function(){
+      if(!document.hidden) go(idx >= maxIdx() ? 0 : idx+1);
+    }, 5000);
+  })();
+
+</script>
+</html>
